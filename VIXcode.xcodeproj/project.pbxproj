@@ -1,0 +1,336 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9435E94215284BEC00453194 /* IDESwizzleApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 9435E94115284BEC00453194 /* IDESwizzleApplication.m */; };
+		943FCE3D1526C31D00A3EEE4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 943FCE3C1526C31D00A3EEE4 /* Cocoa.framework */; };
+		943FCE471526C31D00A3EEE4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 943FCE451526C31D00A3EEE4 /* InfoPlist.strings */; };
+		94A5E9BB152831FF00C06992 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 94A5E9BA152831FF00C06992 /* README.md */; };
+		94A64600152848CA0050A1C9 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A645FF152848CA0050A1C9 /* QuartzCore.framework */; };
+		94A98D61152856B700C7188F /* VICommandField.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A98D60152856B700C7188F /* VICommandField.m */; };
+		94CA5CE01528178A00BA2361 /* DVTSwizzleSourceTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CA5CDE1528178A00BA2361 /* DVTSwizzleSourceTextView.m */; };
+		94F004A71528186B00689C5E /* VIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F004A61528186B00689C5E /* VIManager.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		9435E94015284BEC00453194 /* IDESwizzleApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDESwizzleApplication.h; sourceTree = "<group>"; };
+		9435E94115284BEC00453194 /* IDESwizzleApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDESwizzleApplication.m; sourceTree = "<group>"; };
+		943FCE391526C31D00A3EEE4 /* VIXcode.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VIXcode.xcplugin; sourceTree = BUILT_PRODUCTS_DIR; };
+		943FCE3C1526C31D00A3EEE4 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		943FCE3F1526C31D00A3EEE4 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		943FCE411526C31D00A3EEE4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		943FCE441526C31D00A3EEE4 /* VIXcode-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "VIXcode-Info.plist"; sourceTree = "<group>"; };
+		943FCE461526C31D00A3EEE4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		943FCE481526C31D00A3EEE4 /* VIXcode-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VIXcode-Prefix.pch"; sourceTree = "<group>"; };
+		94A5E9BA152831FF00C06992 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		94A645FF152848CA0050A1C9 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		94A98D5F152856B700C7188F /* VICommandField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VICommandField.h; sourceTree = "<group>"; };
+		94A98D60152856B700C7188F /* VICommandField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VICommandField.m; sourceTree = "<group>"; };
+		94CA5CDD1528178A00BA2361 /* DVTSwizzleSourceTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVTSwizzleSourceTextView.h; sourceTree = "<group>"; };
+		94CA5CDE1528178A00BA2361 /* DVTSwizzleSourceTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVTSwizzleSourceTextView.m; sourceTree = "<group>"; };
+		94DDAEB9152841FA002CEBB4 /* NIFLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NIFLog.h; sourceTree = "<group>"; };
+		94F004A61528186B00689C5E /* VIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIManager.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		943FCE361526C31D00A3EEE4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				943FCE3D1526C31D00A3EEE4 /* Cocoa.framework in Frameworks */,
+				94A64600152848CA0050A1C9 /* QuartzCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		943FCE2E1526C31C00A3EEE4 = {
+			isa = PBXGroup;
+			children = (
+				943FCE421526C31D00A3EEE4 /* VIXcode */,
+				943FCE3B1526C31D00A3EEE4 /* Frameworks */,
+				943FCE3A1526C31D00A3EEE4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		943FCE3A1526C31D00A3EEE4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				943FCE391526C31D00A3EEE4 /* VIXcode.xcplugin */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		943FCE3B1526C31D00A3EEE4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				94A645FF152848CA0050A1C9 /* QuartzCore.framework */,
+				943FCE3C1526C31D00A3EEE4 /* Cocoa.framework */,
+				943FCE3E1526C31D00A3EEE4 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		943FCE3E1526C31D00A3EEE4 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				943FCE3F1526C31D00A3EEE4 /* AppKit.framework */,
+				943FCE411526C31D00A3EEE4 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		943FCE421526C31D00A3EEE4 /* VIXcode */ = {
+			isa = PBXGroup;
+			children = (
+				94A5E9BA152831FF00C06992 /* README.md */,
+				94CA5CDC1528178A00BA2361 /* Code */,
+				943FCE431526C31D00A3EEE4 /* Supporting Files */,
+			);
+			path = VIXcode;
+			sourceTree = "<group>";
+		};
+		943FCE431526C31D00A3EEE4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				94DDAEB9152841FA002CEBB4 /* NIFLog.h */,
+				943FCE441526C31D00A3EEE4 /* VIXcode-Info.plist */,
+				943FCE451526C31D00A3EEE4 /* InfoPlist.strings */,
+				943FCE481526C31D00A3EEE4 /* VIXcode-Prefix.pch */,
+				94F004A61528186B00689C5E /* VIManager.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		94CA5CDC1528178A00BA2361 /* Code */ = {
+			isa = PBXGroup;
+			children = (
+				94CA5CDD1528178A00BA2361 /* DVTSwizzleSourceTextView.h */,
+				94CA5CDE1528178A00BA2361 /* DVTSwizzleSourceTextView.m */,
+				9435E94015284BEC00453194 /* IDESwizzleApplication.h */,
+				9435E94115284BEC00453194 /* IDESwizzleApplication.m */,
+				94A98D5F152856B700C7188F /* VICommandField.h */,
+				94A98D60152856B700C7188F /* VICommandField.m */,
+			);
+			name = Code;
+			path = src;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		943FCE381526C31D00A3EEE4 /* VIXcode */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 943FCE4B1526C31D00A3EEE4 /* Build configuration list for PBXNativeTarget "VIXcode" */;
+			buildPhases = (
+				943FCE351526C31D00A3EEE4 /* Sources */,
+				943FCE361526C31D00A3EEE4 /* Frameworks */,
+				943FCE371526C31D00A3EEE4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VIXcode;
+			productName = VIXcode;
+			productReference = 943FCE391526C31D00A3EEE4 /* VIXcode.xcplugin */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		943FCE301526C31C00A3EEE4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+			};
+			buildConfigurationList = 943FCE331526C31C00A3EEE4 /* Build configuration list for PBXProject "VIXcode" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				English,
+			);
+			mainGroup = 943FCE2E1526C31C00A3EEE4;
+			productRefGroup = 943FCE3A1526C31D00A3EEE4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				943FCE381526C31D00A3EEE4 /* VIXcode */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		943FCE371526C31D00A3EEE4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				943FCE471526C31D00A3EEE4 /* InfoPlist.strings in Resources */,
+				94A5E9BB152831FF00C06992 /* README.md in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		943FCE351526C31D00A3EEE4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94CA5CE01528178A00BA2361 /* DVTSwizzleSourceTextView.m in Sources */,
+				94F004A71528186B00689C5E /* VIManager.m in Sources */,
+				9435E94215284BEC00453194 /* IDESwizzleApplication.m in Sources */,
+				94A98D61152856B700C7188F /* VICommandField.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		943FCE451526C31D00A3EEE4 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				943FCE461526C31D00A3EEE4 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		943FCE491526C31D00A3EEE4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_OBJCPP_ARC_ABI = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_ENABLE_OBJC_GC = supported;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		943FCE4A1526C31D00A3EEE4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_OBJCPP_ARC_ABI = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_ENABLE_OBJC_GC = supported;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		943FCE4C1526C31D00A3EEE4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_OBJCPP_ARC_ABI = YES;
+				CURRENT_PROJECT_VERSION = 1.0;
+				DEPLOYMENT_LOCATION = YES;
+				DEPLOYMENT_POSTPROCESSING = YES;
+				DSTROOT = "$(HOME)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/SharedFrameworks\"",
+				);
+				GCC_ENABLE_OBJC_GC = supported;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "VIXcode/VIXcode-Prefix.pch";
+				INFOPLIST_FILE = "VIXcode/VIXcode-Info.plist";
+				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
+				LD_RUNPATH_SEARCH_PATHS = "";
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xcplugin;
+			};
+			name = Debug;
+		};
+		943FCE4D1526C31D00A3EEE4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_OBJCPP_ARC_ABI = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1.0;
+				DEPLOYMENT_LOCATION = YES;
+				DEPLOYMENT_POSTPROCESSING = YES;
+				DSTROOT = "$(HOME)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/SharedFrameworks\"",
+				);
+				GCC_ENABLE_OBJC_GC = supported;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "VIXcode/VIXcode-Prefix.pch";
+				INFOPLIST_FILE = "VIXcode/VIXcode-Info.plist";
+				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
+				LD_RUNPATH_SEARCH_PATHS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xcplugin;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		943FCE331526C31C00A3EEE4 /* Build configuration list for PBXProject "VIXcode" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				943FCE491526C31D00A3EEE4 /* Debug */,
+				943FCE4A1526C31D00A3EEE4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		943FCE4B1526C31D00A3EEE4 /* Build configuration list for PBXNativeTarget "VIXcode" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				943FCE4C1526C31D00A3EEE4 /* Debug */,
+				943FCE4D1526C31D00A3EEE4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 943FCE301526C31C00A3EEE4 /* Project object */;
+}
