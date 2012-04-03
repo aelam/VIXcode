@@ -7,30 +7,72 @@
 //
 
 #import "IDESwizzleApplication.h"
+#import "RuntimeReporter.h"
 
 @implementation IDESwizzleApplication
 
 - (void)sendEvent:(NSEvent *)theEvent {
   
-//    NIF_INFO(@"%@",theEvent);
-    NSResponder *firstResponder = [[self keyWindow] firstResponder];
-//    NIF_INFO(@"------------- firstResponder : %@",firstResponder);
-    if ([firstResponder isKindOfClass:NSClassFromString(@"DVTSourceTextView")]) {
-     
-        NSLog(@"subviews : %@",[firstResponder subviews]);
-        NSView *sourceView = (NSView *)firstResponder;
-        VICommandField *commandField = [VICommandField sharedInstance];
-        if(![sourceView viewWithTag:VICommandFieldTag]) {
-            [sourceView addSubview:commandField];
-            commandField.frame = NSMakeRect(0, NSMaxY(sourceView.frame) - 35, NSWidth(sourceView.frame), 30);
+    NSEventType type =  theEvent.type;
+
+    switch (type) {
+        case NSLeftMouseDown: {
         }
-
-
-//        [sourceView vi_sizeToFit];
-        
+            break;        
+        case NSLeftMouseUp:
+            break;        
+        case NSRightMouseDown:
+            break;
+        case NSRightMouseUp:    
+            break;      
+        case NSMouseMoved:     
+            break;
+        case NSLeftMouseDragged: 
+            break;
+        case NSRightMouseDragged:   
+            break;
+        case NSMouseEntered:       
+            break;
+        case NSMouseExited:             
+            break;
+        case NSKeyDown:                   
+//            NIF_INFO(@"%@",theEvent);
+            break;
+        case NSKeyUp:                   
+            break; 
+        case NSFlagsChanged:            
+            break;
+        case NSAppKitDefined:            
+            break;
+        case NSSystemDefined:  
+//            NIF_INFO(@"%@",theEvent);
+            break;
+        case NSApplicationDefined:       
+            break;
+        case NSPeriodic:               
+            break;
+        case NSCursorUpdate:            
+            break;
+        case NSScrollWheel:             
+            break;
+        case NSTabletPoint:             
+            break;
+        case NSTabletProximity:         
+            break;
+        case NSOtherMouseDown:           
+            break;
+        case NSOtherMouseUp:             
+            break;
+        case NSOtherMouseDragged:
+            break;
+        default:
+            break;
     }
-    
     [self origin_sendEvent:theEvent];
+}
+
+- (void)test {
+    NIF_INFO();
 }
 
 @end

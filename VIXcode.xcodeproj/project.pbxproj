@@ -7,17 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9428857E152AA1CE009859E3 /* VIMotionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9428857D152AA1CE009859E3 /* VIMotionManager.m */; };
 		9435E94215284BEC00453194 /* IDESwizzleApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 9435E94115284BEC00453194 /* IDESwizzleApplication.m */; };
 		943FCE3D1526C31D00A3EEE4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 943FCE3C1526C31D00A3EEE4 /* Cocoa.framework */; };
 		943FCE471526C31D00A3EEE4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 943FCE451526C31D00A3EEE4 /* InfoPlist.strings */; };
-		94A5E9BB152831FF00C06992 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 94A5E9BA152831FF00C06992 /* README.md */; };
+		94691BC21528841000A913FD /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 94691BC11528841000A913FD /* README.md */; };
+		946F09051529658800E33389 /* IDESwizzleToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 946F09041529658800E33389 /* IDESwizzleToolbar.m */; };
 		94A64600152848CA0050A1C9 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A645FF152848CA0050A1C9 /* QuartzCore.framework */; };
 		94A98D61152856B700C7188F /* VICommandField.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A98D60152856B700C7188F /* VICommandField.m */; };
+		94BE86B11529522E0044284C /* NSView+Subviews.m in Sources */ = {isa = PBXBuildFile; fileRef = 94BE86B01529522E0044284C /* NSView+Subviews.m */; };
+		94C0F4971529864F006E5094 /* NSString-RuntimeReporting.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C0F4941529864F006E5094 /* NSString-RuntimeReporting.m */; };
+		94C0F4981529864F006E5094 /* RuntimeReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C0F4961529864F006E5094 /* RuntimeReporter.m */; };
 		94CA5CE01528178A00BA2361 /* DVTSwizzleSourceTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CA5CDE1528178A00BA2361 /* DVTSwizzleSourceTextView.m */; };
-		94F004A71528186B00689C5E /* VIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F004A61528186B00689C5E /* VIManager.m */; };
+		94F004A71528186B00689C5E /* VIPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F004A61528186B00689C5E /* VIPlugin.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9428857C152AA1CE009859E3 /* VIMotionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIMotionManager.h; sourceTree = "<group>"; };
+		9428857D152AA1CE009859E3 /* VIMotionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIMotionManager.m; sourceTree = "<group>"; };
 		9435E94015284BEC00453194 /* IDESwizzleApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDESwizzleApplication.h; sourceTree = "<group>"; };
 		9435E94115284BEC00453194 /* IDESwizzleApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDESwizzleApplication.m; sourceTree = "<group>"; };
 		943FCE391526C31D00A3EEE4 /* VIXcode.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VIXcode.xcplugin; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -27,14 +34,23 @@
 		943FCE441526C31D00A3EEE4 /* VIXcode-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "VIXcode-Info.plist"; sourceTree = "<group>"; };
 		943FCE461526C31D00A3EEE4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		943FCE481526C31D00A3EEE4 /* VIXcode-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VIXcode-Prefix.pch"; sourceTree = "<group>"; };
-		94A5E9BA152831FF00C06992 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		94691BC11528841000A913FD /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = SOURCE_ROOT; };
+		946F09031529658800E33389 /* IDESwizzleToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDESwizzleToolbar.h; sourceTree = "<group>"; };
+		946F09041529658800E33389 /* IDESwizzleToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDESwizzleToolbar.m; sourceTree = "<group>"; };
+		946F09071529664C00E33389 /* VIConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VIConstants.h; sourceTree = "<group>"; };
 		94A645FF152848CA0050A1C9 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		94A98D5F152856B700C7188F /* VICommandField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VICommandField.h; sourceTree = "<group>"; };
 		94A98D60152856B700C7188F /* VICommandField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VICommandField.m; sourceTree = "<group>"; };
+		94BE86AF1529522E0044284C /* NSView+Subviews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSView+Subviews.h"; sourceTree = "<group>"; };
+		94BE86B01529522E0044284C /* NSView+Subviews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSView+Subviews.m"; sourceTree = "<group>"; };
+		94C0F4931529864F006E5094 /* NSString-RuntimeReporting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString-RuntimeReporting.h"; sourceTree = "<group>"; };
+		94C0F4941529864F006E5094 /* NSString-RuntimeReporting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString-RuntimeReporting.m"; sourceTree = "<group>"; };
+		94C0F4951529864F006E5094 /* RuntimeReporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RuntimeReporter.h; sourceTree = "<group>"; };
+		94C0F4961529864F006E5094 /* RuntimeReporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RuntimeReporter.m; sourceTree = "<group>"; };
 		94CA5CDD1528178A00BA2361 /* DVTSwizzleSourceTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVTSwizzleSourceTextView.h; sourceTree = "<group>"; };
 		94CA5CDE1528178A00BA2361 /* DVTSwizzleSourceTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVTSwizzleSourceTextView.m; sourceTree = "<group>"; };
 		94DDAEB9152841FA002CEBB4 /* NIFLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NIFLog.h; sourceTree = "<group>"; };
-		94F004A61528186B00689C5E /* VIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIManager.m; sourceTree = "<group>"; };
+		94F004A61528186B00689C5E /* VIPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIPlugin.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +69,7 @@
 		943FCE2E1526C31C00A3EEE4 = {
 			isa = PBXGroup;
 			children = (
+				94C0F4921529864F006E5094 /* Runtime Browser */,
 				943FCE421526C31D00A3EEE4 /* VIXcode */,
 				943FCE3B1526C31D00A3EEE4 /* Frameworks */,
 				943FCE3A1526C31D00A3EEE4 /* Products */,
@@ -89,7 +106,7 @@
 		943FCE421526C31D00A3EEE4 /* VIXcode */ = {
 			isa = PBXGroup;
 			children = (
-				94A5E9BA152831FF00C06992 /* README.md */,
+				94691BC11528841000A913FD /* README.md */,
 				94CA5CDC1528178A00BA2361 /* Code */,
 				943FCE431526C31D00A3EEE4 /* Supporting Files */,
 			);
@@ -103,20 +120,39 @@
 				943FCE441526C31D00A3EEE4 /* VIXcode-Info.plist */,
 				943FCE451526C31D00A3EEE4 /* InfoPlist.strings */,
 				943FCE481526C31D00A3EEE4 /* VIXcode-Prefix.pch */,
-				94F004A61528186B00689C5E /* VIManager.m */,
+				94F004A61528186B00689C5E /* VIPlugin.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		94C0F4921529864F006E5094 /* Runtime Browser */ = {
+			isa = PBXGroup;
+			children = (
+				94C0F4931529864F006E5094 /* NSString-RuntimeReporting.h */,
+				94C0F4941529864F006E5094 /* NSString-RuntimeReporting.m */,
+				94C0F4951529864F006E5094 /* RuntimeReporter.h */,
+				94C0F4961529864F006E5094 /* RuntimeReporter.m */,
+			);
+			name = "Runtime Browser";
+			path = "VIXcode/Runtime Browser";
 			sourceTree = "<group>";
 		};
 		94CA5CDC1528178A00BA2361 /* Code */ = {
 			isa = PBXGroup;
 			children = (
+				9428857C152AA1CE009859E3 /* VIMotionManager.h */,
+				9428857D152AA1CE009859E3 /* VIMotionManager.m */,
 				94CA5CDD1528178A00BA2361 /* DVTSwizzleSourceTextView.h */,
 				94CA5CDE1528178A00BA2361 /* DVTSwizzleSourceTextView.m */,
+				946F09031529658800E33389 /* IDESwizzleToolbar.h */,
+				946F09041529658800E33389 /* IDESwizzleToolbar.m */,
 				9435E94015284BEC00453194 /* IDESwizzleApplication.h */,
 				9435E94115284BEC00453194 /* IDESwizzleApplication.m */,
 				94A98D5F152856B700C7188F /* VICommandField.h */,
 				94A98D60152856B700C7188F /* VICommandField.m */,
+				94BE86AF1529522E0044284C /* NSView+Subviews.h */,
+				94BE86B01529522E0044284C /* NSView+Subviews.m */,
+				946F09071529664C00E33389 /* VIConstants.h */,
 			);
 			name = Code;
 			path = src;
@@ -174,7 +210,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				943FCE471526C31D00A3EEE4 /* InfoPlist.strings in Resources */,
-				94A5E9BB152831FF00C06992 /* README.md in Resources */,
+				94691BC21528841000A913FD /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -186,9 +222,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				94CA5CE01528178A00BA2361 /* DVTSwizzleSourceTextView.m in Sources */,
-				94F004A71528186B00689C5E /* VIManager.m in Sources */,
+				94F004A71528186B00689C5E /* VIPlugin.m in Sources */,
 				9435E94215284BEC00453194 /* IDESwizzleApplication.m in Sources */,
 				94A98D61152856B700C7188F /* VICommandField.m in Sources */,
+				94BE86B11529522E0044284C /* NSView+Subviews.m in Sources */,
+				946F09051529658800E33389 /* IDESwizzleToolbar.m in Sources */,
+				94C0F4971529864F006E5094 /* NSString-RuntimeReporting.m in Sources */,
+				94C0F4981529864F006E5094 /* RuntimeReporter.m in Sources */,
+				9428857E152AA1CE009859E3 /* VIMotionManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

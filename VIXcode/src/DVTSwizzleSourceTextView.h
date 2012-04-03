@@ -8,6 +8,8 @@
 
 #import <Cocoa/Cocoa.h>
 
+@class VIMotionManager;
+
 @protocol DVTSwizzleProtocol <NSObject>
 
 @optional
@@ -22,10 +24,27 @@
 - (void)origin_mouseUp:(NSEvent *)theEvent;
 - (void)origin_mouseDown:(NSEvent *)theEvent;
 
+- (void)origin_drawInsertionPointInRect:(NSRect)rect color:(NSColor *)color turnedOn:(BOOL)flag;
+- (void)origin__drawInsertionPointInRect:(NSRect)aRect color:(NSColor*)aColor;
+
+- (void)origin_resetCursorRects;
+
+- (void)origin_insertText:(id)insertString;
+- (void)origin_doCommandBySelector:(SEL)aSelector;
+
+- (void)pre_dealloc;
+- (void)origin_dealloc;
+
 @end
 
-@interface DVTSwizzleSourceTextView:NSTextView<DVTSwizzleProtocol>
+@interface DVTSwizzleSourceTextView:NSTextView<DVTSwizzleProtocol> {
 
-    
+}
+
+@property (nonatomic,assign) VIMotionManager *viMotionManager;
+
+- (void)setViMotionManager:(VIMotionManager *)manager;
+- (VIMotionManager *)viMotionManager;
+
 @end
 
