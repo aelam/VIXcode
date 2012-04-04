@@ -23,18 +23,29 @@
 - (id)initWithSourceView:(DVTSwizzleSourceTextView *)sourceView {
     if (self = [super init]) {
         _sourceView = sourceView;
+        _state = VIMStateInsert;
+        
+        [self setupUIStaff];
     }
     return self;
 }
 
+- (void)setupUIStaff {
+
+}
+
 - (void)reset {
     
+}
+
+- (void)setState:(VIMState)aState {
     
 }
 
 
 - (void)dealloc {
     NIF_INFO();
+    [_stateField removeFromSuperview];
     SAFELY_RELEASE(_sourceView);
     
     [super dealloc];

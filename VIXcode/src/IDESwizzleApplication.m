@@ -71,8 +71,4 @@
     [self origin_sendEvent:theEvent];
 }
 
-- (void)test {
-    NIF_INFO();
-}
-
 @end

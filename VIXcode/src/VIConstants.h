@@ -14,3 +14,7 @@
             [__POINTER release];\
             __POINTER = nil;\
         }while(0)
+
+
+
+#define XCODE_VIM_ENABLED   @"XCODE_VIM_ENABLED"

@@ -17,7 +17,11 @@ typedef enum {
     VIMStateExit
 }VIMState;
 
-@interface VIMotionManager : NSObject
+@interface VIMotionManager : NSObject {
+@private
+    NSTextField *_cmdField;
+    NSTextField *_stateField;
+}
 
 @property (nonatomic,readwrite) VIMState state;
 @property (nonatomic,readonly,weak) DVTSwizzleSourceTextView *sourceView;

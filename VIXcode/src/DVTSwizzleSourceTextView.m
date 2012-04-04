@@ -11,6 +11,7 @@
 #import "VIMotionManager.h"
 #import <objc/runtime.h>
 #import "RuntimeReporter.h"
+//#import ""
 
 static char const * const VIMotionManagerAssociatedKey = "VIMotionManagerAssociatedKey";
 
@@ -20,21 +21,22 @@ static char const * const VIMotionManagerAssociatedKey = "VIMotionManagerAssocia
 @synthesize viMotionManager = _viMotionManager;
 
 - (BOOL)performKeyEquivalent:(NSEvent *)theEvent {
-
-    unichar charcode = [[theEvent charactersIgnoringModifiers] characterAtIndex:0];
-    NSLog(@"keyDown : keyCode:%d characters:%@ charsIgnoreMod:%@ ASCII:%d", [theEvent keyCode], 
-          [theEvent characters], [theEvent charactersIgnoringModifiers], charcode);
+    NIF_INFO(@"%@",theEvent);
     
-    if( [[self window] firstResponder] != self){
-    
-        return NO;
-        
-    }
+//    unichar charcode = [[theEvent charactersIgnoringModifiers] characterAtIndex:0];
+//    NSLog(@"keyDown : keyCode:%d characters:%@ charsIgnoreMod:%@ ASCII:%d", [theEvent keyCode], 
+//          [theEvent characters], [theEvent charactersIgnoringModifiers], charcode);
+//    
+//    if( [[self window] firstResponder] != self){
+//    
+//        return NO;
+//        
+//    }
     return [self origin_performKeyEquivalent:theEvent];
 }
 
 - (void)keyUp:(NSEvent *)theEvent {
-    unichar charcode = [[theEvent charactersIgnoringModifiers] characterAtIndex:0];
+//    unichar charcode = [[theEvent charactersIgnoringModifiers] characterAtIndex:0];
 //    NSLog(@"keyUp : keyCode:%d characters:%@ charsIgnoreMod:%@ ASCII:%d", [theEvent keyCode], 
 //          [theEvent characters], [theEvent charactersIgnoringModifiers], charcode);
 
@@ -42,10 +44,12 @@ static char const * const VIMotionManagerAssociatedKey = "VIMotionManagerAssocia
 }
 
 - (void)keyDown:(NSEvent *)theEvent {
-    unichar charcode = [[theEvent charactersIgnoringModifiers] characterAtIndex:0];
+//    unichar charcode = [[theEvent charactersIgnoringModifiers] characterAtIndex:0];
 //    NSLog(@"keyDown : keyCode:%d characters:%@ charsIgnoreMod:%@ ASCII:%d", [theEvent keyCode], 
 //          [theEvent characters], [theEvent charactersIgnoringModifiers], charcode);
 
+    NIF_INFO(@"%@",theEvent);
+    
     [self origin_keyDown:theEvent];
 }
 
@@ -82,7 +86,7 @@ static char const * const VIMotionManagerAssociatedKey = "VIMotionManagerAssocia
     
 //    NIF_TRACE(@"%@",sharedApplication);
 //    NIF_TRACE(@"[sharedApplication keyWindow] = %@", keyWindow);
-//    NIF_TRACE(@"contentView = %@",contentView);
+//
 
     
     
@@ -156,28 +160,19 @@ static char const * const VIMotionManagerAssociatedKey = "VIMotionManagerAssocia
 //    if ([plainString isEqualToString:@"p"]) {
 //        [self moveWordBackward:self];
 //    } else{i
-    NIF_INFO(@"NSApp %@",NSApp);
-    NIF_INFO(@"Nkeywindow %@",[NSApplication sharedApplication].keyWindow);
-    NIF_INFO(@"self %@",self);
-        
+    NIF_INFO(@"");
     
-    
-    NIF_INFO(@"%@",[self viMotionManager]);
-    
-      
     [self origin_insertText:insertString];
 
 }
 
 - (void)doCommandBySelector:(SEL)aSelector{
     NIF_INFO(@"%@",NSStringFromSelector(aSelector));
-    [self origin_doCommandBySelector:aSelector];
+    [self origin_doCommandBySelector:aSelector];    
 }
 
-
-
 - (id)initWithCoder:(NSCoder *)aDecoder {
-    
+    NIF_INFO();
     self = [self origin_initWithCoder:aDecoder];
 
     if (self.viMotionManager == nil) {
@@ -185,8 +180,8 @@ static char const * const VIMotionManagerAssociatedKey = "VIMotionManagerAssocia
         [self setViMotionManager:manager];    
     }
 
-    NIF_INFO(@"%@",self);
-    [self setInsertionPointColor:[NSColor redColor]];
+//    [self setInsertionPointColor:[NSColor redColor]];
+    
     
     return self;
 }
