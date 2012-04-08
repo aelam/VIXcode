@@ -7,7 +7,6 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "VICommandField.h"
 
 @protocol IDEApplicationSwizzle <NSObject>
 

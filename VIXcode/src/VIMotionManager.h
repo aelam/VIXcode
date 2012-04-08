@@ -7,8 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+//#import "VIEventProcessor.h"
+#import "VIEventProtocol.h"
 
 @class DVTSwizzleSourceTextView;
+@class VICommandView;
+@protocol VIEventDelegate;
+@class VIEventProcessor;
 
 typedef enum {
     VIMStateNormal,
@@ -17,20 +22,23 @@ typedef enum {
     VIMStateExit
 }VIMState;
 
-@interface VIMotionManager : NSObject {
+@interface VIMotionManager : NSObject <VIEventDelegate>{
 @private
-    NSTextField *_cmdField;
-    NSTextField *_stateField;
+    __weak VICommandView *_cmdView;
+    VIEventProcessor *_eventProcessor;
 }
 
-@property (nonatomic,readwrite) VIMState state;
-@property (nonatomic,readonly,weak) DVTSwizzleSourceTextView *sourceView;
-@property (nonatomic,readonly) NSString *status;
-@property (nonatomic,readonly) NSString *cmd;
+@property (nonatomic,readonly,weak) NSTextView *sourceView;
+@property (nonatomic,retain) VIEventProcessor *eventProcessor;
 
 + (VIMotionManager *)managerWithSourceTextView:(id)sourceView;
 
 - (id)initWithSourceView:(id)sourceView;
+
+- (BOOL)handleKeyEvent:(NSEvent *)theEvent;
+
+- (void)setupUIStaff;
+
 
 - (void)reset;
 

@@ -11,7 +11,8 @@
 #import "VIMotionManager.h"
 #import <objc/runtime.h>
 #import "RuntimeReporter.h"
-//#import ""
+#import "VISettingsManager.h"
+#import "VIEventProcessor.h"
 
 static char const * const VIMotionManagerAssociatedKey = "VIMotionManagerAssociatedKey";
 
@@ -27,7 +28,7 @@ static char const * const VIMotionManagerAssociatedKey = "VIMotionManagerAssocia
 //    NSLog(@"keyDown : keyCode:%d characters:%@ charsIgnoreMod:%@ ASCII:%d", [theEvent keyCode], 
 //          [theEvent characters], [theEvent charactersIgnoringModifiers], charcode);
 //    
-//    if( [[self window] firstResponder] != self){
+//    if( [[self window] firstResponder] !{= {self){
 //    
 //        return NO;
 //        
@@ -36,27 +37,23 @@ static char const * const VIMotionManagerAssociatedKey = "VIMotionManagerAssocia
 }
 
 - (void)keyUp:(NSEvent *)theEvent {
-//    unichar charcode = [[theEvent charactersIgnoringModifiers] characterAtIndex:0];
-//    NSLog(@"keyUp : keyCode:%d characters:%@ charsIgnoreMod:%@ ASCII:%d", [theEvent keyCode], 
-//          [theEvent characters], [theEvent charactersIgnoringModifiers], charcode);
 
           [self origin_keyUp:theEvent];
 }
 
 - (void)keyDown:(NSEvent *)theEvent {
-//    unichar charcode = [[theEvent charactersIgnoringModifiers] characterAtIndex:0];
-//    NSLog(@"keyDown : keyCode:%d characters:%@ charsIgnoreMod:%@ ASCII:%d", [theEvent keyCode], 
-//          [theEvent characters], [theEvent charactersIgnoringModifiers], charcode);
 
-    NIF_INFO(@"%@",theEvent);
+//    NIF_INFO(@"%@",theEvent);
+    if ([[VISettingsManager sharedSettingsManager] isVIMEnabled]) {
+        if ([self.viMotionManager handleKeyEvent:theEvent]) {
+            return;
+        }        
+    }
     
     [self origin_keyDown:theEvent];
 }
 
 -  (void)mouseUp:(NSEvent *)theEvent {
-//    unichar charcode = [[theEvent charactersIgnoringModifiers] characterAtIndex:0];
-
-//    NIF_TRACE(@"%@",theEvent);
     
     [self origin_mouseUp:theEvent];
 }
@@ -123,30 +120,34 @@ static char const * const VIMotionManagerAssociatedKey = "VIMotionManagerAssocia
  */
 - (void)_drawInsertionPointInRect:(NSRect)aRect color:(NSColor*)aColor{
 
-//    [self origin__drawInsertionPointInRect:aRect color:aColor];
-    [self drawInsertionPointInRect:aRect color:aColor turnedOn:YES];
+    if (self.viMotionManager.eventProcessor.state == VIMStateInsert || ![[VISettingsManager sharedSettingsManager] isVIMEnabled]) {
+        [self origin__drawInsertionPointInRect:aRect color:aColor];
+    } else {
+        [self drawInsertionPointInRect:aRect color:aColor turnedOn:YES];
+    }
 }
 
 - (void)drawInsertionPointInRect:(NSRect)rect color:(NSColor *)color turnedOn:(BOOL)flag {
        
-    if (NO) {
+    if (self.viMotionManager.eventProcessor.state == VIMStateInsert || ![[VISettingsManager sharedSettingsManager] isVIMEnabled]) {
         [self origin_drawInsertionPointInRect:rect color:color turnedOn:flag];        
+    } else {
+        if(flag){
+            color = [color colorWithAlphaComponent:0.5];
+            NSPoint aPoint=NSMakePoint( rect.origin.x,rect.origin.y+rect.size.height/2);
+            int glyphIndex = [[self layoutManager] glyphIndexForPoint:aPoint inTextContainer:[self textContainer]];
+            NSRect glyphRect = [[self layoutManager] boundingRectForGlyphRange:NSMakeRange(glyphIndex, 1)  inTextContainer:[self textContainer]];
+            
+            [color set];
+            rect.size.width =rect.size.height/2 + 3;
+            if(glyphRect.size.width > 0 && glyphRect.size.width < rect.size.width) 
+                rect.size.width=glyphRect.size.width;
+            NSRectFillUsingOperation( rect, NSCompositeSourceOver);
+        } else {
+            [self setNeedsDisplayInRect:[self visibleRect] avoidAdditionalLayout:NO];
+        }        
     }
     
-    if(flag){
-        color = [color colorWithAlphaComponent:0.5];
-        NSPoint aPoint=NSMakePoint( rect.origin.x,rect.origin.y+rect.size.height/2);
-        int glyphIndex = [[self layoutManager] glyphIndexForPoint:aPoint inTextContainer:[self textContainer]];
-        NSRect glyphRect = [[self layoutManager] boundingRectForGlyphRange:NSMakeRange(glyphIndex, 1)  inTextContainer:[self textContainer]];
-
-        [color set];
-        rect.size.width =rect.size.height/2 + 3;
-        if(glyphRect.size.width > 0 && glyphRect.size.width < rect.size.width) 
-            rect.size.width=glyphRect.size.width;
-        NSRectFillUsingOperation( rect, NSCompositeSourceOver);
-    } else {
-        [self setNeedsDisplayInRect:[self visibleRect] avoidAdditionalLayout:NO];
-    }
 }
 
 
@@ -155,12 +156,15 @@ static char const * const VIMotionManagerAssociatedKey = "VIMotionManagerAssocia
 - (void)insertText:(id)insertString {
 //   if(VIMState == INSERT_STATE) {
 //          [self origin_insertText:insertString];
-//} else {
+//} {else {
 //    NSString *plainString = [insertString isKindOfClass:[NSString class]]?insertString:[insertString string];
 //    if ([plainString isEqualToString:@"p"]) {
-//        [self moveWordBackward:self];
+//        [self {moveWordBackward:{self];
 //    } else{i
-    NIF_INFO(@"");
+//    NIF_INFO(@"%@",insertString);
+//    if ([plainString isEqualToString:@"{"]) {
+//        [self moveWordBackward:self];
+//    }
     
     [self origin_insertText:insertString];
 
@@ -179,12 +183,29 @@ static char const * const VIMotionManagerAssociatedKey = "VIMotionManagerAssocia
         VIMotionManager *manager = [VIMotionManager managerWithSourceTextView:self];
         [self setViMotionManager:manager];    
     }
-
+    
 //    [self setInsertionPointColor:[NSColor redColor]];
     
-    
+
     return self;
 }
+
+
+- (void)viewWillMoveToSuperview:(NSView *)newSuperview {
+//    NIF_INFO(@"newsuperview : %@",newSuperview);
+    
+//    NIF_INFO(@"%@",[self enclosingScrollView]);
+}
+
+- (void)viewDidMoveToSuperview {
+//    NIF_INFO(@"--------------------");
+//    NIF_INFO(@"%@",[self enclosingScrollView]);
+    
+    [self.viMotionManager setupUIStaff];
+    
+
+}
+
 
 - (void)pre_dealloc {
     NIF_INFO();

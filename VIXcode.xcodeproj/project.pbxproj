@@ -12,11 +12,17 @@
 		943FCE3D1526C31D00A3EEE4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 943FCE3C1526C31D00A3EEE4 /* Cocoa.framework */; };
 		943FCE471526C31D00A3EEE4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 943FCE451526C31D00A3EEE4 /* InfoPlist.strings */; };
 		944134E1152BF7EB0007CF45 /* VISettingsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 944134E0152BF7EB0007CF45 /* VISettingsManager.m */; };
+		944521DD15305AB1007B18B5 /* NSEvent+Keymap.m in Sources */ = {isa = PBXBuildFile; fileRef = 944521D815305AB1007B18B5 /* NSEvent+Keymap.m */; };
+		944521DE15305AB1007B18B5 /* NSTextView+Actions.m in Sources */ = {isa = PBXBuildFile; fileRef = 944521DA15305AB1007B18B5 /* NSTextView+Actions.m */; };
+		944521DF15305AB1007B18B5 /* NSView+Subviews.m in Sources */ = {isa = PBXBuildFile; fileRef = 944521DC15305AB1007B18B5 /* NSView+Subviews.m */; };
+		944521E315305B3D007B18B5 /* VIEventProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 944521E215305B3D007B18B5 /* VIEventProcessor.m */; };
+		944521E615305B7B007B18B5 /* VIInsertEventProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 944521E515305B7B007B18B5 /* VIInsertEventProcessor.m */; };
+		944521E915305B8E007B18B5 /* VIVisualEventProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 944521E815305B8E007B18B5 /* VIVisualEventProcessor.m */; };
+		944521EC15305BAF007B18B5 /* VINormalEventProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 944521EB15305BAF007B18B5 /* VINormalEventProcessor.m */; };
+		944521F415308525007B18B5 /* VICommandView.m in Sources */ = {isa = PBXBuildFile; fileRef = 944521F315308525007B18B5 /* VICommandView.m */; };
 		94691BC21528841000A913FD /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 94691BC11528841000A913FD /* README.md */; };
 		946F09051529658800E33389 /* IDESwizzleToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 946F09041529658800E33389 /* IDESwizzleToolbar.m */; };
 		94A64600152848CA0050A1C9 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A645FF152848CA0050A1C9 /* QuartzCore.framework */; };
-		94A98D61152856B700C7188F /* VICommandField.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A98D60152856B700C7188F /* VICommandField.m */; };
-		94BE86B11529522E0044284C /* NSView+Subviews.m in Sources */ = {isa = PBXBuildFile; fileRef = 94BE86B01529522E0044284C /* NSView+Subviews.m */; };
 		94C0F4971529864F006E5094 /* NSString-RuntimeReporting.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C0F4941529864F006E5094 /* NSString-RuntimeReporting.m */; };
 		94C0F4981529864F006E5094 /* RuntimeReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C0F4961529864F006E5094 /* RuntimeReporter.m */; };
 		94CA5CE01528178A00BA2361 /* DVTSwizzleSourceTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94CA5CDE1528178A00BA2361 /* DVTSwizzleSourceTextView.m */; };
@@ -36,17 +42,31 @@
 		943FCE441526C31D00A3EEE4 /* VIXcode-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "VIXcode-Info.plist"; sourceTree = "<group>"; };
 		943FCE461526C31D00A3EEE4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		943FCE481526C31D00A3EEE4 /* VIXcode-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VIXcode-Prefix.pch"; sourceTree = "<group>"; };
-		944134DF152BF7EB0007CF45 /* VISettingsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; path = VISettingsManager.h; sourceTree = "<group>"; };
+		944134DF152BF7EB0007CF45 /* VISettingsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VISettingsManager.h; sourceTree = "<group>"; };
 		944134E0152BF7EB0007CF45 /* VISettingsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VISettingsManager.m; sourceTree = "<group>"; };
+		944521D715305AB1007B18B5 /* NSEvent+Keymap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSEvent+Keymap.h"; sourceTree = "<group>"; };
+		944521D815305AB1007B18B5 /* NSEvent+Keymap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSEvent+Keymap.m"; sourceTree = "<group>"; };
+		944521D915305AB1007B18B5 /* NSTextView+Actions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTextView+Actions.h"; sourceTree = "<group>"; };
+		944521DA15305AB1007B18B5 /* NSTextView+Actions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTextView+Actions.m"; sourceTree = "<group>"; };
+		944521DB15305AB1007B18B5 /* NSView+Subviews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSView+Subviews.h"; sourceTree = "<group>"; };
+		944521DC15305AB1007B18B5 /* NSView+Subviews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSView+Subviews.m"; sourceTree = "<group>"; };
+		944521E115305B3D007B18B5 /* VIEventProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; path = VIEventProcessor.h; sourceTree = "<group>"; };
+		944521E215305B3D007B18B5 /* VIEventProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIEventProcessor.m; sourceTree = "<group>"; };
+		944521E415305B7B007B18B5 /* VIInsertEventProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; path = VIInsertEventProcessor.h; sourceTree = "<group>"; };
+		944521E515305B7B007B18B5 /* VIInsertEventProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIInsertEventProcessor.m; sourceTree = "<group>"; };
+		944521E715305B8E007B18B5 /* VIVisualEventProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; path = VIVisualEventProcessor.h; sourceTree = "<group>"; };
+		944521E815305B8E007B18B5 /* VIVisualEventProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIVisualEventProcessor.m; sourceTree = "<group>"; };
+		944521EA15305BAF007B18B5 /* VINormalEventProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; path = VINormalEventProcessor.h; sourceTree = "<group>"; };
+		944521EB15305BAF007B18B5 /* VINormalEventProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VINormalEventProcessor.m; sourceTree = "<group>"; };
+		944521F215308525007B18B5 /* VICommandView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VICommandView.h; sourceTree = "<group>"; };
+		944521F315308525007B18B5 /* VICommandView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VICommandView.m; sourceTree = "<group>"; };
 		94691BC11528841000A913FD /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = SOURCE_ROOT; };
 		946F09031529658800E33389 /* IDESwizzleToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDESwizzleToolbar.h; sourceTree = "<group>"; };
 		946F09041529658800E33389 /* IDESwizzleToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDESwizzleToolbar.m; sourceTree = "<group>"; };
 		946F09071529664C00E33389 /* VIConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VIConstants.h; sourceTree = "<group>"; };
+		947523431530B0E700FA1139 /* VIEventProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIEventProtocol.h; sourceTree = "<group>"; };
 		94A645FF152848CA0050A1C9 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		94A98D5F152856B700C7188F /* VICommandField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VICommandField.h; sourceTree = "<group>"; };
-		94A98D60152856B700C7188F /* VICommandField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VICommandField.m; sourceTree = "<group>"; };
-		94BE86AF1529522E0044284C /* NSView+Subviews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSView+Subviews.h"; sourceTree = "<group>"; };
-		94BE86B01529522E0044284C /* NSView+Subviews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSView+Subviews.m"; sourceTree = "<group>"; };
+		94BDAE49152F4B76008C3399 /* MacKeyMap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MacKeyMap.h; sourceTree = "<group>"; };
 		94C0F4931529864F006E5094 /* NSString-RuntimeReporting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString-RuntimeReporting.h"; sourceTree = "<group>"; };
 		94C0F4941529864F006E5094 /* NSString-RuntimeReporting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString-RuntimeReporting.m"; sourceTree = "<group>"; };
 		94C0F4951529864F006E5094 /* RuntimeReporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RuntimeReporter.h; sourceTree = "<group>"; };
@@ -131,6 +151,44 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		944521D615305AB1007B18B5 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				944521D715305AB1007B18B5 /* NSEvent+Keymap.h */,
+				944521D815305AB1007B18B5 /* NSEvent+Keymap.m */,
+				944521D915305AB1007B18B5 /* NSTextView+Actions.h */,
+				944521DA15305AB1007B18B5 /* NSTextView+Actions.m */,
+				944521DB15305AB1007B18B5 /* NSView+Subviews.h */,
+				944521DC15305AB1007B18B5 /* NSView+Subviews.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		944521E015305AE7007B18B5 /* Event Process */ = {
+			isa = PBXGroup;
+			children = (
+				947523431530B0E700FA1139 /* VIEventProtocol.h */,
+				944521E115305B3D007B18B5 /* VIEventProcessor.h */,
+				944521E215305B3D007B18B5 /* VIEventProcessor.m */,
+				944521E415305B7B007B18B5 /* VIInsertEventProcessor.h */,
+				944521E515305B7B007B18B5 /* VIInsertEventProcessor.m */,
+				944521E715305B8E007B18B5 /* VIVisualEventProcessor.h */,
+				944521E815305B8E007B18B5 /* VIVisualEventProcessor.m */,
+				944521EA15305BAF007B18B5 /* VINormalEventProcessor.h */,
+				944521EB15305BAF007B18B5 /* VINormalEventProcessor.m */,
+			);
+			path = "Event Process";
+			sourceTree = "<group>";
+		};
+		944521F015308508007B18B5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				944521F215308525007B18B5 /* VICommandView.h */,
+				944521F315308525007B18B5 /* VICommandView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		94C0F4921529864F006E5094 /* Runtime Browser */ = {
 			isa = PBXGroup;
 			children = (
@@ -148,6 +206,9 @@
 		94CA5CDC1528178A00BA2361 /* Code */ = {
 			isa = PBXGroup;
 			children = (
+				944521F015308508007B18B5 /* Views */,
+				944521E015305AE7007B18B5 /* Event Process */,
+				944521D615305AB1007B18B5 /* Categories */,
 				9428857C152AA1CE009859E3 /* VIMotionManager.h */,
 				9428857D152AA1CE009859E3 /* VIMotionManager.m */,
 				944134DF152BF7EB0007CF45 /* VISettingsManager.h */,
@@ -158,11 +219,8 @@
 				946F09041529658800E33389 /* IDESwizzleToolbar.m */,
 				9435E94015284BEC00453194 /* IDESwizzleApplication.h */,
 				9435E94115284BEC00453194 /* IDESwizzleApplication.m */,
-				94A98D5F152856B700C7188F /* VICommandField.h */,
-				94A98D60152856B700C7188F /* VICommandField.m */,
-				94BE86AF1529522E0044284C /* NSView+Subviews.h */,
-				94BE86B01529522E0044284C /* NSView+Subviews.m */,
 				946F09071529664C00E33389 /* VIConstants.h */,
+				94BDAE49152F4B76008C3399 /* MacKeyMap.h */,
 			);
 			name = Code;
 			path = src;
@@ -234,14 +292,20 @@
 				94CA5CE01528178A00BA2361 /* DVTSwizzleSourceTextView.m in Sources */,
 				94F004A71528186B00689C5E /* VIPlugin.m in Sources */,
 				9435E94215284BEC00453194 /* IDESwizzleApplication.m in Sources */,
-				94A98D61152856B700C7188F /* VICommandField.m in Sources */,
-				94BE86B11529522E0044284C /* NSView+Subviews.m in Sources */,
 				946F09051529658800E33389 /* IDESwizzleToolbar.m in Sources */,
 				94C0F4971529864F006E5094 /* NSString-RuntimeReporting.m in Sources */,
 				94C0F4981529864F006E5094 /* RuntimeReporter.m in Sources */,
 				9428857E152AA1CE009859E3 /* VIMotionManager.m in Sources */,
 				944134E1152BF7EB0007CF45 /* VISettingsManager.m in Sources */,
 				94F5586F152C2145008044AF /* MehodHook.m in Sources */,
+				944521DD15305AB1007B18B5 /* NSEvent+Keymap.m in Sources */,
+				944521DE15305AB1007B18B5 /* NSTextView+Actions.m in Sources */,
+				944521DF15305AB1007B18B5 /* NSView+Subviews.m in Sources */,
+				944521E315305B3D007B18B5 /* VIEventProcessor.m in Sources */,
+				944521E615305B7B007B18B5 /* VIInsertEventProcessor.m in Sources */,
+				944521E915305B8E007B18B5 /* VIVisualEventProcessor.m in Sources */,
+				944521EC15305BAF007B18B5 /* VINormalEventProcessor.m in Sources */,
+				944521F415308525007B18B5 /* VICommandView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
