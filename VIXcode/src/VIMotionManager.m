@@ -35,6 +35,10 @@
                 
         _eventProcessor = [[VIInsertEventProcessor alloc] initWithMotionManager:self];
 
+        [self _updateCMDViewHidden];
+
+        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(vimFunctionSwitched:) name:VISettingsManagerEnableNotification object:nil];
+
     }
     return self;
 }
@@ -72,6 +76,17 @@
     
 }
 
+- (void)vimFunctionSwitched:(NSNotification *)notification {
+    
+    NIF_INFO(@"--- %@",[notification object]);
+    
+    [self _updateCMDViewHidden];
+}
+
+- (void)_updateCMDViewHidden {
+        _cmdView.hidden = ! [[VISettingsManager sharedSettingsManager] isVIMEnabled];
+}
+
 - (void)reset {
     
 }
@@ -103,6 +118,7 @@
 
 - (void)dealloc {
     NIF_INFO();
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     SAFELY_RELEASE(_sourceView);
     [_eventProcessor release];
     [super dealloc];

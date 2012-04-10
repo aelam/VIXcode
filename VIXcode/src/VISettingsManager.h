@@ -14,6 +14,7 @@
 #import "VISettingsManager.h"
 #import "MehodHook.h"
 
+static NSString *VISettingsManagerEnableNotification = @"VISettingsManagerEnableNotification";
 
 @interface VISettingsManager : NSObject
 

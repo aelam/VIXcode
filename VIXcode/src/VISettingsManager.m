@@ -105,6 +105,8 @@
 {
     [self setVIMEnabled:![self isVIMEnabled]];
     [sender setTitle:[self isVIMEnabled]?@"Enabled":@"Disabled"];
+ 
+    [[NSNotificationCenter defaultCenter] postNotificationName:VISettingsManagerEnableNotification object:nil];
     
 }
 

@@ -9,6 +9,8 @@
 #import "VINormalEventProcessor.h"
 #import "VIVisualEventProcessor.h"
 #import "VIInsertEventProcessor.h"
+#import "NSString+Category.h"
+#import "NSTextView+Actions.h"
 
 @implementation VINormalEventProcessor
 
@@ -27,28 +29,55 @@
     NSString *characters = [theEvent characters];
     unichar keyCode = theEvent.keyCode;
 
-    if (theEvent.keyCode == KEY_ENTER) {
+    NIF_INFO(@"%@",[self.motionManager.sourceView selectedRanges]);
+    
+    
+    if (keyCode == KEY_ENTER) {
         NIF_INFO(@"NORMAL MODE: ENTER PRESSED !!");
         [self.motionManager.sourceView moveDown:self];
         [self.motionManager.sourceView moveToBeginningOfLine:self];
+    } else if (keyCode == KEY_DELETE) {
+        NIF_INFO(@"DELETE PRESSED!");
+        [self.motionManager.sourceView moveBackwardCharactersCount:([self.appendString intValue]>0?[self.appendString intValue]:1)];
+        [self updateAppendInfo:@"" keepOld:NO];
+    } else if (keyCode == KEY_ESC) {
+        [self updateAppendInfo:@"" keepOld:NO];
+        [self updateCMD:@"" keepOld:NO];
+    }
+    
+    /**
+     * Cache In appendField 
+     * f
+     * 10
+     * d
+     * G
+     * [d]gg
+     * 10gg
+     * 10dd
+     */
+    // Cache In appendField 
+    // Numberic 
+    else if ([characters isStartWithNumeric]) {
+        NIF_INFO(@"");
+        if ([characters isEqualToString:@"0"] && (self.appendString == nil || self.appendString.length == 0)) {
+            [self.motionManager.sourceView moveToBeginningOfLine:self];
+        } else {
+            [self updateAppendInfo:characters keepOld:YES];
+        }
     }
 
     else if ([characters isEqualToString:@"/"]) {
         if (self.isInitialized) {
-            [self.cmdString setString:@""];
             self.isInitialized = NO;
         }
-        [self.cmdString appendString:@"/"];
-        [self.motionManager stateWillChange:self];
+        [self updateCMD:@"/" keepOld:NO];
     }
     
     else if ([characters isEqualToString:@":"]) {
         if (self.isInitialized) {
-            [self.cmdString setString:@""];
             self.isInitialized = NO;
         }
-        [self.cmdString appendString:@":"];
-        [self.motionManager stateWillChange:self];
+        [self updateCMD:@":" keepOld:NO];
     }
 
     //

@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 //#import "VIEventProcessor.h"
 #import "VIEventProtocol.h"
+#import "VISettingsManager.h"
 
 @class DVTSwizzleSourceTextView;
 @class VICommandView;

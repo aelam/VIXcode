@@ -22,6 +22,7 @@
 		944521F415308525007B18B5 /* VICommandView.m in Sources */ = {isa = PBXBuildFile; fileRef = 944521F315308525007B18B5 /* VICommandView.m */; };
 		94691BC21528841000A913FD /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 94691BC11528841000A913FD /* README.md */; };
 		946F09051529658800E33389 /* IDESwizzleToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 946F09041529658800E33389 /* IDESwizzleToolbar.m */; };
+		9494850F1532D06200F90E31 /* NSString+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 9494850E1532D06200F90E31 /* NSString+Category.m */; };
 		94A64600152848CA0050A1C9 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A645FF152848CA0050A1C9 /* QuartzCore.framework */; };
 		94C0F4971529864F006E5094 /* NSString-RuntimeReporting.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C0F4941529864F006E5094 /* NSString-RuntimeReporting.m */; };
 		94C0F4981529864F006E5094 /* RuntimeReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C0F4961529864F006E5094 /* RuntimeReporter.m */; };
@@ -50,13 +51,13 @@
 		944521DA15305AB1007B18B5 /* NSTextView+Actions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTextView+Actions.m"; sourceTree = "<group>"; };
 		944521DB15305AB1007B18B5 /* NSView+Subviews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSView+Subviews.h"; sourceTree = "<group>"; };
 		944521DC15305AB1007B18B5 /* NSView+Subviews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSView+Subviews.m"; sourceTree = "<group>"; };
-		944521E115305B3D007B18B5 /* VIEventProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; path = VIEventProcessor.h; sourceTree = "<group>"; };
+		944521E115305B3D007B18B5 /* VIEventProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIEventProcessor.h; sourceTree = "<group>"; };
 		944521E215305B3D007B18B5 /* VIEventProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIEventProcessor.m; sourceTree = "<group>"; };
-		944521E415305B7B007B18B5 /* VIInsertEventProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; path = VIInsertEventProcessor.h; sourceTree = "<group>"; };
+		944521E415305B7B007B18B5 /* VIInsertEventProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIInsertEventProcessor.h; sourceTree = "<group>"; };
 		944521E515305B7B007B18B5 /* VIInsertEventProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIInsertEventProcessor.m; sourceTree = "<group>"; };
-		944521E715305B8E007B18B5 /* VIVisualEventProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; path = VIVisualEventProcessor.h; sourceTree = "<group>"; };
+		944521E715305B8E007B18B5 /* VIVisualEventProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIVisualEventProcessor.h; sourceTree = "<group>"; };
 		944521E815305B8E007B18B5 /* VIVisualEventProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIVisualEventProcessor.m; sourceTree = "<group>"; };
-		944521EA15305BAF007B18B5 /* VINormalEventProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; path = VINormalEventProcessor.h; sourceTree = "<group>"; };
+		944521EA15305BAF007B18B5 /* VINormalEventProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VINormalEventProcessor.h; sourceTree = "<group>"; };
 		944521EB15305BAF007B18B5 /* VINormalEventProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VINormalEventProcessor.m; sourceTree = "<group>"; };
 		944521F215308525007B18B5 /* VICommandView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VICommandView.h; sourceTree = "<group>"; };
 		944521F315308525007B18B5 /* VICommandView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VICommandView.m; sourceTree = "<group>"; };
@@ -65,6 +66,8 @@
 		946F09041529658800E33389 /* IDESwizzleToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDESwizzleToolbar.m; sourceTree = "<group>"; };
 		946F09071529664C00E33389 /* VIConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VIConstants.h; sourceTree = "<group>"; };
 		947523431530B0E700FA1139 /* VIEventProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIEventProtocol.h; sourceTree = "<group>"; };
+		9494850D1532D06200F90E31 /* NSString+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Category.h"; sourceTree = "<group>"; };
+		9494850E1532D06200F90E31 /* NSString+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Category.m"; sourceTree = "<group>"; };
 		94A645FF152848CA0050A1C9 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		94BDAE49152F4B76008C3399 /* MacKeyMap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MacKeyMap.h; sourceTree = "<group>"; };
 		94C0F4931529864F006E5094 /* NSString-RuntimeReporting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString-RuntimeReporting.h"; sourceTree = "<group>"; };
@@ -160,6 +163,8 @@
 				944521DA15305AB1007B18B5 /* NSTextView+Actions.m */,
 				944521DB15305AB1007B18B5 /* NSView+Subviews.h */,
 				944521DC15305AB1007B18B5 /* NSView+Subviews.m */,
+				9494850D1532D06200F90E31 /* NSString+Category.h */,
+				9494850E1532D06200F90E31 /* NSString+Category.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -306,6 +311,7 @@
 				944521E915305B8E007B18B5 /* VIVisualEventProcessor.m in Sources */,
 				944521EC15305BAF007B18B5 /* VINormalEventProcessor.m in Sources */,
 				944521F415308525007B18B5 /* VICommandView.m in Sources */,
+				9494850F1532D06200F90E31 /* NSString+Category.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

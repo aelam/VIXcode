@@ -12,4 +12,7 @@
 
 - (void)changeCaseOfLetter:(id)sender;
 
+- (void)moveBackwardCharactersCount:(NSUInteger)count;
+- (void)moveForwardCharactersCount:(NSUInteger)count;
+
 @end

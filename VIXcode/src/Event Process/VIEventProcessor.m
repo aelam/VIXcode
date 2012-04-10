@@ -15,7 +15,7 @@
 @synthesize state = _state;
 @synthesize cmdString = _cmdString;
 @synthesize appendString = _appendString;
-
+@synthesize repeat = _repeat;
 
 + (id)processorWithMotionManager:(VIMotionManager <VIEventDelegate>*)motionManager {
     return [[[self alloc] initWithMotionManager:motionManager] autorelease];
@@ -30,10 +30,41 @@
         _cmdString = [[NSMutableString alloc] init];
         _appendString = [[NSMutableString alloc] init];
         
-        
     }
     return self;
 }
+
+- (void)updateCMD:(NSString *)newString keepOld:(BOOL)keep{
+    if (keep) {
+        if (newString) {
+            [_cmdString appendString:newString];        
+        } else {
+            [_cmdString setString:@""];
+        }        
+    } else {
+        [_cmdString setString:newString?newString:@""];
+    }
+        
+    [self.motionManager stateWillChange:self];
+}
+
+- (void)updateAppendInfo:(NSString *)appendInfo keepOld:(BOOL)keep{
+    if (keep) {
+        if (appendInfo) {
+            [_appendString appendString:appendInfo];        
+        } else {
+            [_appendString setString:@""];
+        }        
+    } else {
+        [_appendString setString:appendInfo?appendInfo:@""];
+
+    }
+    
+    [self.motionManager stateWillChange:self];
+}
+
+
+
 
 - (BOOL)handleKeyEvent:(NSEvent *)event {
     
