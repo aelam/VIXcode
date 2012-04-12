@@ -25,5 +25,13 @@
     }
 }
 
+- (NSArray *)allSubviews {
+    NSMutableArray *allSubviews = [NSMutableArray arrayWithObject:self];
+    NSArray *subviews = [self subviews];
+    for (NSView *view in subviews) {
+        [allSubviews addObjectsFromArray:[view allSubviews]];
+    }
+    return [[allSubviews copy] autorelease];
+}
 
 @end

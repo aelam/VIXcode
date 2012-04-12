@@ -14,7 +14,7 @@
 @protocol VIEventDelegate <NSObject>
 
 @optional
-- (void)stateDidUpdated:(NSString *)cmdString appendInfo:(NSString *)appendInfo;
+- (void)stateDidUpdated:(NSString *)_cmdBuffer appendInfo:(NSString *)appendInfo;
 - (void)stateWillChange:(VIEventProcessor *)Processor;
 
 @end

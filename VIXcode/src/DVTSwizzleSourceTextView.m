@@ -8,18 +8,22 @@
 
 #import "DVTSwizzleSourceTextView.h"
 #import <QuartzCore/QuartzCore.h>
-#import "VIMotionManager.h"
 #import <objc/runtime.h>
 #import "RuntimeReporter.h"
 #import "VISettingsManager.h"
 #import "VIEventProcessor.h"
+//#import "VIMotionManager.h"
+#import "VICommandView.h"
 
-static char const * const VIMotionManagerAssociatedKey = "VIMotionManagerAssociatedKey";
+
+//static char const * const VIMotionManagerAssociatedKey = "VIMotionManagerAssociatedKey";
+static char const * const VICommandViewAssociatedKey = "VICommandViewAssociatedKey";
 
 
 @implementation DVTSwizzleSourceTextView
 
-@synthesize viMotionManager = _viMotionManager;
+//@synthesize viMotionManager = _viMotionManager;
+@synthesize commandView = _commandView;
 
 - (BOOL)performKeyEquivalent:(NSEvent *)theEvent {
     NIF_INFO(@"%@",theEvent);
@@ -45,9 +49,9 @@ static char const * const VIMotionManagerAssociatedKey = "VIMotionManagerAssocia
 
 //    NIF_INFO(@"%@",theEvent);
     if ([[VISettingsManager sharedSettingsManager] isVIMEnabled]) {
-        if ([self.viMotionManager handleKeyEvent:theEvent]) {
-            return;
-        }        
+//        if ([self.commandView handleKeyEvent:theEvent]) {
+//            return;
+//        }        
     }
     
     [self origin_keyDown:theEvent];
@@ -90,6 +94,20 @@ static char const * const VIMotionManagerAssociatedKey = "VIMotionManagerAssocia
     [self origin_mouseDown:theEvent];
 }
 
+- (BOOL)becomeFirstResponder {
+    self.commandView.active = YES;
+    
+    return [self origin_becomeFirstResponder];
+}
+
+- (BOOL)resignFirstResponder {
+
+    self.commandView.active = NO;
+    return [self origin_resignFirstResponder];
+}
+
+
+
 - (void)setSelectedRange:(NSRange)charRange {
 
     [self origin_setSelectedRange:charRange];
@@ -120,7 +138,7 @@ static char const * const VIMotionManagerAssociatedKey = "VIMotionManagerAssocia
  */
 - (void)_drawInsertionPointInRect:(NSRect)aRect color:(NSColor*)aColor{
 
-    if (self.viMotionManager.eventProcessor.state == VIMStateInsert || ![[VISettingsManager sharedSettingsManager] isVIMEnabled]) {
+    if (self.commandView.eventProcessor.state == VIMStateInsert || ![[VISettingsManager sharedSettingsManager] isVIMEnabled]) {
         [self origin__drawInsertionPointInRect:aRect color:aColor];
     } else {
         [self drawInsertionPointInRect:aRect color:aColor turnedOn:YES];
@@ -129,7 +147,7 @@ static char const * const VIMotionManagerAssociatedKey = "VIMotionManagerAssocia
 
 - (void)drawInsertionPointInRect:(NSRect)rect color:(NSColor *)color turnedOn:(BOOL)flag {
        
-    if (self.viMotionManager.eventProcessor.state == VIMStateInsert || ![[VISettingsManager sharedSettingsManager] isVIMEnabled]) {
+    if (self.commandView.eventProcessor.state == VIMStateInsert || ![[VISettingsManager sharedSettingsManager] isVIMEnabled]) {
         [self origin_drawInsertionPointInRect:rect color:color turnedOn:flag];        
     } else {
         if(flag){
@@ -179,30 +197,30 @@ static char const * const VIMotionManagerAssociatedKey = "VIMotionManagerAssocia
     NIF_INFO();
     self = [self origin_initWithCoder:aDecoder];
 
-    if (self.viMotionManager == nil) {
-        VIMotionManager *manager = [VIMotionManager managerWithSourceTextView:self];
-        [self setViMotionManager:manager];    
+    if (self.commandView == nil) {
+        [self setCommandView:[VICommandView commandViewWithSourceTextView:self]];
     }
-    
+        
 //    [self setInsertionPointColor:[NSColor redColor]];
     
+    NIF_INFO(@"window: %@",self.window);
+//contentView
+    NIF_INFO(@"%@",self.window.contentView);
 
     return self;
 }
 
 
 - (void)viewWillMoveToSuperview:(NSView *)newSuperview {
-//    NIF_INFO(@"newsuperview : %@",newSuperview);
-    
-//    NIF_INFO(@"%@",[self enclosingScrollView]);
+
 }
 
 - (void)viewDidMoveToSuperview {
 //    NIF_INFO(@"--------------------");
 //    NIF_INFO(@"%@",[self enclosingScrollView]);
     
-    [self.viMotionManager setupUIStaff];
-    
+//    [self.viMotionManager setupUIStaff];
+    [self.commandView addMe];
 
 }
 
@@ -210,7 +228,7 @@ static char const * const VIMotionManagerAssociatedKey = "VIMotionManagerAssocia
 - (void)pre_dealloc {
     NIF_INFO();
     //
-    // remove manager
+    // remove commandView
     //
     objc_removeAssociatedObjects(self);
     
@@ -218,15 +236,17 @@ static char const * const VIMotionManagerAssociatedKey = "VIMotionManagerAssocia
     [self origin_dealloc];
 }
 
-//
-// Should be Inject into DVTSourceTextView
-//
-- (void)setViMotionManager:(VIMotionManager *)manager {
-    objc_setAssociatedObject(self,VIMotionManagerAssociatedKey,manager,OBJC_ASSOCIATION_ASSIGN);
+
+- (void)setCommandView:(VICommandView *)commandView {
+    objc_setAssociatedObject(self,VICommandViewAssociatedKey,commandView,OBJC_ASSOCIATION_ASSIGN);
 }
 
-- (VIMotionManager *)viMotionManager {
-    return objc_getAssociatedObject(self,VIMotionManagerAssociatedKey);
+- (VICommandView *)commandView {
+    return objc_getAssociatedObject(self,VICommandViewAssociatedKey);
 }
+
+
+
+
 
 @end

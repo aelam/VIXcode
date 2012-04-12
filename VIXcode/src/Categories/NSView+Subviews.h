@@ -10,6 +10,6 @@
 
 @interface NSView (Subviews)
 
-- (void)printAllSubviews;
+- (NSArray *)allSubviews;
 
 @end

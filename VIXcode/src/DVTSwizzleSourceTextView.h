@@ -8,7 +8,8 @@
 
 #import <Cocoa/Cocoa.h>
 
-@class VIMotionManager;
+@class VICommandView;
+//@class VIMotionManager;
 
 @protocol DVTSwizzleProtocol <NSObject>
 
@@ -32,6 +33,10 @@
 - (void)origin_insertText:(id)insertString;
 - (void)origin_doCommandBySelector:(SEL)aSelector;
 
+
+- (BOOL)origin_becomeFirstResponder;
+- (BOOL)origin_resignFirstResponder;
+
 - (void)pre_dealloc;
 - (void)origin_dealloc;
 
@@ -41,10 +46,10 @@
 
 }
 
-@property (nonatomic,assign) VIMotionManager *viMotionManager;
+@property (nonatomic,weak) VICommandView *commandView;
 
-- (void)setViMotionManager:(VIMotionManager *)manager;
-- (VIMotionManager *)viMotionManager;
+- (void)setCommandView:(VICommandView *)commandView;
+- (VICommandView *)commandView;
 
 @end
 

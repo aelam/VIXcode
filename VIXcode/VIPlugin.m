@@ -51,11 +51,15 @@ void Hook() {
     //    - (void)viewWillMoveToSuperview:(NSView *)newSuperview;
     HookSelector(DVTSourceTextView, @selector(viewWillMoveToSuperview:), targetClass, @selector(viewWillMoveToSuperview:), @selector(origin_viewWillMoveToSuperview:));
     
+    HookSelector(DVTSourceTextView, @selector(becomeFirstResponder), targetClass, @selector(becomeFirstResponder), @selector(origin_becomeFirstResponder));
+    HookSelector(DVTSourceTextView, @selector(resignFirstResponder), targetClass, @selector(resignFirstResponder), @selector(origin_resignFirstResponder));
+
     
     // dealloc Swizzle
     HookSelector(DVTSourceTextView, @selector(dealloc), targetClass, @selector(dealloc), @selector(origin_dealloc));    
     
-    InjectProperty(DVTSourceTextView,@selector(setViMotionManager:),@selector(viMotionManager),targetClass);
+//    InjectProperty(DVTSourceTextView,@selector(setViMotionManager:),@selector(viMotionManager),targetClass);
+    InjectProperty(DVTSourceTextView,@selector(setCommandView:),@selector(commandView),targetClass);
     
     //    Class IDEApplication = NSClassFromString(@"IDEApplication");
     //    Class targetClass2 = [IDESwizzleApplication class];

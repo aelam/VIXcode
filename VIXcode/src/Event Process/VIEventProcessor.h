@@ -7,42 +7,41 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "VIMotionManager.h"
 #import "VIEventProtocol.h"
 #import "NSEvent+Keymap.h"
 #import "MacKeyMap.h"
+#import "VICommandView.h"
+#import "VIXcode.h"
 
-@class VIMotionManager;
+@class DVTSwizzleSourceTextView;
+
+@class VICommandView;
 
 @interface VIEventProcessor : NSObject {
-    VIMotionManager<VIEventDelegate> *_motionManager;
-    BOOL             _isInitialized;
-    
+
     VIMState         _state;
 
 @protected
-    NSMutableString *_cmdString;
+    NSMutableString *_showcmdBuffer;
     NSMutableString *_appendString;
+    
+    BOOL        _showcmdBufferCleared;
+    
+    NSUInteger  _visualActive;
     
 }
 
-
-@property (nonatomic,readonly) VIMotionManager<VIEventDelegate> *motionManager;
-@property (nonatomic,readwrite) BOOL             isInitialized;
+@property (nonatomic,assign) DVTSwizzleSourceTextView *currentSourceView;
 @property (nonatomic,readwrite) VIMState        state;
-@property (nonatomic,retain) NSMutableString *cmdString;
-@property (nonatomic,retain) NSMutableString *appendString;
-@property (nonatomic,readonly) NSUInteger   repeat;
+@property (nonatomic,retain) NSMutableString    *showcmdBuffer;
+@property (nonatomic,retain) NSMutableString    *appendString;
+@property (nonatomic,readonly) NSUInteger       repeat;
 
-
-+ (id)processorWithMotionManager:(VIMotionManager <VIEventDelegate>*)motionManager;
-
-- (id)initWithMotionManager:(VIMotionManager <VIEventDelegate>*)motionManager;
-
-- (void)updateCMD:(NSString *)newString keepOld:(BOOL)keep;
-- (void)updateAppendInfo:(NSString *)appendInfo keepOld:(BOOL)keep;
++ (VIEventProcessor *)sharedProcessor;
 
 - (BOOL)handleKeyEvent:(NSEvent *)event;
+
+- (void)displayCMDBuffer;
 
 
 @end
