@@ -7,32 +7,33 @@
 //
 
 #import "VICommandView.h"
-//#import "VIInsertEventProcessor.h"
-#import "DVTSwizzleSourceTextView.h"
-#import "VISettingsManager.h"
+#import "VIKitConstants.h"
 
 #define COMMAND_VIEW_HEIGHT     20
 #define COMMAND_VIEW_OFFSET     10
+#define COMMAND_VIEW_BUTTOM_OFFSET  60
+#define COMMAND_VIEW_LEFT_OFFSET    20
 
 @implementation VICommandView
 
-@synthesize sourceView = _sourceView;
+@synthesize textView = _textView;
 @synthesize eventProcessor = _eventProcessor;
 @synthesize active;
 
-+ (id)commandViewWithSourceTextView:(id)sourceView {
-    return [[[self alloc] initWithSourceTextView:sourceView] autorelease];
++ (id)commandViewWithTextView:(id)sourceView {
+    return [[[self alloc] initWithTextView:sourceView] autorelease];
 }
 
-- (id)initWithSourceTextView:(id)sourceView  {
+- (id)initWithTextView:(id)textView  {
     self = [self initWithFrame:NSMakeRect(0,0,0,COMMAND_VIEW_HEIGHT)];
     
     // weak
-    _sourceView = sourceView;
+    _textView = textView;
     
     // UI
-    NSColor *clearColor = [NSColor colorWithSRGBRed:0 green:0.0 blue:0.0 alpha:0.0];
-    NSColor *fontColor = [NSColor whiteColor];
+//    NSColor *clearColor = [NSColor colorWithSRGBRed:0 green:0.0 blue:0.0 alpha:0.0];
+    NSColor *clearColor = [NSColor blueColor];
+    NSColor *fontColor = [NSColor yellowColor];
     
     _cmdField = [[NSTextField alloc] initWithFrame:NSMakeRect(0,0,0,COMMAND_VIEW_HEIGHT)];
     [_cmdField setBackgroundColor:clearColor];
@@ -48,19 +49,18 @@
     
     // Notification
     
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(vimFunctionSwitched:) name:VISettingsManagerEnableNotification object:nil];
+//    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(vimFunctionSwitched:) name:VISettingsManagerEnableNotification object:nil];
     
     return self;
 }
 
-- (void)addMe {
-    NSScrollView* scrollView = [_sourceView enclosingScrollView]; // DVTSourceTextScrollView
+- (void)addMeOnTextView {
+    NSScrollView* scrollView = [_textView enclosingScrollView]; // DVTSourceTextScrollView
     
     NSRect scrollViewFrame = scrollView.frame;
     
-    self.frame = NSMakeRect(40, NSMaxY(scrollViewFrame) - 30,NSWidth(_sourceView.frame),20);
+    self.frame = NSMakeRect(COMMAND_VIEW_LEFT_OFFSET, NSMaxY(scrollViewFrame) - COMMAND_VIEW_BUTTOM_OFFSET,NSWidth(_textView.frame),20);
     
-//    if ([scrollView isKindOfClass:NSClassFromString(@"DVTSourceTextScrollView")]) {
     if ([scrollView isKindOfClass:NSClassFromString(@"NSScrollView")]) {
         
         [[scrollView contentView] setCopiesOnScroll:NO];
@@ -69,6 +69,7 @@
             NIF_INFO(@"added!! %@",NSStringFromRect(scrollView.frame));
             [scrollView addSubview:self positioned:NSWindowAbove relativeTo:nil];
             
+            [scrollView setNeedsDisplay:YES];
             [scrollView setPostsFrameChangedNotifications:YES];
             
             [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(frameDidChanged:) name:NSViewFrameDidChangeNotification  object:scrollView];
@@ -77,23 +78,43 @@
 }
 
 - (void)resizeSubviewsWithOldSize:(NSSize)oldBoundsSize {
+//    CGFloat width = NSWidth(self.frame);
+//    
+//    _cmdField.frame = NSMakeRect(0,0,width * 0.75,COMMAND_VIEW_HEIGHT);
+//    _appendField.frame = NSMakeRect(width * 0.75,0,width * 0.25,COMMAND_VIEW_HEIGHT);
+//    
     CGFloat width = NSWidth(self.frame);
     
     _cmdField.frame = NSMakeRect(0,0,width * 0.75,COMMAND_VIEW_HEIGHT);
     _appendField.frame = NSMakeRect(width * 0.75,0,width * 0.25,COMMAND_VIEW_HEIGHT);
-    
+
 }
 
 - (void)frameDidChanged:(NSNotification *)notification {
     
     NSScrollView* scrollView = [notification object];
     
-    self.frame = NSMakeRect(40,NSMaxY(scrollView.frame) - 30,NSWidth(scrollView.frame)-50,20);
-    
+    self.frame = NSMakeRect(COMMAND_VIEW_LEFT_OFFSET,NSMaxY(scrollView.frame) - COMMAND_VIEW_BUTTOM_OFFSET,NSWidth(scrollView.frame)-50,20);
+
+    NIF_INFO(@"%@",NSStringFromRect(self.frame));
+
 }
 
+/*
 - (void)vimFunctionSwitched:(NSNotification *)notification {
     self.hidden = ! [[VISettingsManager sharedSettingsManager] isVIMEnabled];
+}
+*/
+
+- (NSInteger)tag { 
+    return COMMAND_VIEW_TAG; 
+};
+
+- (void)drawRect:(NSRect)dirtyRect {
+    // Fill in background Color
+    CGContextRef context = (CGContextRef) [[NSGraphicsContext currentContext] graphicsPort];
+    CGContextSetRGBFillColor(context, 0.227,0.251,0.337,0.8);
+    CGContextFillRect(context, NSRectToCGRect(dirtyRect));
 }
 
 

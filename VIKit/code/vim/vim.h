@@ -1716,7 +1716,7 @@ typedef int proftime_T;	    /* dummy for function prototypes */
 
 /* Include option.h before structs.h, because the number of window-local and
  * buffer-local options is used there. */
-#include "option.h"	    /* options and default values */
+//#include "option.h"	    /* options and default values */
 
 /* Note that gui.h is included by structs.h */
 
@@ -1935,8 +1935,8 @@ typedef int VimClipboard;	/* This is required for the prototypes. */
 # define stat(a,b) (access(a,0) ? -1 : stat(a,b))
 #endif
 
-#include "ex_cmds.h"	    /* Ex command defines */
-#include "proto.h"	    /* function prototypes */
+//#include "ex_cmds.h"	    /* Ex command defines */
+//#include "proto.h"	    /* function prototypes */
 
 /* This has to go after the include of proto.h, as proto/gui.pro declares
  * functions of these names. The declarations would break if the defines had

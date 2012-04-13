@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		940D820D15382870000C02B3 /* VIKitConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 940D820C15382870000C02B3 /* VIKitConstants.h */; };
 		9435E94215284BEC00453194 /* IDESwizzleApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 9435E94115284BEC00453194 /* IDESwizzleApplication.m */; };
 		943FCE3D1526C31D00A3EEE4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 943FCE3C1526C31D00A3EEE4 /* Cocoa.framework */; };
 		943FCE471526C31D00A3EEE4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 943FCE451526C31D00A3EEE4 /* InfoPlist.strings */; };
@@ -17,9 +18,29 @@
 		944521E315305B3D007B18B5 /* VIEventProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 944521E215305B3D007B18B5 /* VIEventProcessor.m */; };
 		944521F415308525007B18B5 /* VICommandView.m in Sources */ = {isa = PBXBuildFile; fileRef = 944521F315308525007B18B5 /* VICommandView.m */; };
 		94691BC21528841000A913FD /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 94691BC11528841000A913FD /* README.md */; };
-		946F09051529658800E33389 /* IDESwizzleToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 946F09041529658800E33389 /* IDESwizzleToolbar.m */; };
+		94944E971538314D0023C172 /* VITextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94944E961538314D0023C172 /* VITextView.m */; };
 		9494850F1532D06200F90E31 /* NSString+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 9494850E1532D06200F90E31 /* NSString+Category.m */; };
 		9498927C1535E1A50070114B /* CocoaBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 9498927B1535E1A50070114B /* CocoaBridge.m */; };
+		94A0713D1537FEC500187644 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 943FCE3C1526C31D00A3EEE4 /* Cocoa.framework */; };
+		94A071441537FEC500187644 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 94A071421537FEC500187644 /* InfoPlist.strings */; };
+		94A071531537FEE100187644 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 943FCE3C1526C31D00A3EEE4 /* Cocoa.framework */; };
+		94A071591537FEE100187644 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 94A071571537FEE100187644 /* InfoPlist.strings */; };
+		94A0715B1537FEE100187644 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A0715A1537FEE100187644 /* main.m */; };
+		94A0715F1537FEE100187644 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 94A0715D1537FEE100187644 /* Credits.rtf */; };
+		94A071651537FEE100187644 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94A071631537FEE100187644 /* MainMenu.xib */; };
+		94A0716C1537FF6500187644 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A0716B1537FF6500187644 /* AppDelegate.m */; };
+		94A071751538013700187644 /* VIKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 94A0716E1538013700187644 /* VIKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		94A071771538013700187644 /* ascii.h in Headers */ = {isa = PBXBuildFile; fileRef = 94A071711538013700187644 /* ascii.h */; settings = {ATTRIBUTES = (); }; };
+		94A071781538013700187644 /* globals.h in Headers */ = {isa = PBXBuildFile; fileRef = 94A071721538013700187644 /* globals.h */; settings = {ATTRIBUTES = (); }; };
+		94A071791538013700187644 /* structs.h in Headers */ = {isa = PBXBuildFile; fileRef = 94A071731538013700187644 /* structs.h */; settings = {ATTRIBUTES = (); }; };
+		94A0717A1538013700187644 /* vim.h in Headers */ = {isa = PBXBuildFile; fileRef = 94A071741538013700187644 /* vim.h */; settings = {ATTRIBUTES = (); }; };
+		94A0717F153803B600187644 /* VICommandView.h in Headers */ = {isa = PBXBuildFile; fileRef = 94A0717D153803B600187644 /* VICommandView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		94A07180153803B600187644 /* VICommandView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A0717E153803B600187644 /* VICommandView.m */; };
+		94A07185153808DE00187644 /* VIEventProcessor.h in Headers */ = {isa = PBXBuildFile; fileRef = 94A07183153808DE00187644 /* VIEventProcessor.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		94A07186153808DE00187644 /* VIEventProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A07184153808DE00187644 /* VIEventProcessor.m */; };
+		94A0718B15380F0B00187644 /* keymap.h in Headers */ = {isa = PBXBuildFile; fileRef = 94A0718A15380F0B00187644 /* keymap.h */; };
+		94A0718D15380F2300187644 /* macros.h in Headers */ = {isa = PBXBuildFile; fileRef = 94A0718C15380F2300187644 /* macros.h */; };
+		94A07198153816E400187644 /* VIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A0713C1537FEC400187644 /* VIKit.framework */; };
 		94A64600152848CA0050A1C9 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A645FF152848CA0050A1C9 /* QuartzCore.framework */; };
 		94C0F4971529864F006E5094 /* NSString-RuntimeReporting.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C0F4941529864F006E5094 /* NSString-RuntimeReporting.m */; };
 		94C0F4981529864F006E5094 /* RuntimeReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C0F4961529864F006E5094 /* RuntimeReporter.m */; };
@@ -29,7 +50,18 @@
 		94FF30EC1535705700C18A5C /* VIOperator.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FF30EB1535705700C18A5C /* VIOperator.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		94A0717B1538035800187644 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 943FCE301526C31C00A3EEE4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 94A0713B1537FEC400187644;
+			remoteInfo = VIKit;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		940D820C15382870000C02B3 /* VIKitConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIKitConstants.h; sourceTree = "<group>"; };
 		9435E94015284BEC00453194 /* IDESwizzleApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDESwizzleApplication.h; sourceTree = "<group>"; };
 		9435E94115284BEC00453194 /* IDESwizzleApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDESwizzleApplication.m; sourceTree = "<group>"; };
 		943FCE391526C31D00A3EEE4 /* VIXcode.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VIXcode.xcplugin; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -52,16 +84,41 @@
 		944521F215308525007B18B5 /* VICommandView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VICommandView.h; sourceTree = "<group>"; };
 		944521F315308525007B18B5 /* VICommandView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VICommandView.m; sourceTree = "<group>"; };
 		94691BC11528841000A913FD /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = SOURCE_ROOT; };
-		946F09031529658800E33389 /* IDESwizzleToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDESwizzleToolbar.h; sourceTree = "<group>"; };
-		946F09041529658800E33389 /* IDESwizzleToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDESwizzleToolbar.m; sourceTree = "<group>"; };
 		946F09071529664C00E33389 /* VIConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VIConstants.h; sourceTree = "<group>"; };
 		947523431530B0E700FA1139 /* VIEventProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIEventProtocol.h; sourceTree = "<group>"; };
-		94762A3E15347DCC002445A7 /* vim.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vim.h; sourceTree = "<group>"; };
 		94762A5215347E54002445A7 /* VIXcode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VIXcode.h; sourceTree = "<group>"; };
+		94944E951538314D0023C172 /* VITextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VITextView.h; sourceTree = "<group>"; };
+		94944E961538314D0023C172 /* VITextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VITextView.m; sourceTree = "<group>"; };
 		9494850D1532D06200F90E31 /* NSString+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Category.h"; sourceTree = "<group>"; };
 		9494850E1532D06200F90E31 /* NSString+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Category.m"; sourceTree = "<group>"; };
 		9498927A1535E1A50070114B /* CocoaBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocoaBridge.h; sourceTree = "<group>"; };
 		9498927B1535E1A50070114B /* CocoaBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CocoaBridge.m; sourceTree = "<group>"; };
+		94A0713C1537FEC400187644 /* VIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		94A0713E1537FEC500187644 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		94A071411537FEC500187644 /* VIKit-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "VIKit-Info.plist"; sourceTree = "<group>"; };
+		94A071431537FEC500187644 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		94A071451537FEC500187644 /* VIKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VIKit-Prefix.pch"; sourceTree = "<group>"; };
+		94A071511537FEE100187644 /* VITextView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VITextView.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		94A071561537FEE100187644 /* VITextView-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "VITextView-Info.plist"; sourceTree = "<group>"; };
+		94A071581537FEE100187644 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		94A0715A1537FEE100187644 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		94A0715C1537FEE100187644 /* VITextView-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VITextView-Prefix.pch"; sourceTree = "<group>"; };
+		94A0715E1537FEE100187644 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		94A071641537FEE100187644 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		94A0716A1537FF6500187644 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		94A0716B1537FF6500187644 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		94A0716E1538013700187644 /* VIKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIKit.h; sourceTree = "<group>"; };
+		94A071711538013700187644 /* ascii.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ascii.h; sourceTree = "<group>"; };
+		94A071721538013700187644 /* globals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = globals.h; sourceTree = "<group>"; };
+		94A071731538013700187644 /* structs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = structs.h; sourceTree = "<group>"; };
+		94A071741538013700187644 /* vim.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vim.h; sourceTree = "<group>"; };
+		94A0717D153803B600187644 /* VICommandView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VICommandView.h; sourceTree = "<group>"; };
+		94A0717E153803B600187644 /* VICommandView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VICommandView.m; sourceTree = "<group>"; };
+		94A071811538046E00187644 /* NIFLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NIFLog.h; sourceTree = "<group>"; };
+		94A07183153808DE00187644 /* VIEventProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIEventProcessor.h; sourceTree = "<group>"; };
+		94A07184153808DE00187644 /* VIEventProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIEventProcessor.m; sourceTree = "<group>"; };
+		94A0718A15380F0B00187644 /* keymap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = keymap.h; sourceTree = "<group>"; };
+		94A0718C15380F2300187644 /* macros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = macros.h; sourceTree = "<group>"; };
 		94A645FF152848CA0050A1C9 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		94BDAE49152F4B76008C3399 /* MacKeyMap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MacKeyMap.h; sourceTree = "<group>"; };
 		94C0F4931529864F006E5094 /* NSString-RuntimeReporting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString-RuntimeReporting.h"; sourceTree = "<group>"; };
@@ -70,15 +127,12 @@
 		94C0F4961529864F006E5094 /* RuntimeReporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RuntimeReporter.m; sourceTree = "<group>"; };
 		94CA5CDD1528178A00BA2361 /* DVTSwizzleSourceTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVTSwizzleSourceTextView.h; sourceTree = "<group>"; };
 		94CA5CDE1528178A00BA2361 /* DVTSwizzleSourceTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVTSwizzleSourceTextView.m; sourceTree = "<group>"; };
-		94D6FB96153486E100C55892 /* structs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = structs.h; sourceTree = "<group>"; };
 		94DDAEB9152841FA002CEBB4 /* NIFLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NIFLog.h; sourceTree = "<group>"; };
 		94F004A61528186B00689C5E /* VIPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIPlugin.m; sourceTree = "<group>"; };
 		94F5586D152C2145008044AF /* MehodHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MehodHook.h; sourceTree = "<group>"; };
 		94F5586E152C2145008044AF /* MehodHook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MehodHook.m; sourceTree = "<group>"; };
 		94FF30EA1535705700C18A5C /* VIOperator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIOperator.h; sourceTree = "<group>"; };
 		94FF30EB1535705700C18A5C /* VIOperator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIOperator.m; sourceTree = "<group>"; };
-		94FF30ED153570F400C18A5C /* ascii.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ascii.h; sourceTree = "<group>"; };
-		94FF30EE1535781800C18A5C /* globals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = globals.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +145,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		94A071381537FEC400187644 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94A0713D1537FEC500187644 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		94A0714E1537FEE000187644 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94A07198153816E400187644 /* VIKit.framework in Frameworks */,
+				94A071531537FEE100187644 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -99,6 +170,8 @@
 			children = (
 				94C0F4921529864F006E5094 /* Runtime Browser */,
 				943FCE421526C31D00A3EEE4 /* VIXcode */,
+				94A0713F1537FEC500187644 /* VIKit */,
+				94A071541537FEE100187644 /* VITextView */,
 				943FCE3B1526C31D00A3EEE4 /* Frameworks */,
 				943FCE3A1526C31D00A3EEE4 /* Products */,
 			);
@@ -108,6 +181,8 @@
 			isa = PBXGroup;
 			children = (
 				943FCE391526C31D00A3EEE4 /* VIXcode.xcplugin */,
+				94A0713C1537FEC400187644 /* VIKit.framework */,
+				94A071511537FEE100187644 /* VITextView.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -127,6 +202,7 @@
 			children = (
 				943FCE3F1526C31D00A3EEE4 /* AppKit.framework */,
 				943FCE411526C31D00A3EEE4 /* Foundation.framework */,
+				94A0713E1537FEC500187644 /* CoreData.framework */,
 			);
 			name = "Other Frameworks";
 			sourceTree = "<group>";
@@ -136,7 +212,6 @@
 			children = (
 				94691BC11528841000A913FD /* README.md */,
 				94CA5CDC1528178A00BA2361 /* Code */,
-				94762A3D15347DCC002445A7 /* VIM-COPY */,
 				943FCE431526C31D00A3EEE4 /* Supporting Files */,
 			);
 			path = VIXcode;
@@ -190,15 +265,84 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		94762A3D15347DCC002445A7 /* VIM-COPY */ = {
+		94A0713F1537FEC500187644 /* VIKit */ = {
 			isa = PBXGroup;
 			children = (
-				94FF30EE1535781800C18A5C /* globals.h */,
-				94FF30ED153570F400C18A5C /* ascii.h */,
-				94762A3E15347DCC002445A7 /* vim.h */,
-				94D6FB96153486E100C55892 /* structs.h */,
+				94A0716D1537FF7100187644 /* code */,
+				94A071401537FEC500187644 /* Supporting Files */,
 			);
-			path = "VIM-COPY";
+			path = VIKit;
+			sourceTree = "<group>";
+		};
+		94A071401537FEC500187644 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				94A071411537FEC500187644 /* VIKit-Info.plist */,
+				94A071421537FEC500187644 /* InfoPlist.strings */,
+				94A071451537FEC500187644 /* VIKit-Prefix.pch */,
+				94A071811538046E00187644 /* NIFLog.h */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		94A071541537FEE100187644 /* VITextView */ = {
+			isa = PBXGroup;
+			children = (
+				94A071691537FF6500187644 /* code */,
+				94A071631537FEE100187644 /* MainMenu.xib */,
+				94A071551537FEE100187644 /* Supporting Files */,
+			);
+			path = VITextView;
+			sourceTree = "<group>";
+		};
+		94A071551537FEE100187644 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				94A071561537FEE100187644 /* VITextView-Info.plist */,
+				94A071571537FEE100187644 /* InfoPlist.strings */,
+				94A0715A1537FEE100187644 /* main.m */,
+				94A0715C1537FEE100187644 /* VITextView-Prefix.pch */,
+				94A0715D1537FEE100187644 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		94A071691537FF6500187644 /* code */ = {
+			isa = PBXGroup;
+			children = (
+				94A0716A1537FF6500187644 /* AppDelegate.h */,
+				94A0716B1537FF6500187644 /* AppDelegate.m */,
+				94944E951538314D0023C172 /* VITextView.h */,
+				94944E961538314D0023C172 /* VITextView.m */,
+			);
+			path = code;
+			sourceTree = "<group>";
+		};
+		94A0716D1537FF7100187644 /* code */ = {
+			isa = PBXGroup;
+			children = (
+				94A07183153808DE00187644 /* VIEventProcessor.h */,
+				94A07184153808DE00187644 /* VIEventProcessor.m */,
+				94A0717D153803B600187644 /* VICommandView.h */,
+				94A0717E153803B600187644 /* VICommandView.m */,
+				940D820C15382870000C02B3 /* VIKitConstants.h */,
+				94A071701538013700187644 /* vim */,
+				94A0716E1538013700187644 /* VIKit.h */,
+			);
+			path = code;
+			sourceTree = "<group>";
+		};
+		94A071701538013700187644 /* vim */ = {
+			isa = PBXGroup;
+			children = (
+				94A0718A15380F0B00187644 /* keymap.h */,
+				94A071711538013700187644 /* ascii.h */,
+				94A071721538013700187644 /* globals.h */,
+				94A071731538013700187644 /* structs.h */,
+				94A0718C15380F2300187644 /* macros.h */,
+				94A071741538013700187644 /* vim.h */,
+			);
+			path = vim;
 			sourceTree = "<group>";
 		};
 		94C0F4921529864F006E5094 /* Runtime Browser */ = {
@@ -228,8 +372,6 @@
 				944134E0152BF7EB0007CF45 /* VISettingsManager.m */,
 				94CA5CDD1528178A00BA2361 /* DVTSwizzleSourceTextView.h */,
 				94CA5CDE1528178A00BA2361 /* DVTSwizzleSourceTextView.m */,
-				946F09031529658800E33389 /* IDESwizzleToolbar.h */,
-				946F09041529658800E33389 /* IDESwizzleToolbar.m */,
 				9435E94015284BEC00453194 /* IDESwizzleApplication.h */,
 				9435E94115284BEC00453194 /* IDESwizzleApplication.m */,
 				946F09071529664C00E33389 /* VIConstants.h */,
@@ -240,6 +382,26 @@
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		94A071391537FEC400187644 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94A071751538013700187644 /* VIKit.h in Headers */,
+				94A0717F153803B600187644 /* VICommandView.h in Headers */,
+				94A071771538013700187644 /* ascii.h in Headers */,
+				94A071781538013700187644 /* globals.h in Headers */,
+				94A071791538013700187644 /* structs.h in Headers */,
+				94A0717A1538013700187644 /* vim.h in Headers */,
+				94A07185153808DE00187644 /* VIEventProcessor.h in Headers */,
+				94A0718B15380F0B00187644 /* keymap.h in Headers */,
+				94A0718D15380F2300187644 /* macros.h in Headers */,
+				940D820D15382870000C02B3 /* VIKitConstants.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		943FCE381526C31D00A3EEE4 /* VIXcode */ = {
@@ -258,6 +420,42 @@
 			productName = VIXcode;
 			productReference = 943FCE391526C31D00A3EEE4 /* VIXcode.xcplugin */;
 			productType = "com.apple.product-type.bundle";
+		};
+		94A0713B1537FEC400187644 /* VIKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 94A0714B1537FEC500187644 /* Build configuration list for PBXNativeTarget "VIKit" */;
+			buildPhases = (
+				94A071371537FEC400187644 /* Sources */,
+				94A071381537FEC400187644 /* Frameworks */,
+				94A071391537FEC400187644 /* Headers */,
+				94A0713A1537FEC400187644 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VIKit;
+			productName = VIKit;
+			productReference = 94A0713C1537FEC400187644 /* VIKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		94A071501537FEE000187644 /* VITextView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 94A071661537FEE100187644 /* Build configuration list for PBXNativeTarget "VITextView" */;
+			buildPhases = (
+				94A0714D1537FEE000187644 /* Sources */,
+				94A0714E1537FEE000187644 /* Frameworks */,
+				94A0714F1537FEE000187644 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				94A0717C1538035800187644 /* PBXTargetDependency */,
+			);
+			name = VITextView;
+			productName = VITextView;
+			productReference = 94A071511537FEE100187644 /* VITextView.app */;
+			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
@@ -281,6 +479,8 @@
 			projectRoot = "";
 			targets = (
 				943FCE381526C31D00A3EEE4 /* VIXcode */,
+				94A0713B1537FEC400187644 /* VIKit */,
+				94A071501537FEE000187644 /* VITextView */,
 			);
 		};
 /* End PBXProject section */
@@ -295,6 +495,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		94A0713A1537FEC400187644 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94A071441537FEC500187644 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		94A0714F1537FEE000187644 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94A071591537FEE100187644 /* InfoPlist.strings in Resources */,
+				94A0715F1537FEE100187644 /* Credits.rtf in Resources */,
+				94A071651537FEE100187644 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -305,7 +523,6 @@
 				94CA5CE01528178A00BA2361 /* DVTSwizzleSourceTextView.m in Sources */,
 				94F004A71528186B00689C5E /* VIPlugin.m in Sources */,
 				9435E94215284BEC00453194 /* IDESwizzleApplication.m in Sources */,
-				946F09051529658800E33389 /* IDESwizzleToolbar.m in Sources */,
 				94C0F4971529864F006E5094 /* NSString-RuntimeReporting.m in Sources */,
 				94C0F4981529864F006E5094 /* RuntimeReporter.m in Sources */,
 				944134E1152BF7EB0007CF45 /* VISettingsManager.m in Sources */,
@@ -321,7 +538,34 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		94A071371537FEC400187644 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94A07180153803B600187644 /* VICommandView.m in Sources */,
+				94A07186153808DE00187644 /* VIEventProcessor.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		94A0714D1537FEE000187644 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94A0715B1537FEE100187644 /* main.m in Sources */,
+				94A0716C1537FF6500187644 /* AppDelegate.m in Sources */,
+				94944E971538314D0023C172 /* VITextView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		94A0717C1538035800187644 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 94A0713B1537FEC400187644 /* VIKit */;
+			targetProxy = 94A0717B1538035800187644 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		943FCE451526C31D00A3EEE4 /* InfoPlist.strings */ = {
@@ -330,6 +574,38 @@
 				943FCE461526C31D00A3EEE4 /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		94A071421537FEC500187644 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				94A071431537FEC500187644 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		94A071571537FEE100187644 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				94A071581537FEE100187644 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		94A0715D1537FEE100187644 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				94A0715E1537FEE100187644 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		94A071631537FEE100187644 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				94A071641537FEE100187644 /* en */,
+			);
+			name = MainMenu.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -438,6 +714,64 @@
 			};
 			name = Release;
 		};
+		94A071491537FEC500187644 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "VIKit/VIKit-Prefix.pch";
+				INFOPLIST_FILE = "VIKit/VIKit-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Debug;
+		};
+		94A0714A1537FEC500187644 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "VIKit/VIKit-Prefix.pch";
+				INFOPLIST_FILE = "VIKit/VIKit-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Release;
+		};
+		94A071671537FEE100187644 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Build/VIXcode/Build/Products/Debug\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "VITextView/VITextView-Prefix.pch";
+				INFOPLIST_FILE = "VITextView/VITextView-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		94A071681537FEE100187644 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Build/VIXcode/Build/Products/Debug\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "VITextView/VITextView-Prefix.pch";
+				INFOPLIST_FILE = "VITextView/VITextView-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -455,6 +789,24 @@
 			buildConfigurations = (
 				943FCE4C1526C31D00A3EEE4 /* Debug */,
 				943FCE4D1526C31D00A3EEE4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		94A0714B1537FEC500187644 /* Build configuration list for PBXNativeTarget "VIKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				94A071491537FEC500187644 /* Debug */,
+				94A0714A1537FEC500187644 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		94A071661537FEE100187644 /* Build configuration list for PBXNativeTarget "VITextView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				94A071671537FEE100187644 /* Debug */,
+				94A071681537FEE100187644 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

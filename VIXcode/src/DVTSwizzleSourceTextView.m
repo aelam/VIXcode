@@ -63,33 +63,6 @@ static char const * const VICommandViewAssociatedKey = "VICommandViewAssociatedK
 }
 
 -  (void)mouseDown:(NSEvent *)theEvent {
-//    unichar charcode = [[theEvent charactersIgnoringModifiers] characterAtIndex:0];
-//    NSLog(@"mouseDown : keyCode:%d characters:%@ charsIgnoreMod:%@ ASCII:%d", [theEvent keyCode], 
-//          [theEvent characters], [theEvent charactersIgnoringModifiers], charcode);
-//    NSLog(@"%@",theEvent);
-
-
-    
-//    NSApplication *sharedApplication = [NSApplication sharedApplication];
-//    NSWindow *keyWindow = [sharedApplication keyWindow];
-//    id contentView = [keyWindow contentView];
-//    NIF_TRACE(@"contentView : %@",[contentView subviews]);
-
-//    NSView *testView = [[NSView alloc] initWithFrame:CGRectMake(0, 0, 320, 100)];
-//    
-//    CALayer *viewLayer = [CALayer layer];
-//    [viewLayer setBackgroundColor:CGColorCreateGenericRGB(0.0, 0.0, 0.0, 0.4)]; //RGB plus Alpha Channel
-//    [testView setWantsLayer:YES]; // view's backing store is using a Core Animation Layer
-//    [testView setLayer:viewLayer];
-//    
-//    [contentView addSubview:testView];
-//    [testView release];
-    
-//    NIF_TRACE(@"%@",sharedApplication);
-//    NIF_TRACE(@"[sharedApplication keyWindow] = %@", keyWindow);
-//
-
-    
     
     [self origin_mouseDown:theEvent];
 }
