@@ -10,19 +10,20 @@
 #import "VICommandView.h"
 #import "vim.h"
 
+extern BOOL isVIMEnabled;
+
 @class VICommandView;
+@class VIEventHandler;
 
 @interface VIEventProcessor : NSObject {
 
-    NSUInteger         _state;
-
-@protected
-    NSMutableString *_showcmdBuffer;
-    NSMutableString *_appendString;
+    NSUInteger          _state;
+    NSMutableString     *_showcmdBuffer;
+    NSMutableString     *_appendString;
     
-    BOOL        _showcmdBufferCleared;
+    BOOL                _showcmdBufferCleared;
     
-    NSUInteger  _visualActive;
+    NSUInteger          _visualActive;
     
 }
 
@@ -31,13 +32,14 @@
 @property (nonatomic,readwrite) NSUInteger      state;
 @property (nonatomic,retain) NSMutableString    *showcmdBuffer;
 @property (nonatomic,retain) NSMutableString    *appendString;
-@property (nonatomic,readonly) NSUInteger       repeat;
+@property (nonatomic,retain) VIEventHandler     *eventHandler;
 
 + (VIEventProcessor *)sharedProcessor;
 
 - (BOOL)handleKeyEvent:(NSEvent *)event;
 
-- (void)displayCMDBuffer;
+
+- (int)showmode:(BOOL)flag;
 
 
 @end

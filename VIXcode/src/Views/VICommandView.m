@@ -66,7 +66,7 @@
         [[scrollView contentView] setCopiesOnScroll:NO];
         
         if(![[scrollView subviews] containsObject:self]){
-            NIF_INFO(@"added!! %@",NSStringFromRect(scrollView.frame));
+//            NIF_INFO(@"added!! %@",NSStringFromRect(scrollView.frame));
             [scrollView addSubview:self positioned:NSWindowAbove relativeTo:nil];
             
             [scrollView setPostsFrameChangedNotifications:YES];

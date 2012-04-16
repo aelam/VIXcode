@@ -8,6 +8,10 @@
 
 #import "VIEventProcessor.h"
 #import "VIKitConstants.h"
+#import "VIEventHandler.h"
+#import "VINormalHandler.h"
+#import "VIEditHandler.h"
+#import "NSEvent+Keymap.h"
 
 @implementation VIEventProcessor
 
@@ -16,8 +20,7 @@
 @synthesize state = _state;
 @synthesize showcmdBuffer = _showcmdBuffer;
 @synthesize appendString = _appendString;
-@synthesize repeat = _repeat;
-
+@synthesize eventHandler = _eventHandler;
 
 static VIEventProcessor *sharedProcessor = nil;
 
@@ -60,7 +63,48 @@ static VIEventProcessor *sharedProcessor = nil;
 
 - (BOOL)handleKeyEvent:(NSEvent *)event {
     
+    unichar value = [event ASCIIValue];
+    NIF_INFO(@"keyvalue : %u",value);
+    
+    if (_state & INSERT) {
+        if (value == ESC) {
+            _state = NORMAL;
+        }
+
+        return NO;
+    } else if (_state & NORMAL) {
+        if (value == 'i') {
+            _state = INSERT;
+        }        
+        return YES;
+    } else {
+        
+        return YES;
+    }
+    
+    
+//    if (_state & NORMAL) {
+//        <#statements#>;
+//    }
+    
+//    switch (_state) {
+//        case NORMAL:
+//            
+//            break;
+//            
+//        default:
+//            break;
+//    }
+    
+    
     return YES;
+}
+
+- (VIEventHandler *)eventHandler {
+    if (_eventHandler == nil) {
+        _eventHandler = [[VINormalHandler alloc] init];
+    }
+    return _eventHandler;
 }
 
 - (void)clearShowcmd {

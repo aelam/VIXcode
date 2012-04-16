@@ -8,6 +8,59 @@
 
 /* Begin PBXBuildFile section */
 		940D820D15382870000C02B3 /* VIKitConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 940D820C15382870000C02B3 /* VIKitConstants.h */; };
+		94329370153B992E00FC9E27 /* af.po in Resources */ = {isa = PBXBuildFile; fileRef = 94329342153B992E00FC9E27 /* af.po */; };
+		94329371153B992E00FC9E27 /* ca.po in Resources */ = {isa = PBXBuildFile; fileRef = 94329343153B992E00FC9E27 /* ca.po */; };
+		94329372153B992E00FC9E27 /* check.vim in Resources */ = {isa = PBXBuildFile; fileRef = 94329344153B992E00FC9E27 /* check.vim */; };
+		94329373153B992E00FC9E27 /* cleanup.vim in Resources */ = {isa = PBXBuildFile; fileRef = 94329345153B992E00FC9E27 /* cleanup.vim */; };
+		94329374153B992E00FC9E27 /* cs.cp1250.po in Resources */ = {isa = PBXBuildFile; fileRef = 94329346153B992E00FC9E27 /* cs.cp1250.po */; };
+		94329375153B992E00FC9E27 /* cs.po in Resources */ = {isa = PBXBuildFile; fileRef = 94329347153B992E00FC9E27 /* cs.po */; };
+		94329376153B992E00FC9E27 /* de.po in Resources */ = {isa = PBXBuildFile; fileRef = 94329348153B992E00FC9E27 /* de.po */; };
+		94329377153B992E00FC9E27 /* en_GB.po in Resources */ = {isa = PBXBuildFile; fileRef = 94329349153B992E00FC9E27 /* en_GB.po */; };
+		94329378153B992E00FC9E27 /* eo.po in Resources */ = {isa = PBXBuildFile; fileRef = 9432934A153B992E00FC9E27 /* eo.po */; };
+		94329379153B992E00FC9E27 /* es.po in Resources */ = {isa = PBXBuildFile; fileRef = 9432934B153B992E00FC9E27 /* es.po */; };
+		9432937A153B992E00FC9E27 /* fi.po in Resources */ = {isa = PBXBuildFile; fileRef = 9432934C153B992E00FC9E27 /* fi.po */; };
+		9432937B153B992E00FC9E27 /* fr.po in Resources */ = {isa = PBXBuildFile; fileRef = 9432934D153B992E00FC9E27 /* fr.po */; };
+		9432937C153B992E00FC9E27 /* ga.po in Resources */ = {isa = PBXBuildFile; fileRef = 9432934E153B992E00FC9E27 /* ga.po */; };
+		9432937D153B992E00FC9E27 /* it.po in Resources */ = {isa = PBXBuildFile; fileRef = 9432934F153B992E00FC9E27 /* it.po */; };
+		9432937E153B992E00FC9E27 /* ja.po in Resources */ = {isa = PBXBuildFile; fileRef = 94329350153B992E00FC9E27 /* ja.po */; };
+		9432937F153B992E00FC9E27 /* ja.sjis.po in Resources */ = {isa = PBXBuildFile; fileRef = 94329351153B992E00FC9E27 /* ja.sjis.po */; };
+		94329380153B992E00FC9E27 /* ko.po in Resources */ = {isa = PBXBuildFile; fileRef = 94329352153B992E00FC9E27 /* ko.po */; };
+		94329381153B992E00FC9E27 /* ko.UTF-8.po in Resources */ = {isa = PBXBuildFile; fileRef = 94329353153B992E00FC9E27 /* ko.UTF-8.po */; };
+		94329385153B992E00FC9E27 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 94329357153B992E00FC9E27 /* Makefile */; };
+		94329386153B992E00FC9E27 /* nb.po in Resources */ = {isa = PBXBuildFile; fileRef = 94329358153B992E00FC9E27 /* nb.po */; };
+		94329387153B992E00FC9E27 /* nl.po in Resources */ = {isa = PBXBuildFile; fileRef = 94329359153B992E00FC9E27 /* nl.po */; };
+		94329388153B992E00FC9E27 /* no.po in Resources */ = {isa = PBXBuildFile; fileRef = 9432935A153B992E00FC9E27 /* no.po */; };
+		94329389153B992E00FC9E27 /* pl.cp1250.po in Resources */ = {isa = PBXBuildFile; fileRef = 9432935B153B992E00FC9E27 /* pl.cp1250.po */; };
+		9432938A153B992E00FC9E27 /* pl.po in Resources */ = {isa = PBXBuildFile; fileRef = 9432935C153B992E00FC9E27 /* pl.po */; };
+		9432938B153B992E00FC9E27 /* pl.UTF-8.po in Resources */ = {isa = PBXBuildFile; fileRef = 9432935D153B992E00FC9E27 /* pl.UTF-8.po */; };
+		9432938C153B992E00FC9E27 /* pt_BR.po in Resources */ = {isa = PBXBuildFile; fileRef = 9432935E153B992E00FC9E27 /* pt_BR.po */; };
+		9432938D153B992E00FC9E27 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9432935F153B992E00FC9E27 /* README.txt */; };
+		9432938E153B992E00FC9E27 /* README_mingw.txt in Resources */ = {isa = PBXBuildFile; fileRef = 94329360153B992E00FC9E27 /* README_mingw.txt */; };
+		9432938F153B992E00FC9E27 /* README_mvc.txt in Resources */ = {isa = PBXBuildFile; fileRef = 94329361153B992E00FC9E27 /* README_mvc.txt */; };
+		94329390153B992E00FC9E27 /* ru.cp1251.po in Resources */ = {isa = PBXBuildFile; fileRef = 94329362153B992E00FC9E27 /* ru.cp1251.po */; };
+		94329391153B992E00FC9E27 /* ru.po in Resources */ = {isa = PBXBuildFile; fileRef = 94329363153B992E00FC9E27 /* ru.po */; };
+		94329392153B992E00FC9E27 /* sjiscorr.c in Sources */ = {isa = PBXBuildFile; fileRef = 94329364153B992E00FC9E27 /* sjiscorr.c */; };
+		94329393153B992E00FC9E27 /* sk.cp1250.po in Resources */ = {isa = PBXBuildFile; fileRef = 94329365153B992E00FC9E27 /* sk.cp1250.po */; };
+		94329394153B992E00FC9E27 /* sk.po in Resources */ = {isa = PBXBuildFile; fileRef = 94329366153B992E00FC9E27 /* sk.po */; };
+		94329395153B992E00FC9E27 /* sv.po in Resources */ = {isa = PBXBuildFile; fileRef = 94329367153B992E00FC9E27 /* sv.po */; };
+		94329396153B992E00FC9E27 /* uk.cp1251.po in Resources */ = {isa = PBXBuildFile; fileRef = 94329368153B992E00FC9E27 /* uk.cp1251.po */; };
+		94329397153B992E00FC9E27 /* uk.po in Resources */ = {isa = PBXBuildFile; fileRef = 94329369153B992E00FC9E27 /* uk.po */; };
+		94329398153B992E00FC9E27 /* vi.po in Resources */ = {isa = PBXBuildFile; fileRef = 9432936A153B992E00FC9E27 /* vi.po */; };
+		94329399153B992E00FC9E27 /* zh_CN.cp936.po in Resources */ = {isa = PBXBuildFile; fileRef = 9432936B153B992E00FC9E27 /* zh_CN.cp936.po */; };
+		9432939A153B992E00FC9E27 /* zh_CN.po in Resources */ = {isa = PBXBuildFile; fileRef = 9432936C153B992E00FC9E27 /* zh_CN.po */; };
+		9432939B153B992E00FC9E27 /* zh_CN.UTF-8.po in Resources */ = {isa = PBXBuildFile; fileRef = 9432936D153B992E00FC9E27 /* zh_CN.UTF-8.po */; };
+		9432939C153B992E00FC9E27 /* zh_TW.po in Resources */ = {isa = PBXBuildFile; fileRef = 9432936E153B992E00FC9E27 /* zh_TW.po */; };
+		9432939D153B992E00FC9E27 /* zh_TW.UTF-8.po in Resources */ = {isa = PBXBuildFile; fileRef = 9432936F153B992E00FC9E27 /* zh_TW.UTF-8.po */; };
+		9432948E153BB53E00FC9E27 /* VINormalHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 9432948A153BB53E00FC9E27 /* VINormalHandler.h */; };
+		9432948F153BB53E00FC9E27 /* VINormalHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 9432948B153BB53E00FC9E27 /* VINormalHandler.m */; };
+		94329493153BB58100FC9E27 /* VIEventHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 94329491153BB58100FC9E27 /* VIEventHandler.m */; };
+		94329495153BB5A100FC9E27 /* VIEditHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 94329494153BB5A100FC9E27 /* VIEditHandler.m */; };
+		94329497153BB5BC00FC9E27 /* VIEventHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 94329496153BB5BC00FC9E27 /* VIEventHandler.h */; };
+		94329499153BB5F200FC9E27 /* VIEditHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 94329498153BB5F200FC9E27 /* VIEditHandler.h */; };
+		9432949F153BBFC600FC9E27 /* NSEvent+Keymap.h in Headers */ = {isa = PBXBuildFile; fileRef = 9432949D153BBFC500FC9E27 /* NSEvent+Keymap.h */; };
+		943294A0153BBFC600FC9E27 /* NSEvent+Keymap.m in Sources */ = {isa = PBXBuildFile; fileRef = 9432949E153BBFC500FC9E27 /* NSEvent+Keymap.m */; };
+		943294A3153BC1D100FC9E27 /* VITextView.h in Headers */ = {isa = PBXBuildFile; fileRef = 943294A1153BC1D000FC9E27 /* VITextView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		943294A4153BC1D100FC9E27 /* VITextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 943294A2153BC1D000FC9E27 /* VITextView.m */; };
 		9435E94215284BEC00453194 /* IDESwizzleApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 9435E94115284BEC00453194 /* IDESwizzleApplication.m */; };
 		943FCE3D1526C31D00A3EEE4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 943FCE3C1526C31D00A3EEE4 /* Cocoa.framework */; };
 		943FCE471526C31D00A3EEE4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 943FCE451526C31D00A3EEE4 /* InfoPlist.strings */; };
@@ -18,7 +71,6 @@
 		944521E315305B3D007B18B5 /* VIEventProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 944521E215305B3D007B18B5 /* VIEventProcessor.m */; };
 		944521F415308525007B18B5 /* VICommandView.m in Sources */ = {isa = PBXBuildFile; fileRef = 944521F315308525007B18B5 /* VICommandView.m */; };
 		94691BC21528841000A913FD /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 94691BC11528841000A913FD /* README.md */; };
-		94944E971538314D0023C172 /* VITextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94944E961538314D0023C172 /* VITextView.m */; };
 		9494850F1532D06200F90E31 /* NSString+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 9494850E1532D06200F90E31 /* NSString+Category.m */; };
 		9498927C1535E1A50070114B /* CocoaBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 9498927B1535E1A50070114B /* CocoaBridge.m */; };
 		94A0713D1537FEC500187644 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 943FCE3C1526C31D00A3EEE4 /* Cocoa.framework */; };
@@ -62,6 +114,59 @@
 
 /* Begin PBXFileReference section */
 		940D820C15382870000C02B3 /* VIKitConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIKitConstants.h; sourceTree = "<group>"; };
+		94329342153B992E00FC9E27 /* af.po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = af.po; sourceTree = "<group>"; };
+		94329343153B992E00FC9E27 /* ca.po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ca.po; sourceTree = "<group>"; };
+		94329344153B992E00FC9E27 /* check.vim */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = check.vim; sourceTree = "<group>"; };
+		94329345153B992E00FC9E27 /* cleanup.vim */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cleanup.vim; sourceTree = "<group>"; };
+		94329346153B992E00FC9E27 /* cs.cp1250.po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cs.cp1250.po; sourceTree = "<group>"; };
+		94329347153B992E00FC9E27 /* cs.po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cs.po; sourceTree = "<group>"; };
+		94329348153B992E00FC9E27 /* de.po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = de.po; sourceTree = "<group>"; };
+		94329349153B992E00FC9E27 /* en_GB.po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = en_GB.po; sourceTree = "<group>"; };
+		9432934A153B992E00FC9E27 /* eo.po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = eo.po; sourceTree = "<group>"; };
+		9432934B153B992E00FC9E27 /* es.po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = es.po; sourceTree = "<group>"; };
+		9432934C153B992E00FC9E27 /* fi.po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fi.po; sourceTree = "<group>"; };
+		9432934D153B992E00FC9E27 /* fr.po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fr.po; sourceTree = "<group>"; };
+		9432934E153B992E00FC9E27 /* ga.po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ga.po; sourceTree = "<group>"; };
+		9432934F153B992E00FC9E27 /* it.po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = it.po; sourceTree = "<group>"; };
+		94329350153B992E00FC9E27 /* ja.po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ja.po; sourceTree = "<group>"; };
+		94329351153B992E00FC9E27 /* ja.sjis.po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ja.sjis.po; sourceTree = "<group>"; };
+		94329352153B992E00FC9E27 /* ko.po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ko.po; sourceTree = "<group>"; };
+		94329353153B992E00FC9E27 /* ko.UTF-8.po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "ko.UTF-8.po"; sourceTree = "<group>"; };
+		94329357153B992E00FC9E27 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		94329358153B992E00FC9E27 /* nb.po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = nb.po; sourceTree = "<group>"; };
+		94329359153B992E00FC9E27 /* nl.po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = nl.po; sourceTree = "<group>"; };
+		9432935A153B992E00FC9E27 /* no.po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = no.po; sourceTree = "<group>"; };
+		9432935B153B992E00FC9E27 /* pl.cp1250.po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pl.cp1250.po; sourceTree = "<group>"; };
+		9432935C153B992E00FC9E27 /* pl.po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pl.po; sourceTree = "<group>"; };
+		9432935D153B992E00FC9E27 /* pl.UTF-8.po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "pl.UTF-8.po"; sourceTree = "<group>"; };
+		9432935E153B992E00FC9E27 /* pt_BR.po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pt_BR.po; sourceTree = "<group>"; };
+		9432935F153B992E00FC9E27 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		94329360153B992E00FC9E27 /* README_mingw.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README_mingw.txt; sourceTree = "<group>"; };
+		94329361153B992E00FC9E27 /* README_mvc.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README_mvc.txt; sourceTree = "<group>"; };
+		94329362153B992E00FC9E27 /* ru.cp1251.po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ru.cp1251.po; sourceTree = "<group>"; };
+		94329363153B992E00FC9E27 /* ru.po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ru.po; sourceTree = "<group>"; };
+		94329364153B992E00FC9E27 /* sjiscorr.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sjiscorr.c; sourceTree = "<group>"; };
+		94329365153B992E00FC9E27 /* sk.cp1250.po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sk.cp1250.po; sourceTree = "<group>"; };
+		94329366153B992E00FC9E27 /* sk.po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sk.po; sourceTree = "<group>"; };
+		94329367153B992E00FC9E27 /* sv.po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sv.po; sourceTree = "<group>"; };
+		94329368153B992E00FC9E27 /* uk.cp1251.po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = uk.cp1251.po; sourceTree = "<group>"; };
+		94329369153B992E00FC9E27 /* uk.po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = uk.po; sourceTree = "<group>"; };
+		9432936A153B992E00FC9E27 /* vi.po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vi.po; sourceTree = "<group>"; };
+		9432936B153B992E00FC9E27 /* zh_CN.cp936.po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = zh_CN.cp936.po; sourceTree = "<group>"; };
+		9432936C153B992E00FC9E27 /* zh_CN.po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = zh_CN.po; sourceTree = "<group>"; };
+		9432936D153B992E00FC9E27 /* zh_CN.UTF-8.po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "zh_CN.UTF-8.po"; sourceTree = "<group>"; };
+		9432936E153B992E00FC9E27 /* zh_TW.po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = zh_TW.po; sourceTree = "<group>"; };
+		9432936F153B992E00FC9E27 /* zh_TW.UTF-8.po */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "zh_TW.UTF-8.po"; sourceTree = "<group>"; };
+		9432948A153BB53E00FC9E27 /* VINormalHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VINormalHandler.h; sourceTree = "<group>"; };
+		9432948B153BB53E00FC9E27 /* VINormalHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VINormalHandler.m; sourceTree = "<group>"; };
+		94329491153BB58100FC9E27 /* VIEventHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIEventHandler.m; sourceTree = "<group>"; };
+		94329494153BB5A100FC9E27 /* VIEditHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIEditHandler.m; sourceTree = "<group>"; };
+		94329496153BB5BC00FC9E27 /* VIEventHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIEventHandler.h; sourceTree = "<group>"; };
+		94329498153BB5F200FC9E27 /* VIEditHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIEditHandler.h; sourceTree = "<group>"; };
+		9432949D153BBFC500FC9E27 /* NSEvent+Keymap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSEvent+Keymap.h"; sourceTree = "<group>"; };
+		9432949E153BBFC500FC9E27 /* NSEvent+Keymap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSEvent+Keymap.m"; sourceTree = "<group>"; };
+		943294A1153BC1D000FC9E27 /* VITextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VITextView.h; sourceTree = "<group>"; };
+		943294A2153BC1D000FC9E27 /* VITextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VITextView.m; sourceTree = "<group>"; };
 		9435E94015284BEC00453194 /* IDESwizzleApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDESwizzleApplication.h; sourceTree = "<group>"; };
 		9435E94115284BEC00453194 /* IDESwizzleApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDESwizzleApplication.m; sourceTree = "<group>"; };
 		943FCE391526C31D00A3EEE4 /* VIXcode.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VIXcode.xcplugin; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -87,8 +192,6 @@
 		946F09071529664C00E33389 /* VIConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VIConstants.h; sourceTree = "<group>"; };
 		947523431530B0E700FA1139 /* VIEventProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIEventProtocol.h; sourceTree = "<group>"; };
 		94762A5215347E54002445A7 /* VIXcode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VIXcode.h; sourceTree = "<group>"; };
-		94944E951538314D0023C172 /* VITextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VITextView.h; sourceTree = "<group>"; };
-		94944E961538314D0023C172 /* VITextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VITextView.m; sourceTree = "<group>"; };
 		9494850D1532D06200F90E31 /* NSString+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Category.h"; sourceTree = "<group>"; };
 		9494850E1532D06200F90E31 /* NSString+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Category.m"; sourceTree = "<group>"; };
 		9498927A1535E1A50070114B /* CocoaBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocoaBridge.h; sourceTree = "<group>"; };
@@ -165,6 +268,69 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		94329341153B992E00FC9E27 /* po */ = {
+			isa = PBXGroup;
+			children = (
+				94329342153B992E00FC9E27 /* af.po */,
+				94329343153B992E00FC9E27 /* ca.po */,
+				94329344153B992E00FC9E27 /* check.vim */,
+				94329345153B992E00FC9E27 /* cleanup.vim */,
+				94329346153B992E00FC9E27 /* cs.cp1250.po */,
+				94329347153B992E00FC9E27 /* cs.po */,
+				94329348153B992E00FC9E27 /* de.po */,
+				94329349153B992E00FC9E27 /* en_GB.po */,
+				9432934A153B992E00FC9E27 /* eo.po */,
+				9432934B153B992E00FC9E27 /* es.po */,
+				9432934C153B992E00FC9E27 /* fi.po */,
+				9432934D153B992E00FC9E27 /* fr.po */,
+				9432934E153B992E00FC9E27 /* ga.po */,
+				9432934F153B992E00FC9E27 /* it.po */,
+				94329350153B992E00FC9E27 /* ja.po */,
+				94329351153B992E00FC9E27 /* ja.sjis.po */,
+				94329352153B992E00FC9E27 /* ko.po */,
+				94329353153B992E00FC9E27 /* ko.UTF-8.po */,
+				94329357153B992E00FC9E27 /* Makefile */,
+				94329358153B992E00FC9E27 /* nb.po */,
+				94329359153B992E00FC9E27 /* nl.po */,
+				9432935A153B992E00FC9E27 /* no.po */,
+				9432935B153B992E00FC9E27 /* pl.cp1250.po */,
+				9432935C153B992E00FC9E27 /* pl.po */,
+				9432935D153B992E00FC9E27 /* pl.UTF-8.po */,
+				9432935E153B992E00FC9E27 /* pt_BR.po */,
+				9432935F153B992E00FC9E27 /* README.txt */,
+				94329360153B992E00FC9E27 /* README_mingw.txt */,
+				94329361153B992E00FC9E27 /* README_mvc.txt */,
+				94329362153B992E00FC9E27 /* ru.cp1251.po */,
+				94329363153B992E00FC9E27 /* ru.po */,
+				94329364153B992E00FC9E27 /* sjiscorr.c */,
+				94329365153B992E00FC9E27 /* sk.cp1250.po */,
+				94329366153B992E00FC9E27 /* sk.po */,
+				94329367153B992E00FC9E27 /* sv.po */,
+				94329368153B992E00FC9E27 /* uk.cp1251.po */,
+				94329369153B992E00FC9E27 /* uk.po */,
+				9432936A153B992E00FC9E27 /* vi.po */,
+				9432936B153B992E00FC9E27 /* zh_CN.cp936.po */,
+				9432936C153B992E00FC9E27 /* zh_CN.po */,
+				9432936D153B992E00FC9E27 /* zh_CN.UTF-8.po */,
+				9432936E153B992E00FC9E27 /* zh_TW.po */,
+				9432936F153B992E00FC9E27 /* zh_TW.UTF-8.po */,
+			);
+			path = po;
+			sourceTree = "<group>";
+		};
+		94329487153BB53E00FC9E27 /* Handler */ = {
+			isa = PBXGroup;
+			children = (
+				94329496153BB5BC00FC9E27 /* VIEventHandler.h */,
+				94329491153BB58100FC9E27 /* VIEventHandler.m */,
+				94329498153BB5F200FC9E27 /* VIEditHandler.h */,
+				94329494153BB5A100FC9E27 /* VIEditHandler.m */,
+				9432948A153BB53E00FC9E27 /* VINormalHandler.h */,
+				9432948B153BB53E00FC9E27 /* VINormalHandler.m */,
+			);
+			path = Handler;
+			sourceTree = "<group>";
+		};
 		943FCE2E1526C31C00A3EEE4 = {
 			isa = PBXGroup;
 			children = (
@@ -268,6 +434,7 @@
 		94A0713F1537FEC500187644 /* VIKit */ = {
 			isa = PBXGroup;
 			children = (
+				94329341153B992E00FC9E27 /* po */,
 				94A0716D1537FF7100187644 /* code */,
 				94A071401537FEC500187644 /* Supporting Files */,
 			);
@@ -312,8 +479,6 @@
 			children = (
 				94A0716A1537FF6500187644 /* AppDelegate.h */,
 				94A0716B1537FF6500187644 /* AppDelegate.m */,
-				94944E951538314D0023C172 /* VITextView.h */,
-				94944E961538314D0023C172 /* VITextView.m */,
 			);
 			path = code;
 			sourceTree = "<group>";
@@ -321,11 +486,16 @@
 		94A0716D1537FF7100187644 /* code */ = {
 			isa = PBXGroup;
 			children = (
+				94329487153BB53E00FC9E27 /* Handler */,
 				94A07183153808DE00187644 /* VIEventProcessor.h */,
 				94A07184153808DE00187644 /* VIEventProcessor.m */,
 				94A0717D153803B600187644 /* VICommandView.h */,
 				94A0717E153803B600187644 /* VICommandView.m */,
 				940D820C15382870000C02B3 /* VIKitConstants.h */,
+				9432949D153BBFC500FC9E27 /* NSEvent+Keymap.h */,
+				9432949E153BBFC500FC9E27 /* NSEvent+Keymap.m */,
+				943294A1153BC1D000FC9E27 /* VITextView.h */,
+				943294A2153BC1D000FC9E27 /* VITextView.m */,
 				94A071701538013700187644 /* vim */,
 				94A0716E1538013700187644 /* VIKit.h */,
 			);
@@ -391,6 +561,7 @@
 				94A071751538013700187644 /* VIKit.h in Headers */,
 				94A0717F153803B600187644 /* VICommandView.h in Headers */,
 				94A071771538013700187644 /* ascii.h in Headers */,
+				943294A3153BC1D100FC9E27 /* VITextView.h in Headers */,
 				94A071781538013700187644 /* globals.h in Headers */,
 				94A071791538013700187644 /* structs.h in Headers */,
 				94A0717A1538013700187644 /* vim.h in Headers */,
@@ -398,6 +569,10 @@
 				94A0718B15380F0B00187644 /* keymap.h in Headers */,
 				94A0718D15380F2300187644 /* macros.h in Headers */,
 				940D820D15382870000C02B3 /* VIKitConstants.h in Headers */,
+				9432948E153BB53E00FC9E27 /* VINormalHandler.h in Headers */,
+				94329497153BB5BC00FC9E27 /* VIEventHandler.h in Headers */,
+				94329499153BB5F200FC9E27 /* VIEditHandler.h in Headers */,
+				9432949F153BBFC600FC9E27 /* NSEvent+Keymap.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -500,6 +675,47 @@
 			buildActionMask = 2147483647;
 			files = (
 				94A071441537FEC500187644 /* InfoPlist.strings in Resources */,
+				94329370153B992E00FC9E27 /* af.po in Resources */,
+				94329371153B992E00FC9E27 /* ca.po in Resources */,
+				94329372153B992E00FC9E27 /* check.vim in Resources */,
+				94329373153B992E00FC9E27 /* cleanup.vim in Resources */,
+				94329374153B992E00FC9E27 /* cs.cp1250.po in Resources */,
+				94329375153B992E00FC9E27 /* cs.po in Resources */,
+				94329376153B992E00FC9E27 /* de.po in Resources */,
+				94329377153B992E00FC9E27 /* en_GB.po in Resources */,
+				94329378153B992E00FC9E27 /* eo.po in Resources */,
+				94329379153B992E00FC9E27 /* es.po in Resources */,
+				9432937A153B992E00FC9E27 /* fi.po in Resources */,
+				9432937B153B992E00FC9E27 /* fr.po in Resources */,
+				9432937C153B992E00FC9E27 /* ga.po in Resources */,
+				9432937D153B992E00FC9E27 /* it.po in Resources */,
+				9432937E153B992E00FC9E27 /* ja.po in Resources */,
+				9432937F153B992E00FC9E27 /* ja.sjis.po in Resources */,
+				94329380153B992E00FC9E27 /* ko.po in Resources */,
+				94329381153B992E00FC9E27 /* ko.UTF-8.po in Resources */,
+				94329386153B992E00FC9E27 /* nb.po in Resources */,
+				94329387153B992E00FC9E27 /* nl.po in Resources */,
+				94329388153B992E00FC9E27 /* no.po in Resources */,
+				94329389153B992E00FC9E27 /* pl.cp1250.po in Resources */,
+				9432938A153B992E00FC9E27 /* pl.po in Resources */,
+				9432938B153B992E00FC9E27 /* pl.UTF-8.po in Resources */,
+				9432938C153B992E00FC9E27 /* pt_BR.po in Resources */,
+				9432938D153B992E00FC9E27 /* README.txt in Resources */,
+				9432938E153B992E00FC9E27 /* README_mingw.txt in Resources */,
+				9432938F153B992E00FC9E27 /* README_mvc.txt in Resources */,
+				94329390153B992E00FC9E27 /* ru.cp1251.po in Resources */,
+				94329391153B992E00FC9E27 /* ru.po in Resources */,
+				94329393153B992E00FC9E27 /* sk.cp1250.po in Resources */,
+				94329394153B992E00FC9E27 /* sk.po in Resources */,
+				94329395153B992E00FC9E27 /* sv.po in Resources */,
+				94329396153B992E00FC9E27 /* uk.cp1251.po in Resources */,
+				94329397153B992E00FC9E27 /* uk.po in Resources */,
+				94329398153B992E00FC9E27 /* vi.po in Resources */,
+				94329399153B992E00FC9E27 /* zh_CN.cp936.po in Resources */,
+				9432939A153B992E00FC9E27 /* zh_CN.po in Resources */,
+				9432939B153B992E00FC9E27 /* zh_CN.UTF-8.po in Resources */,
+				9432939C153B992E00FC9E27 /* zh_TW.po in Resources */,
+				9432939D153B992E00FC9E27 /* zh_TW.UTF-8.po in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -544,6 +760,13 @@
 			files = (
 				94A07180153803B600187644 /* VICommandView.m in Sources */,
 				94A07186153808DE00187644 /* VIEventProcessor.m in Sources */,
+				94329385153B992E00FC9E27 /* Makefile in Sources */,
+				94329392153B992E00FC9E27 /* sjiscorr.c in Sources */,
+				9432948F153BB53E00FC9E27 /* VINormalHandler.m in Sources */,
+				94329493153BB58100FC9E27 /* VIEventHandler.m in Sources */,
+				94329495153BB5A100FC9E27 /* VIEditHandler.m in Sources */,
+				943294A0153BBFC600FC9E27 /* NSEvent+Keymap.m in Sources */,
+				943294A4153BC1D100FC9E27 /* VITextView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -553,7 +776,6 @@
 			files = (
 				94A0715B1537FEE100187644 /* main.m in Sources */,
 				94A0716C1537FF6500187644 /* AppDelegate.m in Sources */,
-				94944E971538314D0023C172 /* VITextView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
