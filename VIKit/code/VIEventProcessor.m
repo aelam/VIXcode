@@ -10,8 +10,11 @@
 #import "VIKitConstants.h"
 #import "VIEventHandler.h"
 #import "VINormalHandler.h"
-#import "VIEditHandler.h"
+//#import "VIEditHandler.h"
 #import "NSEvent+Keymap.h"
+#import "vim.h"
+#import "structs.h"
+#import "VINormalHandler.h"
 
 @implementation VIEventProcessor
 
@@ -22,12 +25,18 @@
 @synthesize appendString = _appendString;
 @synthesize eventHandler = _eventHandler;
 
+static oparg_T	oa;				/* operator arguments */
+
+
 static VIEventProcessor *sharedProcessor = nil;
 
 + (VIEventProcessor *)sharedProcessor {
     @synchronized(self) {
         if (sharedProcessor == nil) {
             sharedProcessor = [[self alloc]init];
+            
+            init_normal_cmds();
+            
         }
         
         return sharedProcessor;
@@ -39,8 +48,8 @@ static VIEventProcessor *sharedProcessor = nil;
         
         //EXTERN int State INIT(= NORMAL);	/* This is the current state of the command interpreter. */
         _state = NORMAL;
-        NIF_INFO(@"state : %lu",_state);
-
+        NIF_INFO(@"state : %d",State);
+                
         _showcmdBuffer = [[NSMutableString alloc] init];
         _appendString = [[NSMutableString alloc] init];
 
@@ -64,48 +73,30 @@ static VIEventProcessor *sharedProcessor = nil;
 - (BOOL)handleKeyEvent:(NSEvent *)event {
     
     unichar value = [event ASCIIValue];
-    NIF_INFO(@"keyvalue : %u",value);
+
     
-    if (_state & INSERT) {
+    if (State & INSERT) {
         if (value == ESC) {
-            _state = NORMAL;
+            State = NORMAL;
         }
 
         return NO;
-    } else if (_state & NORMAL) {
-        if (value == 'i') {
-            _state = INSERT;
-        }        
-        return YES;
+    } else if (State & NORMAL) {
+        normal_cmd(&oa,TRUE,event);
     } else {
         
         return YES;
     }
     
-    
-//    if (_state & NORMAL) {
-//        <#statements#>;
-//    }
-    
-//    switch (_state) {
-//        case NORMAL:
-//            
-//            break;
-//            
-//        default:
-//            break;
-//    }
-    
-    
     return YES;
 }
 
-- (VIEventHandler *)eventHandler {
-    if (_eventHandler == nil) {
-        _eventHandler = [[VINormalHandler alloc] init];
-    }
-    return _eventHandler;
-}
+//- (VIEventHandler *)eventHandler {
+//    if (_eventHandler == nil) {
+//        _eventHandler = [[VINormalHandler alloc] init];
+//    }
+//    return _eventHandler;
+//}
 
 - (void)clearShowcmd {
     

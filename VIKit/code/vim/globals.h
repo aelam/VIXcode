@@ -9,7 +9,7 @@
 /*
  * definition of global variables
  */
-#define EXTERN extern
+//#define EXTERN extern
 
 /*
  * Number of Rows and Columns in the screen.
@@ -885,6 +885,11 @@ EXTERN int		composing_hangul INIT(= 0);
 EXTERN char_u		composing_hangul_buffer[5];
 #endif
 
+/**
+ * Added by Ryan
+ */
+EXTERN cmdarg_T cmdargs;
+
 /*
  * "State" is the main state of Vim.
  * There are other variables that modify the state:
@@ -1021,7 +1026,7 @@ EXTERN volatile int got_int INIT(= FALSE);    /* set to TRUE when interrupt
 EXTERN int	term_console INIT(= FALSE); /* set to TRUE when console used */
 #endif
 EXTERN int	termcap_active INIT(= FALSE);	/* set by starttermcap() */
-EXTERN int	cur_tmode INIT(= TMODE_COOK);	/* input terminal mode */
+//EXTERN int	cur_tmode INIT(= TMODE_COOK);	/* input terminal mode */
 EXTERN int	bangredo INIT(= FALSE);	    /* set to TRUE with ! command */
 EXTERN int	searchcmdlen;		    /* length of previous search cmd */
 #ifdef FEAT_SYN_HL

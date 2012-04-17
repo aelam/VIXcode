@@ -8,6 +8,8 @@
 
 #import "VITextView.h"
 #import <VIKit/VIKit.h>
+#define EXTERN
+#include "vim.h"
 
 @implementation VITextView
 

@@ -6,3 +6,14 @@
     #import <Cocoa/Cocoa.h>
     #import "NIFLog.h"
 #endif
+
+#import "feature.h"
+
+
+// FEATURE
+#define FEAT_NORMAL
+#define FEAT_CMDL_INFO
+
+#undef FEAT_EVAL
+#undef FEAT_SEARCH_EXTRA
+#undef FEAT_SYN_HL

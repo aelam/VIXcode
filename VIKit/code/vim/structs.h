@@ -10,6 +10,9 @@
  * This file contains various definitions of structures that are used by Vim
  */
 
+
+typedef	__darwin_time_t		time_t;
+
 /*
  * There is something wrong in the SAS compiler that makes typedefs not
  * valid in include files.  Has been fixed in version 6.58.
@@ -227,7 +230,7 @@ typedef struct
 #endif
 
 #ifdef FEAT_EVAL
-    int		wo_scriptID[WV_COUNT];	/* SIDs for window-local options */
+//    int		wo_scriptID[WV_COUNT];	/* SIDs for window-local options */
 # define w_p_scriptID w_onebuf_opt.wo_scriptID
 #endif
 } winopt_T;
@@ -512,7 +515,7 @@ typedef struct
 # endif
 # ifdef FEAT_WINDOWS
     int		split;			/* flags for win_split() */
-    int		tab;			/* > 0 when ":tab" was used */
+//    int		tab;			/* > 0 when ":tab" was used */
 # endif
 # if defined(FEAT_GUI_DIALOG) || defined(FEAT_CON_DIALOG)
     int		confirm;		/* TRUE to invoke yes/no dialog */
@@ -835,7 +838,7 @@ typedef struct buf_state
     int		    bs_seqnr;	 /* stores si_seqnr */
     int		    bs_cchar;	 /* stores si_cchar */
 #endif
-    reg_extmatch_T *bs_extmatch; /* external matches from start pattern */
+//    reg_extmatch_T *bs_extmatch; /* external matches from start pattern */
 } bufstate_T;
 
 /*
@@ -1220,7 +1223,7 @@ typedef struct {
     long	b_syn_sync_maxlines;	/* maximal sync lines offset */
     long	b_syn_sync_linebreaks;	/* offset for multi-line pattern */
     char_u	*b_syn_linecont_pat;	/* line continuation pattern */
-    regprog_T	*b_syn_linecont_prog;	/* line continuation program */
+//    regprog_T	*b_syn_linecont_prog;	/* line continuation program */
     int		b_syn_linecont_ic;	/* ignore-case flag for above */
     int		b_syn_topgrp;		/* for ":syntax include" */
 # ifdef FEAT_CONCEAL
@@ -1261,7 +1264,7 @@ typedef struct {
     char_u	*b_spell_ismw_mb; /* multi-byte midword chars */
 # endif
     char_u	*b_p_spc;	/* 'spellcapcheck' */
-    regprog_T	*b_cap_prog;	/* program for 'spellcapcheck' */
+//    regprog_T	*b_cap_prog;	/* program for 'spellcapcheck' */
     char_u	*b_p_spf;	/* 'spellfile' */
     char_u	*b_p_spl;	/* 'spelllang' */
 #endif

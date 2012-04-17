@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "VICommandView.h"
-#import "vim.h"
 
 extern BOOL isVIMEnabled;
 
@@ -24,7 +23,6 @@ extern BOOL isVIMEnabled;
     BOOL                _showcmdBufferCleared;
     
     NSUInteger          _visualActive;
-    
 }
 
 @property (nonatomic,assign) NSTextView         *currentTextView;
