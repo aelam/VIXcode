@@ -16,5 +16,18 @@
 @implementation VIEventHandler
 
 @synthesize state = _state;
+@synthesize isFirstChar = _isFirstChar;
+
+- (id)init {
+    if (self = [super init]) {
+        finish_op = YES;
+    }
+    return self;
+}
+
+- (BOOL)handleEvent:(NSEvent *)event {
+    return YES;
+}
+
 
 @end

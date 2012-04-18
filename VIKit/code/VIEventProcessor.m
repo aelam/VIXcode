@@ -82,7 +82,10 @@ static VIEventProcessor *sharedProcessor = nil;
 
         return NO;
     } else if (State & NORMAL) {
-        normal_cmd(&oa,TRUE,event);
+//        normal_cmd(&oa,TRUE,event);
+//        _normal_cmd(&oa,event);
+        [self.eventHandler handleEvent:event];
+        
     } else {
         
         return YES;
@@ -91,12 +94,12 @@ static VIEventProcessor *sharedProcessor = nil;
     return YES;
 }
 
-//- (VIEventHandler *)eventHandler {
-//    if (_eventHandler == nil) {
-//        _eventHandler = [[VINormalHandler alloc] init];
-//    }
-//    return _eventHandler;
-//}
+- (VIEventHandler *)eventHandler {
+    if (_eventHandler == nil) {
+        _eventHandler = [[VINormalHandler alloc] init];
+    }
+    return _eventHandler;
+}
 
 - (void)clearShowcmd {
     

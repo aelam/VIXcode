@@ -9,9 +9,18 @@
 #import <Foundation/Foundation.h>
 #import "vim.h"
 
-@interface VIEventHandler : NSObject
+@protocol VIEventHandlerDelegate <NSObject>
+
+- (BOOL)handleEvent:(NSEvent *)event;
+
+@end
+
+@interface VIEventHandler : NSObject<VIEventHandlerDelegate>
 
 @property (nonatomic) NSUInteger state;
+@property (nonatomic) BOOL isFirstChar;
+
+
 
 
 @end

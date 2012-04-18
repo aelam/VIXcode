@@ -6,6 +6,9 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
+
+unichar ASCIIValueForEvent(NSEvent *event);
+
 @interface NSEvent (Keymap)
 
 - (unichar) ASCIIValue;

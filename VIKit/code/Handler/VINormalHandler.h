@@ -9,13 +9,11 @@
 #import "VIEventHandler.h"
 #import "vim.h"
 #import "structs.h"
-//@interface VINormalHandler : VIEventHandler
-//
-//
-//+ (BOOL)normalHandlerForEvent:(NSEvent *)event;
-//
-//
-//@end
+
+@interface VINormalHandler : VIEventHandler
+
+
+@end
 
 //void normal_cmd(oparg_T oap, int toplevel);
 //void scroll_redraw(int up, long count);

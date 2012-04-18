@@ -8,6 +8,24 @@
 
 #import "NSEvent+Keymap.h"
 
+unichar ASCIIValueForEvent(NSEvent *event) {
+    unichar buf = 0;
+    
+    if (event.type != NSKeyDown && event.type != NSKeyUp) {
+        return buf;
+    }
+    
+    NSString *characters = [event characters];
+    if (characters && [characters length]) {
+        [[event characters] getCharacters:&buf range:NSMakeRange(0,[characters length])];        
+    }
+    
+    return buf;
+    
+
+}
+
+
 @implementation NSEvent (Keymap)
 
 - (unichar) ASCIIValue{
