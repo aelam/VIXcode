@@ -885,11 +885,6 @@ EXTERN int		composing_hangul INIT(= 0);
 EXTERN char_u		composing_hangul_buffer[5];
 #endif
 
-/**
- * Added by Ryan
- */
-EXTERN cmdarg_T cmdargs;
-
 /*
  * "State" is the main state of Vim.
  * There are other variables that modify the state:

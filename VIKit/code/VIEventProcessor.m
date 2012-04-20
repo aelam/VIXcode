@@ -10,7 +10,6 @@
 #import "VIKitConstants.h"
 #import "VIEventHandler.h"
 #import "VINormalHandler.h"
-//#import "VIEditHandler.h"
 #import "NSEvent+Keymap.h"
 #import "vim.h"
 #import "structs.h"
@@ -21,12 +20,10 @@
 @synthesize currentTextView = _currentTextView;
 @synthesize currentCommandView = _currentCommandView;
 @synthesize state = _state;
-@synthesize showcmdBuffer = _showcmdBuffer;
-@synthesize appendString = _appendString;
+//@synthesize showcmdBuffer = _showcmdBuffer;
+//@synthesize appendString = _appendString;
 @synthesize eventHandler = _eventHandler;
-
-static oparg_T	oa;				/* operator arguments */
-
+//@synthesize commandArgs = _commandArgs;
 
 static VIEventProcessor *sharedProcessor = nil;
 
@@ -34,9 +31,6 @@ static VIEventProcessor *sharedProcessor = nil;
     @synchronized(self) {
         if (sharedProcessor == nil) {
             sharedProcessor = [[self alloc]init];
-            
-            init_normal_cmds();
-            
         }
         
         return sharedProcessor;
@@ -49,9 +43,30 @@ static VIEventProcessor *sharedProcessor = nil;
         //EXTERN int State INIT(= NORMAL);	/* This is the current state of the command interpreter. */
         _state = NORMAL;
         NIF_INFO(@"state : %d",State);
-                
-        _showcmdBuffer = [[NSMutableString alloc] init];
-        _appendString = [[NSMutableString alloc] init];
+
+        init_normal_cmds();
+
+//        OperatorArgs op_args;
+//        memset(&op_args, 0, sizeof(OperatorArgs));
+
+//        memset(&_commandArgs, 0, sizeof(CommandArgs));
+
+//        _commandArgs.op_args = op_args;
+        
+//        
+//        CommandArgs args;
+//        _commandArgs = args;
+//        CommandArgs  args;
+//        NIF_INFO(@"CommandArgs         _commandArgs %p",args);
+//
+//        _commandArgs = args;
+////        OperatorArgs op;
+//        
+//        NIF_INFO(@"init %p",_commandArgs);
+////        _commandArgs.op_args = &op;
+//        
+//        NIF_INFO(@"init %p",_commandArgs);
+//        NIF_INFO(@"init %p",_commandArgs);
 
     }
     return self;
@@ -74,16 +89,15 @@ static VIEventProcessor *sharedProcessor = nil;
     
     unichar value = [event ASCIIValue];
 
+//    NIF_INFO(@"_commandArgs === %p",_commandArgs);
     
-    if (State & INSERT) {
+    if (_state & INSERT) {
         if (value == ESC) {
-            State = NORMAL;
+            _state = NORMAL;
         }
 
         return NO;
-    } else if (State & NORMAL) {
-//        normal_cmd(&oa,TRUE,event);
-//        _normal_cmd(&oa,event);
+    } else if (_state & NORMAL) {
         [self.eventHandler handleEvent:event];
         
     } else {
@@ -105,31 +119,13 @@ static VIEventProcessor *sharedProcessor = nil;
     
 }
 
-/**
- * delete cmd buffer 
- */
-- (void)delFromShowcmd:(NSUInteger)len {
-    
-    int old_len = _showcmdBuffer.length;
-    if (len > old_len) {
-        len = old_len;
-    }
-    [_showcmdBuffer deleteCharactersInRange:NSMakeRange(old_len - len,len)];
-    
-    [self refreshCommandView];
-}
-
-- (void)refreshCommandView {
-    if (_showcmdBuffer == nil || _showcmdBuffer.length == 0) {
-        _showcmdBufferCleared = YES;
-    } else {
-        _showcmdBufferCleared = NO;
-    }
+- (void)clearCommandArgs {
+//    memset(&_commandArgs, 0, sizeof(CommandArgs));
 }
 
 - (void)dealloc {
-    [_showcmdBuffer release];
-    [_appendString release];
+//    [_showcmdBuffer release];
+//    [_appendString release];
     [super dealloc];
 }
 

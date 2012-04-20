@@ -7,7 +7,7 @@
 //
 
 // based on vim.h and modified
-#define EXTERN
+//#define EXTERN
 
 /*
  * values for State
@@ -18,7 +18,7 @@
  * The upper bits are used to distinguish between other states.
  */
 
-#define FEAT_VREPLACE 1
+//#define FEAT_VREPLACE 1
 
 enum {
     VIMStateNormal                  = 0x01,	/* Normal mode, command expected */

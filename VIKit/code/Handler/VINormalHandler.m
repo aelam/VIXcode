@@ -15,6 +15,11 @@
 #import "VINormalHandler.h"
 #import "NSEvent+Keymap.h"
 #include "vim.h"
+#import "VIEventProcessor.h"
+
+
+static VINormalHandler *handlerWeakRef = nil;
+
 
 #ifdef FEAT_VISUAL
 /*
@@ -3966,20 +3971,10 @@ static void
 clearcmdarg(cmd)
 cmdarg_T *cmd;
 {
-//    int		prechar;	/* prefix character (optional, always 'g') */
-//    int		cmdchar;	/* command character */
-//    int		nchar;		/* next command character (optional) */
-//#ifdef FEAT_MBYTE
-//    int		ncharC1;	/* first composing character (optional) */
-//    int		ncharC2;	/* second composing character (optional) */
-//#endif
-//    int		extra_char;	/* yet another character (optional) */
-//    long	opcount;	/* count before an operator */
-//    long	count0;		/* count before command, default 0 */
-//    long	count1;		/* count before command, default 1 */
-//    int		arg;		/* extra argument from nv_cmds[] */
-//    int		retval;		/* return: CA_* values */
-//    char_u	*searchbuf;	/* return: pointer to search pattern or NULL */
+    NIF_INFO();
+
+    if(cmd->oap)
+        clearop(cmd->oap);
     
     cmd->prechar = 0;
     cmd->cmdchar = 0;
@@ -8522,7 +8517,7 @@ cmdarg_T	*cap;
         case K_KEND:
         {
             NIF_INFO(@"goto LINE END");
-            clearcmdarg(&cmdargs);
+//            clearcmdarg(&cmdargs);
 //            int col_off = curwin_col_off();
 //            
 //            oap->motion_type = MCHAR;
@@ -8965,6 +8960,7 @@ static void
 nv_operator(cap)
 cmdarg_T	*cap;
 {
+    handlerWeakRef.opFinished = YES;
     
 }
 //{
@@ -9487,7 +9483,46 @@ static void
 nv_edit(cap)
 cmdarg_T *cap;
 {
-    
+    NIF_INFO(@"cap->cmdchar = %c",cap->cmdchar);
+    /* <Insert> is equal to "i" */
+    if (cap->cmdchar == K_INS || cap->cmdchar == K_KINS)
+        cap->cmdchar = 'i';
+        
+#ifdef FEAT_VISUAL
+    /* in Visual mode "A" and "I" are an operator */
+    if (VIsual_active && (cap->cmdchar == 'A' || cap->cmdchar == 'I'))
+        v_visop(cap);
+    else
+#endif
+        if ((cap->cmdchar == 'a' || cap->cmdchar == 'i')
+            && (cap->oap->op_type != OP_NOP
+#ifdef FEAT_VISUAL
+                || VIsual_active
+#endif
+                ))
+        {
+            NIF_INFO(@"insert");
+            switch (cap->cmdchar)
+            {
+                case 'A':	/* "A"ppend after the line */
+                    break;
+                    
+                case 'a':	/* "a"ppend is like "i"nsert on the next character. */
+                    break;
+                    
+                case 'i':
+                    break;
+                    
+                case 'I':	/* "I"nsert before the first non-blank */
+                    break;
+                
+                default:
+                    break;
+            }            
+            [VIEventProcessor sharedProcessor].state = INSERT;
+            handlerWeakRef.opFinished = YES;
+            
+        }
 }
 //{
 //    /* <Insert> is equal to "i" */
@@ -10024,7 +10059,29 @@ cmdarg_T	*cap;
 
 @implementation VINormalHandler 
 
+@synthesize cmdargs;
+@synthesize opFinished;
 
++ (void)initialize {
+    init_normal_cmds();    
+}
+
+- (id)init {
+    if (self = [super init]) {
+        handlerWeakRef = self;
+        
+        oparg_T oap;
+        cmdargs.oap = &oap;
+    }
+    return self;
+}
+
+
+- (void)setOpFinished:(BOOL)flag {
+    opFinished = flag;
+    clearcmdarg(&cmdargs);
+    
+}
 
 /*
  * normal
@@ -10060,22 +10117,38 @@ cmdarg_T	*cap;
     int ctrl_w = 0;
     int idx = -1;
     int set_prevcount = FALSE;
-
     
-    if (cmdargs.oap == NULL) {
-        NIF_INFO(@"cmdargs.oap == NULL");
-        oparg_T oap;
-        cmdargs.oap = &oap;
-        
-        cmdargs.count1 = 1;
-    }
     oparg_T *oap = cmdargs.oap;
+    NIF_INFO(@"%p",oap);
+    
+    cmdargs.opcount = opcount;
+
+    c = opFinished;
+
+    opFinished = (oap->op_type != OP_NOP);
+
+    [VIEventProcessor sharedProcessor].state = NORMAL_BUSY;
+
     
     c = (int)ASCIIValueForEvent(event);
 
-getcount:
-    if (    (c >= '1' && c <= '9')
+    if (c == ESC) {
+        clearcmdarg(&cmdargs);
+//        [[self textView] end]
+        
+        return YES;
+    }
+    
+    else if (    (c >= '1' && c <= '9')
         || (cmdargs.count0 != 0 && (c == K_DEL || c == K_KDEL || c == '0'))) {
+        
+        // g[d]* won't work
+        if(cmdargs.cmdchar == 'g') {
+            cmdargs.cmdchar = 0;
+            cmdargs.count0 = 0;
+            cmdargs.nchar = 0;
+        }
+        
         if (c == K_DEL || c == K_KDEL)
         {
             cmdargs.count0 /= 10;
@@ -10086,33 +10159,47 @@ getcount:
         else
             cmdargs.count0 = cmdargs.count0 * 10 + (c - '0');
         if (cmdargs.count0 < 0)	    /* got too large! */
+        {
             cmdargs.count0 = 999999999L;
+        }
         
-        cmdargs.opcount = cmdargs.count0;
-    } else if(c == ESC){
-        clearcmdarg(&cmdargs);
-        NIF_INFO(@"CLEAN");
-        goto normal_end;
+        long count = cmdargs.count0;
+		if (cmdargs.opcount != 0) {
+            count = cmdargs.opcount * (count == 0 ? 1 : count);
+        }
+        
+        /*
+         * If we're in the middle of an operator (including after entering a
+         * yank buffer with '"') AND we had a count before the operator, then
+         * that count overrides the current value of ca.count0.
+         * What this means effectively, is that commands like "3dw" get turned
+         * into "d3w" which makes things fall into place pretty neatly.
+         * If you give a count before AND after the operator, they are
+         * multiplied.
+         */
+        if (cmdargs.cmdchar != 0) {
+            //
+            // Now We are in the middle of an operator 
+            // 
+            if (cmdargs.opcount != 0) {
+                if (cmdargs.count0)
+                    cmdargs.count0 *= cmdargs.opcount;
+                else{
+                    cmdargs.count0 = cmdargs.opcount;                    
+                }
+            }
+        } else {
+            cmdargs.opcount = cmdargs.count0;
+        }
+        
+        cmdargs.count1 = (cmdargs.count0 == 0 ? 1 : cmdargs.count0);
+        
     } else if (cmdargs.cmdchar == 0) {
         cmdargs.cmdchar = c;
-    } else {
-        if (cmdargs.cmdchar == 'g') {
-            cmdargs.nchar = c;
-        }
+        cmdargs.count0 = 0;
+    } else if (cmdargs.nchar == 0) {
+        cmdargs.nchar = c;
     }
-    
-    
-    if (cmdargs.cmdchar == 'g') {
-        if (cmdargs.nchar == 'r' || cmdargs.nchar == '\'' || cmdargs.nchar == '`'
-            || cmdargs.nchar == Ctrl_BSL)
-        {
-            NIF_INFO(@"gr g\' g`");
-        }        
-    }
-    
-
-    
-    
     
     idx = find_command(cmdargs.cmdchar);
     NIF_INFO(@"idx : %d",idx);
@@ -10149,11 +10236,12 @@ getcount:
      * Execute the command!
      * Call the command function found in the commands table.
      */
-    cmdargs.arg = nv_cmds[idx].cmd_arg;
-    (nv_cmds[idx].cmd_func)(&cmdargs);
-
     
-    
+    if (idx > 0) {
+        cmdargs.arg = nv_cmds[idx].cmd_arg;
+        (nv_cmds[idx].cmd_func)(&cmdargs);        
+    }
+        
     /*
      * Finish up after executing a Normal mode command.
      */
@@ -10176,6 +10264,16 @@ normal_end:
     return [super handleEvent:event];
 }
 
+- (NSTextView *)textView {
+    return [VIEventProcessor sharedProcessor].currentTextView;
+}
+
+
+- (void)dealloc {
+    handlerWeakRef = nil;
+    
+    [super dealloc];
+}
 
 @end
 

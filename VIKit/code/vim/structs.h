@@ -2213,7 +2213,7 @@ typedef struct cmdarg_S
     long	count1;		/* count before command, default 1 */
     int		arg;		/* extra argument from nv_cmds[] */
     int		retval;		/* return: CA_* values */
-    char_u	*searchbuf;	/* return: pointer to search pattern or NULL */
+    char_u	*searchbuf;	/* return: pointer to search pattern or NULL */    
 } cmdarg_T;
 
 /* values for retval: */

@@ -7,6 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "VIEventProcessor.h"
 
 @class VIEventProcessor;
 

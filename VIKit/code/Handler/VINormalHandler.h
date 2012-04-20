@@ -10,8 +10,21 @@
 #import "vim.h"
 #import "structs.h"
 
-@interface VINormalHandler : VIEventHandler
+@interface VINormalHandler : VIEventHandler {
+    
+    @public
+    cmdarg_T cmdargs;
+    
+    BOOL     opFinished;
+    
+    NSUInteger opcount;
+}
 
+@property (nonatomic,readwrite)    cmdarg_T cmdargs;
+@property (nonatomic,readwrite)    BOOL     opFinished;
+
+
+- (NSTextView *)textView;
 
 @end
 
