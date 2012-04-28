@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-//#import <VIKit/VIEventProcessor.h>
 #import <VIKit/VIKit.h>
 
 @implementation AppDelegate

@@ -18,6 +18,7 @@
 @synthesize state = _state;
 @synthesize isFirstChar = _isFirstChar;
 
+
 - (id)init {
     if (self = [super init]) {
         finish_op = YES;
@@ -29,5 +30,8 @@
     return YES;
 }
 
+- (NSTextView *)textView {
+    return [VIEventProcessor sharedProcessor].currentTextView;
+}
 
 @end

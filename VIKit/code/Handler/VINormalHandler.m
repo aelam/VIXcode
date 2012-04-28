@@ -16,7 +16,7 @@
 #import "NSEvent+Keymap.h"
 #include "vim.h"
 #import "VIEventProcessor.h"
-
+#import "NSTextView+Actions.h"
 
 static VINormalHandler *handlerWeakRef = nil;
 
@@ -6485,7 +6485,18 @@ static void
 nv_up(cap)
 cmdarg_T	*cap;
 {
-    
+    NIF_INFO(@"------- ");
+    NSUInteger modifierFlags = handlerWeakRef.currentEvent.modifierFlags;
+    if(modifierFlags & NSShiftKeyMask) {
+        /* <S-Up> is page up */
+        cap->arg = BACKWARD;
+        nv_page(cap);
+    } else {
+        
+        [handlerWeakRef.textView cursorUp:1];
+        clearcmdarg(cap);
+    }
+
 }
 //{
 //    if (mod_mask & MOD_MASK_SHIFT)
@@ -6512,6 +6523,18 @@ static void
 nv_down(cap)
 cmdarg_T	*cap;
 {
+    NIF_INFO(@"---------------- ");
+
+    NSUInteger modifierFlags = handlerWeakRef.currentEvent.modifierFlags;
+    if(modifierFlags & NSShiftKeyMask) {
+         /* <S-Down> is page down */
+        cap->arg = FORWARD;
+        nv_page(cap);
+    } else {
+        
+        [handlerWeakRef.textView cursorDown:1];
+        clearcmdarg(cap);
+    }
     
 }
 //{
@@ -10061,9 +10084,15 @@ cmdarg_T	*cap;
 
 @synthesize cmdargs;
 @synthesize opFinished;
+@synthesize currentEvent = _currentEvent;
 
 + (void)initialize {
     init_normal_cmds();    
+}
+
++ (VINormalHandler *)handler {
+    VINormalHandler *handler = [[[self alloc] init] autorelease];    
+    return handler;
 }
 
 - (id)init {
@@ -10112,7 +10141,10 @@ cmdarg_T	*cap;
  *   17. The end (ESC)
  */
 - (BOOL)handleEvent:(NSEvent *)event {
-        
+    
+    [_currentEvent release];
+    _currentEvent = [event retain];
+    
     int c;
     int ctrl_w = 0;
     int idx = -1;
@@ -10134,9 +10166,13 @@ cmdarg_T	*cap;
 
     if (c == ESC) {
         clearcmdarg(&cmdargs);
-//        [[self textView] end]
-        
-        return YES;
+//        if ([VIEventProcessor sharedProcessor].state & INSERT) {
+//            
+//        }
+//        
+//        [[self textView]moveBackwardCharactersCount:1];            
+
+        return NO;
     }
     
     else if (    (c >= '1' && c <= '9')
@@ -10239,7 +10275,8 @@ cmdarg_T	*cap;
     
     if (idx > 0) {
         cmdargs.arg = nv_cmds[idx].cmd_arg;
-        (nv_cmds[idx].cmd_func)(&cmdargs);        
+        (nv_cmds[idx].cmd_func)(&cmdargs);    
+        
     }
         
     /*
@@ -10259,19 +10296,14 @@ normal_end:
 
     
     
-    
+    return YES;
     
     return [super handleEvent:event];
 }
 
-- (NSTextView *)textView {
-    return [VIEventProcessor sharedProcessor].currentTextView;
-}
-
-
 - (void)dealloc {
     handlerWeakRef = nil;
-    
+    [_currentEvent release];
     [super dealloc];
 }
 

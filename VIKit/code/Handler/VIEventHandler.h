@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "vim.h"
+#import "VIEventProcessor.h"
 
 @protocol VIEventHandlerDelegate <NSObject>
 
@@ -20,7 +21,6 @@
 @property (nonatomic) NSUInteger state;
 @property (nonatomic) BOOL isFirstChar;
 
-
-
+- (NSTextView *)textView;
 
 @end

@@ -14,16 +14,18 @@
 #import "vim.h"
 #import "structs.h"
 #import "VINormalHandler.h"
+#import "VIEditHandler.h"
+
+
+BOOL VIModeEnabled = YES;
 
 @implementation VIEventProcessor
 
 @synthesize currentTextView = _currentTextView;
 @synthesize currentCommandView = _currentCommandView;
 @synthesize state = _state;
-//@synthesize showcmdBuffer = _showcmdBuffer;
-//@synthesize appendString = _appendString;
 @synthesize eventHandler = _eventHandler;
-//@synthesize commandArgs = _commandArgs;
+@synthesize currentLineColor = _currentLineColor;
 
 static VIEventProcessor *sharedProcessor = nil;
 
@@ -40,33 +42,11 @@ static VIEventProcessor *sharedProcessor = nil;
 - (id)init {
     if (self = [super init]) {
         
-        //EXTERN int State INIT(= NORMAL);	/* This is the current state of the command interpreter. */
         _state = NORMAL;
-        NIF_INFO(@"state : %d",State);
-
-        init_normal_cmds();
-
-//        OperatorArgs op_args;
-//        memset(&op_args, 0, sizeof(OperatorArgs));
-
-//        memset(&_commandArgs, 0, sizeof(CommandArgs));
-
-//        _commandArgs.op_args = op_args;
+        NIF_INFO(@"state : %lu",_state);
+        NIF_INFO(@"VIModeEnabled = %d",VIModeEnabled);
         
-//        
-//        CommandArgs args;
-//        _commandArgs = args;
-//        CommandArgs  args;
-//        NIF_INFO(@"CommandArgs         _commandArgs %p",args);
-//
-//        _commandArgs = args;
-////        OperatorArgs op;
-//        
-//        NIF_INFO(@"init %p",_commandArgs);
-////        _commandArgs.op_args = &op;
-//        
-//        NIF_INFO(@"init %p",_commandArgs);
-//        NIF_INFO(@"init %p",_commandArgs);
+        _currentLineColor = [[NSColor colorWithDeviceRed:0 green:0.6 blue:0 alpha:0.5] retain];
 
     }
     return self;
@@ -86,26 +66,41 @@ static VIEventProcessor *sharedProcessor = nil;
 
 
 - (BOOL)handleKeyEvent:(NSEvent *)event {
-    
+
+    NIF_INFO(@"%@",self.eventHandler);
     unichar value = [event ASCIIValue];
-
-//    NIF_INFO(@"_commandArgs === %p",_commandArgs);
-    
-    if (_state & INSERT) {
-        if (value == ESC) {
-            _state = NORMAL;
-        }
-
-        return NO;
-    } else if (_state & NORMAL) {
-        [self.eventHandler handleEvent:event];
+    if (_state & NORMAL) {
+        return [self.eventHandler handleEvent:event];
         
-    } else {
+    } 
+    else if (_state & INSERT) {
+        BOOL s = [self.eventHandler handleEvent:event];
+        if (s && value == ESC) {
+            [self setState:NORMAL];
+        }
+        
+        return s;
+
+    } else  {
         
         return YES;
     }
     
     return YES;
+}
+
+- (void)setState:(NSUInteger)flag {
+    _state = flag;
+    if (_state & INSERT) {
+        if (![self.eventHandler isKindOfClass:[VIEditHandler class]]) {
+            self.eventHandler = [VIEditHandler handler];
+        }
+    }
+    else if (_state & NORMAL) {
+        if (![self.eventHandler isKindOfClass:[VINormalHandler class]]) {
+            self.eventHandler = [VINormalHandler handler];            
+        }
+    }      
 }
 
 - (VIEventHandler *)eventHandler {
@@ -126,6 +121,7 @@ static VIEventProcessor *sharedProcessor = nil;
 - (void)dealloc {
 //    [_showcmdBuffer release];
 //    [_appendString release];
+    [_currentLineColor release];
     [super dealloc];
 }
 

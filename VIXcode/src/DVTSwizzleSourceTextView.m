@@ -174,7 +174,7 @@ static char const * const VICommandViewAssociatedKey = "VICommandViewAssociatedK
         [self setCommandView:[VICommandView commandViewWithSourceTextView:self]];
     }
         
-//    [self setInsertionPointColor:[NSColor redColor]];
+    [self setInsertionPointColor:[NSColor redColor]];
     
     NIF_INFO(@"window: %@",self.window);
 //contentView

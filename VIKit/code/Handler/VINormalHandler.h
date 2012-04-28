@@ -12,17 +12,21 @@
 
 @interface VINormalHandler : VIEventHandler {
     
-    @public
-    cmdarg_T cmdargs;
+//    @public
+    cmdarg_T    cmdargs;
     
-    BOOL     opFinished;
+    BOOL        opFinished;
     
-    NSUInteger opcount;
+    NSUInteger  opcount;
+    
+    NSEvent     *_currentEvent;
 }
 
-@property (nonatomic,readwrite)    cmdarg_T cmdargs;
-@property (nonatomic,readwrite)    BOOL     opFinished;
+@property (nonatomic,readwrite) cmdarg_T cmdargs;
+@property (nonatomic,readwrite) BOOL     opFinished;
+@property (nonatomic,readonly)  NSEvent *currentEvent;
 
++ (VINormalHandler *)handler;
 
 - (NSTextView *)textView;
 
