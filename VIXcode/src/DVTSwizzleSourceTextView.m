@@ -13,7 +13,7 @@
 #import "VISettingsManager.h"
 #import "VIEventProcessor.h"
 //#import "VIMotionManager.h"
-#import "VICommandView.h"
+//#import "VICommandView.h"
 
 
 //static char const * const VIMotionManagerAssociatedKey = "VIMotionManagerAssociatedKey";
@@ -111,7 +111,8 @@ static char const * const VICommandViewAssociatedKey = "VICommandViewAssociatedK
  */
 - (void)_drawInsertionPointInRect:(NSRect)aRect color:(NSColor*)aColor{
 
-    if (self.commandView.eventProcessor.state == VIMStateInsert || ![[VISettingsManager sharedSettingsManager] isVIMEnabled]) {
+    if (YES) {
+//    if (self.commandView.eventProcessor.state == VIMStateInsert || ![[VISettingsManager sharedSettingsManager] isVIMEnabled]) {
         [self origin__drawInsertionPointInRect:aRect color:aColor];
     } else {
         [self drawInsertionPointInRect:aRect color:aColor turnedOn:YES];
@@ -119,8 +120,8 @@ static char const * const VICommandViewAssociatedKey = "VICommandViewAssociatedK
 }
 
 - (void)drawInsertionPointInRect:(NSRect)rect color:(NSColor *)color turnedOn:(BOOL)flag {
-       
-    if (self.commandView.eventProcessor.state == VIMStateInsert || ![[VISettingsManager sharedSettingsManager] isVIMEnabled]) {
+    if (YES) {        
+//    if (self.commandView.eventProcessor.state == VIMStateInsert || ![[VISettingsManager sharedSettingsManager] isVIMEnabled]) {
         [self origin_drawInsertionPointInRect:rect color:color turnedOn:flag];        
     } else {
         if(flag){
@@ -203,20 +204,20 @@ static char const * const VICommandViewAssociatedKey = "VICommandViewAssociatedK
     //
     // remove commandView
     //
-    objc_removeAssociatedObjects(self);
+//    objc_removeAssociatedObjects(self);
     
     // do origin stuff
     [self origin_dealloc];
 }
 
 
-- (void)setCommandView:(VICommandView *)commandView {
-    objc_setAssociatedObject(self,VICommandViewAssociatedKey,commandView,OBJC_ASSOCIATION_ASSIGN);
-}
-
-- (VICommandView *)commandView {
-    return objc_getAssociatedObject(self,VICommandViewAssociatedKey);
-}
+//- (void)setCommandView:(VICommandView *)commandView {
+//    objc_setAssociatedObject(self,VICommandViewAssociatedKey,commandView,OBJC_ASSOCIATION_ASSIGN);
+//}
+//
+//- (VICommandView *)commandView {
+//    return objc_getAssociatedObject(self,VICommandViewAssociatedKey);
+//}
 
 
 

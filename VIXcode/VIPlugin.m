@@ -10,14 +10,15 @@
 #import <AppKit/AppKit.h>
 #import <Cocoa/Cocoa.h>
 #import "VISettingsManager.h"
+#import <VIKit/VIKit.h>
 
 void Hook() {
-    
-    NIF_INFO();
-    
+        
     // Hook
     Class DVTSourceTextView = NSClassFromString(@"DVTSourceTextView");
-    Class targetClass = [DVTSwizzleSourceTextView class];
+//    Class targetClass = [DVTSwizzleSourceTextView class];
+    Class targetClass = [VITextView class];
+    NSLog(@"HookClass %@",targetClass);
     
     HookSelector(DVTSourceTextView, @selector(initWithCoder:), targetClass, @selector(initWithCoder:), @selector(origin_initWithCoder:));
     
@@ -58,7 +59,6 @@ void Hook() {
     // dealloc Swizzle
     HookSelector(DVTSourceTextView, @selector(dealloc), targetClass, @selector(dealloc), @selector(origin_dealloc));    
     
-//    InjectProperty(DVTSourceTextView,@selector(setViMotionManager:),@selector(viMotionManager),targetClass);
     InjectProperty(DVTSourceTextView,@selector(setCommandView:),@selector(commandView),targetClass);
     
     //    Class IDEApplication = NSClassFromString(@"IDEApplication");
@@ -82,12 +82,12 @@ void Hook() {
 @implementation VIPlugin
 
 + (void)pluginDidLoad:(NSBundle *)plugin {
-    
-    Hook();
-    
+        
     NSString *logPath = @"/Users/ryan/Desktop/VIXcode.log";
     [[NSFileManager defaultManager] removeItemAtPath:logPath error:nil];    
     freopen([logPath cStringUsingEncoding:NSASCIIStringEncoding], "a+", stderr);    
+    NSLog(@"---");
+    Hook();
 
     [[VISettingsManager sharedSettingsManager] startHack];    
 }

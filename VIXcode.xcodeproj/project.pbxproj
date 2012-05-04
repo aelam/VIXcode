@@ -10,7 +10,8 @@
 		94035905153D4CA600A4A2B3 /* option.h in Headers */ = {isa = PBXBuildFile; fileRef = 94035904153D4CA500A4A2B3 /* option.h */; };
 		94035907153D570D00A4A2B3 /* feature.h in Headers */ = {isa = PBXBuildFile; fileRef = 94035906153D570D00A4A2B3 /* feature.h */; };
 		940D820D15382870000C02B3 /* VIKitConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 940D820C15382870000C02B3 /* VIKitConstants.h */; };
-		9432948E153BB53E00FC9E27 /* VINormalHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 9432948A153BB53E00FC9E27 /* VINormalHandler.h */; };
+		9431DAB71554513D00855783 /* VIKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 94A0713C1537FEC400187644 /* VIKit.framework */; };
+		9432948E153BB53E00FC9E27 /* VINormalHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 9432948A153BB53E00FC9E27 /* VINormalHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9432948F153BB53E00FC9E27 /* VINormalHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 9432948B153BB53E00FC9E27 /* VINormalHandler.m */; };
 		94329493153BB58100FC9E27 /* VIEventHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 94329491153BB58100FC9E27 /* VIEventHandler.m */; };
 		94329497153BB5BC00FC9E27 /* VIEventHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 94329496153BB5BC00FC9E27 /* VIEventHandler.h */; };
@@ -101,16 +102,28 @@
 		94661FA4153D044D00AB2F3B /* window.pro in Resources */ = {isa = PBXBuildFile; fileRef = 94661F51153D044D00AB2F3B /* window.pro */; };
 		94661FA5153D044D00AB2F3B /* workshop.pro in Resources */ = {isa = PBXBuildFile; fileRef = 94661F52153D044D00AB2F3B /* workshop.pro */; };
 		946F80A9154068C600CCC537 /* ops.c in Sources */ = {isa = PBXBuildFile; fileRef = 946F80A8154068C600CCC537 /* ops.c */; };
-		946F80C61540F68300CCC537 /* NSString+LineRange.h in Headers */ = {isa = PBXBuildFile; fileRef = 946F80BE1540F68300CCC537 /* NSString+LineRange.h */; };
+		946F80C61540F68300CCC537 /* NSString+LineRange.h in Headers */ = {isa = PBXBuildFile; fileRef = 946F80BE1540F68300CCC537 /* NSString+LineRange.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		946F80C71540F68300CCC537 /* NSString+LineRange.m in Sources */ = {isa = PBXBuildFile; fileRef = 946F80BF1540F68300CCC537 /* NSString+LineRange.m */; };
-		946F80C81540F68300CCC537 /* NSTextView+Actions.h in Headers */ = {isa = PBXBuildFile; fileRef = 946F80C01540F68300CCC537 /* NSTextView+Actions.h */; };
+		946F80C81540F68300CCC537 /* NSTextView+Actions.h in Headers */ = {isa = PBXBuildFile; fileRef = 946F80C01540F68300CCC537 /* NSTextView+Actions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		946F80C91540F68300CCC537 /* NSTextView+Actions.m in Sources */ = {isa = PBXBuildFile; fileRef = 946F80C11540F68300CCC537 /* NSTextView+Actions.m */; };
-		946F80CA1540F68300CCC537 /* NSView+Subviews.h in Headers */ = {isa = PBXBuildFile; fileRef = 946F80C21540F68300CCC537 /* NSView+Subviews.h */; };
+		946F80CA1540F68300CCC537 /* NSView+Subviews.h in Headers */ = {isa = PBXBuildFile; fileRef = 946F80C21540F68300CCC537 /* NSView+Subviews.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		946F80CB1540F68300CCC537 /* NSView+Subviews.m in Sources */ = {isa = PBXBuildFile; fileRef = 946F80C31540F68300CCC537 /* NSView+Subviews.m */; };
-		946F80CF1540F6B300CCC537 /* NSEvent+Keymap.h in Headers */ = {isa = PBXBuildFile; fileRef = 946F80CD1540F6B300CCC537 /* NSEvent+Keymap.h */; };
+		946F80CF1540F6B300CCC537 /* NSEvent+Keymap.h in Headers */ = {isa = PBXBuildFile; fileRef = 946F80CD1540F6B300CCC537 /* NSEvent+Keymap.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		946F80D01540F6B300CCC537 /* NSEvent+Keymap.m in Sources */ = {isa = PBXBuildFile; fileRef = 946F80CE1540F6B300CCC537 /* NSEvent+Keymap.m */; };
-		946F80D31541016D00CCC537 /* VIEditHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 946F80D11541016D00CCC537 /* VIEditHandler.h */; };
+		946F80D31541016D00CCC537 /* VIEditHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 946F80D11541016D00CCC537 /* VIEditHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		946F80D41541016D00CCC537 /* VIEditHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 946F80D21541016D00CCC537 /* VIEditHandler.m */; };
+		94816D66154C3A130044FE95 /* VIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A0713C1537FEC400187644 /* VIKit.framework */; };
+		948449871554382E0068B179 /* MehodHook.h in Headers */ = {isa = PBXBuildFile; fileRef = 948449811554382E0068B179 /* MehodHook.h */; };
+		948449881554382E0068B179 /* MehodHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 948449821554382E0068B179 /* MehodHook.m */; };
+		948449891554382E0068B179 /* NSString-RuntimeReporting.h in Headers */ = {isa = PBXBuildFile; fileRef = 948449831554382E0068B179 /* NSString-RuntimeReporting.h */; };
+		9484498A1554382E0068B179 /* NSString-RuntimeReporting.m in Sources */ = {isa = PBXBuildFile; fileRef = 948449841554382E0068B179 /* NSString-RuntimeReporting.m */; };
+		9484498B1554382E0068B179 /* RuntimeReporter.h in Headers */ = {isa = PBXBuildFile; fileRef = 948449851554382E0068B179 /* RuntimeReporter.h */; };
+		9484498C1554382E0068B179 /* RuntimeReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 948449861554382E0068B179 /* RuntimeReporter.m */; };
+		948449BB1554383D0068B179 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9484498E1554383D0068B179 /* InfoPlist.strings */; };
+		948449C71554383D0068B179 /* VISettingsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 948449B11554383D0068B179 /* VISettingsManager.m */; };
+		948449C81554383D0068B179 /* VIPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 948449B81554383D0068B179 /* VIPlugin.m */; };
+		948449C91554383D0068B179 /* VIXcode-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 948449B91554383D0068B179 /* VIXcode-Info.plist */; };
+		948449CA155438BD0068B179 /* MehodHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 948449821554382E0068B179 /* MehodHook.m */; };
 		94A0713D1537FEC500187644 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 943FCE3C1526C31D00A3EEE4 /* Cocoa.framework */; };
 		94A071441537FEC500187644 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 94A071421537FEC500187644 /* InfoPlist.strings */; };
 		94A071531537FEE100187644 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 943FCE3C1526C31D00A3EEE4 /* Cocoa.framework */; };
@@ -131,15 +144,42 @@
 		94A0718B15380F0B00187644 /* keymap.h in Headers */ = {isa = PBXBuildFile; fileRef = 94A0718A15380F0B00187644 /* keymap.h */; };
 		94A0718D15380F2300187644 /* macros.h in Headers */ = {isa = PBXBuildFile; fileRef = 94A0718C15380F2300187644 /* macros.h */; };
 		94A64600152848CA0050A1C9 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A645FF152848CA0050A1C9 /* QuartzCore.framework */; };
-		94C052E7154A4795006E5389 /* NSPosition.h in Headers */ = {isa = PBXBuildFile; fileRef = 94C052E5154A4795006E5389 /* NSPosition.h */; };
+		94BA6D981554504300474ED1 /* VIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A0713C1537FEC400187644 /* VIKit.framework */; };
+		94C052E7154A4795006E5389 /* NSPosition.h in Headers */ = {isa = PBXBuildFile; fileRef = 94C052E5154A4795006E5389 /* NSPosition.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		94C052E8154A4795006E5389 /* NSPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C052E6154A4795006E5389 /* NSPosition.m */; };
-		94C05357154ABF76006E5389 /* VIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94C05356154ABF76006E5389 /* VIKit.framework */; };
-		94C0F4971529864F006E5094 /* NSString-RuntimeReporting.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C0F4941529864F006E5094 /* NSString-RuntimeReporting.m */; };
-		94C0F4981529864F006E5094 /* RuntimeReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C0F4961529864F006E5094 /* RuntimeReporter.m */; };
-		94F5586F152C2145008044AF /* MehodHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F5586E152C2145008044AF /* MehodHook.m */; };
-		94F9EBD515452AF9001E3B2C /* NSTextView+Positions.h in Headers */ = {isa = PBXBuildFile; fileRef = 94F9EBD315452AF9001E3B2C /* NSTextView+Positions.h */; };
+		94F9EBD515452AF9001E3B2C /* NSTextView+Positions.h in Headers */ = {isa = PBXBuildFile; fileRef = 94F9EBD315452AF9001E3B2C /* NSTextView+Positions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		94F9EBD615452AF9001E3B2C /* NSTextView+Positions.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F9EBD415452AF9001E3B2C /* NSTextView+Positions.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		94592E0D15543A03000A9145 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 943FCE301526C31C00A3EEE4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 94A0713B1537FEC400187644;
+			remoteInfo = VIKit;
+		};
+		94816D64154C3A0C0044FE95 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 943FCE301526C31C00A3EEE4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 94A0713B1537FEC400187644;
+			remoteInfo = VIKit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9431DAB51554512300855783 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				9431DAB71554513D00855783 /* VIKit.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		94035904153D4CA500A4A2B3 /* option.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = option.h; sourceTree = "<group>"; };
@@ -249,6 +289,24 @@
 		946F80CE1540F6B300CCC537 /* NSEvent+Keymap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSEvent+Keymap.m"; sourceTree = "<group>"; };
 		946F80D11541016D00CCC537 /* VIEditHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIEditHandler.h; sourceTree = "<group>"; };
 		946F80D21541016D00CCC537 /* VIEditHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIEditHandler.m; sourceTree = "<group>"; };
+		948449811554382E0068B179 /* MehodHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MehodHook.h; sourceTree = "<group>"; };
+		948449821554382E0068B179 /* MehodHook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MehodHook.m; sourceTree = "<group>"; };
+		948449831554382E0068B179 /* NSString-RuntimeReporting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString-RuntimeReporting.h"; sourceTree = "<group>"; };
+		948449841554382E0068B179 /* NSString-RuntimeReporting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString-RuntimeReporting.m"; sourceTree = "<group>"; };
+		948449851554382E0068B179 /* RuntimeReporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RuntimeReporter.h; sourceTree = "<group>"; };
+		948449861554382E0068B179 /* RuntimeReporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RuntimeReporter.m; sourceTree = "<group>"; };
+		9484498F1554383D0068B179 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		948449901554383D0068B179 /* NIFLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NIFLog.h; sourceTree = "<group>"; };
+		9484499E1554383D0068B179 /* DVTSwizzleSourceTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVTSwizzleSourceTextView.h; sourceTree = "<group>"; };
+		9484499F1554383D0068B179 /* DVTSwizzleSourceTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVTSwizzleSourceTextView.m; sourceTree = "<group>"; };
+		948449AA1554383D0068B179 /* key-action-copy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "key-action-copy.h"; sourceTree = "<group>"; };
+		948449AB1554383D0068B179 /* MacKeyMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacKeyMap.h; sourceTree = "<group>"; };
+		948449AC1554383D0068B179 /* VIConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIConstants.h; sourceTree = "<group>"; };
+		948449B01554383D0068B179 /* VISettingsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VISettingsManager.h; sourceTree = "<group>"; };
+		948449B11554383D0068B179 /* VISettingsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VISettingsManager.m; sourceTree = "<group>"; };
+		948449B81554383D0068B179 /* VIPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIPlugin.m; sourceTree = "<group>"; };
+		948449B91554383D0068B179 /* VIXcode-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "VIXcode-Info.plist"; sourceTree = "<group>"; };
+		948449BA1554383D0068B179 /* VIXcode-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VIXcode-Prefix.pch"; sourceTree = "<group>"; };
 		94A0713C1537FEC400187644 /* VIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		94A0713E1537FEC500187644 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		94A071411537FEC500187644 /* VIKit-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "VIKit-Info.plist"; sourceTree = "<group>"; };
@@ -278,13 +336,6 @@
 		94A645FF152848CA0050A1C9 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		94C052E5154A4795006E5389 /* NSPosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSPosition.h; sourceTree = "<group>"; };
 		94C052E6154A4795006E5389 /* NSPosition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSPosition.m; sourceTree = "<group>"; };
-		94C05356154ABF76006E5389 /* VIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VIKit.framework; path = Build/VIXcode/Build/Products/Debug/VIKit.framework; sourceTree = "<group>"; };
-		94C0F4931529864F006E5094 /* NSString-RuntimeReporting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString-RuntimeReporting.h"; sourceTree = "<group>"; };
-		94C0F4941529864F006E5094 /* NSString-RuntimeReporting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString-RuntimeReporting.m"; sourceTree = "<group>"; };
-		94C0F4951529864F006E5094 /* RuntimeReporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RuntimeReporter.h; sourceTree = "<group>"; };
-		94C0F4961529864F006E5094 /* RuntimeReporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RuntimeReporter.m; sourceTree = "<group>"; };
-		94F5586D152C2145008044AF /* MehodHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MehodHook.h; sourceTree = "<group>"; };
-		94F5586E152C2145008044AF /* MehodHook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MehodHook.m; sourceTree = "<group>"; };
 		94F9EBD315452AF9001E3B2C /* NSTextView+Positions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTextView+Positions.h"; sourceTree = "<group>"; };
 		94F9EBD415452AF9001E3B2C /* NSTextView+Positions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTextView+Positions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -294,6 +345,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94BA6D981554504300474ED1 /* VIKit.framework in Frameworks */,
 				943FCE3D1526C31D00A3EEE4 /* Cocoa.framework in Frameworks */,
 				94A64600152848CA0050A1C9 /* QuartzCore.framework in Frameworks */,
 			);
@@ -311,8 +363,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94816D66154C3A130044FE95 /* VIKit.framework in Frameworks */,
 				94A071531537FEE100187644 /* Cocoa.framework in Frameworks */,
-				94C05357154ABF76006E5389 /* VIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,7 +387,8 @@
 		943FCE2E1526C31C00A3EEE4 = {
 			isa = PBXGroup;
 			children = (
-				94C0F4921529864F006E5094 /* Runtime Browser */,
+				9484498D1554383D0068B179 /* VIXcode */,
+				948449801554382E0068B179 /* Runtime Browser */,
 				94A0713F1537FEC500187644 /* VIKit */,
 				94A071541537FEE100187644 /* VITextView */,
 				943FCE3B1526C31D00A3EEE4 /* Frameworks */,
@@ -356,7 +409,6 @@
 		943FCE3B1526C31D00A3EEE4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				94C05356154ABF76006E5389 /* VIKit.framework */,
 				94A645FF152848CA0050A1C9 /* QuartzCore.framework */,
 				943FCE3C1526C31D00A3EEE4 /* Cocoa.framework */,
 				943FCE3E1526C31D00A3EEE4 /* Other Frameworks */,
@@ -483,6 +535,54 @@
 			path = Categories;
 			sourceTree = "<group>";
 		};
+		948449801554382E0068B179 /* Runtime Browser */ = {
+			isa = PBXGroup;
+			children = (
+				948449811554382E0068B179 /* MehodHook.h */,
+				948449821554382E0068B179 /* MehodHook.m */,
+				948449831554382E0068B179 /* NSString-RuntimeReporting.h */,
+				948449841554382E0068B179 /* NSString-RuntimeReporting.m */,
+				948449851554382E0068B179 /* RuntimeReporter.h */,
+				948449861554382E0068B179 /* RuntimeReporter.m */,
+			);
+			path = "Runtime Browser";
+			sourceTree = "<group>";
+		};
+		9484498D1554383D0068B179 /* VIXcode */ = {
+			isa = PBXGroup;
+			children = (
+				9484498E1554383D0068B179 /* InfoPlist.strings */,
+				948449901554383D0068B179 /* NIFLog.h */,
+				948449911554383D0068B179 /* resource */,
+				948449921554383D0068B179 /* src */,
+				948449B81554383D0068B179 /* VIPlugin.m */,
+				948449B91554383D0068B179 /* VIXcode-Info.plist */,
+				948449BA1554383D0068B179 /* VIXcode-Prefix.pch */,
+			);
+			path = VIXcode;
+			sourceTree = "<group>";
+		};
+		948449911554383D0068B179 /* resource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = resource;
+			sourceTree = "<group>";
+		};
+		948449921554383D0068B179 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				9484499E1554383D0068B179 /* DVTSwizzleSourceTextView.h */,
+				9484499F1554383D0068B179 /* DVTSwizzleSourceTextView.m */,
+				948449AA1554383D0068B179 /* key-action-copy.h */,
+				948449AB1554383D0068B179 /* MacKeyMap.h */,
+				948449AC1554383D0068B179 /* VIConstants.h */,
+				948449B01554383D0068B179 /* VISettingsManager.h */,
+				948449B11554383D0068B179 /* VISettingsManager.m */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
 		94A0713F1537FEC500187644 /* VIKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -569,20 +669,6 @@
 			path = vim;
 			sourceTree = "<group>";
 		};
-		94C0F4921529864F006E5094 /* Runtime Browser */ = {
-			isa = PBXGroup;
-			children = (
-				94C0F4931529864F006E5094 /* NSString-RuntimeReporting.h */,
-				94C0F4941529864F006E5094 /* NSString-RuntimeReporting.m */,
-				94C0F4951529864F006E5094 /* RuntimeReporter.h */,
-				94C0F4961529864F006E5094 /* RuntimeReporter.m */,
-				94F5586D152C2145008044AF /* MehodHook.h */,
-				94F5586E152C2145008044AF /* MehodHook.m */,
-			);
-			name = "Runtime Browser";
-			path = "VIXcode/Runtime Browser";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -593,7 +679,16 @@
 				94A071751538013700187644 /* VIKit.h in Headers */,
 				94A0717F153803B600187644 /* VICommandView.h in Headers */,
 				94A071771538013700187644 /* ascii.h in Headers */,
+				94C052E7154A4795006E5389 /* NSPosition.h in Headers */,
 				943294A3153BC1D100FC9E27 /* VITextView.h in Headers */,
+				9432948E153BB53E00FC9E27 /* VINormalHandler.h in Headers */,
+				946F80C61540F68300CCC537 /* NSString+LineRange.h in Headers */,
+				946F80C81540F68300CCC537 /* NSTextView+Actions.h in Headers */,
+				946F80CA1540F68300CCC537 /* NSView+Subviews.h in Headers */,
+				946F80CF1540F6B300CCC537 /* NSEvent+Keymap.h in Headers */,
+				946F80D31541016D00CCC537 /* VIEditHandler.h in Headers */,
+				94F9EBD515452AF9001E3B2C /* NSTextView+Positions.h in Headers */,
+				9484498B1554382E0068B179 /* RuntimeReporter.h in Headers */,
 				94A071781538013700187644 /* globals.h in Headers */,
 				94A071791538013700187644 /* structs.h in Headers */,
 				94A0717A1538013700187644 /* vim.h in Headers */,
@@ -601,17 +696,11 @@
 				94A0718B15380F0B00187644 /* keymap.h in Headers */,
 				94A0718D15380F2300187644 /* macros.h in Headers */,
 				940D820D15382870000C02B3 /* VIKitConstants.h in Headers */,
-				9432948E153BB53E00FC9E27 /* VINormalHandler.h in Headers */,
 				94329497153BB5BC00FC9E27 /* VIEventHandler.h in Headers */,
 				94035905153D4CA600A4A2B3 /* option.h in Headers */,
 				94035907153D570D00A4A2B3 /* feature.h in Headers */,
-				946F80C61540F68300CCC537 /* NSString+LineRange.h in Headers */,
-				946F80C81540F68300CCC537 /* NSTextView+Actions.h in Headers */,
-				946F80CA1540F68300CCC537 /* NSView+Subviews.h in Headers */,
-				946F80CF1540F6B300CCC537 /* NSEvent+Keymap.h in Headers */,
-				946F80D31541016D00CCC537 /* VIEditHandler.h in Headers */,
-				94F9EBD515452AF9001E3B2C /* NSTextView+Positions.h in Headers */,
-				94C052E7154A4795006E5389 /* NSPosition.h in Headers */,
+				948449871554382E0068B179 /* MehodHook.h in Headers */,
+				948449891554382E0068B179 /* NSString-RuntimeReporting.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -625,10 +714,12 @@
 				943FCE351526C31D00A3EEE4 /* Sources */,
 				943FCE361526C31D00A3EEE4 /* Frameworks */,
 				943FCE371526C31D00A3EEE4 /* Resources */,
+				9431DAB51554512300855783 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				94592E0E15543A03000A9145 /* PBXTargetDependency */,
 			);
 			name = VIXcode;
 			productName = VIXcode;
@@ -664,6 +755,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				94816D65154C3A0C0044FE95 /* PBXTargetDependency */,
 			);
 			name = VITextView;
 			productName = VITextView;
@@ -703,6 +795,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				948449BB1554383D0068B179 /* InfoPlist.strings in Resources */,
+				948449C91554383D0068B179 /* VIXcode-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -814,9 +908,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				94C0F4971529864F006E5094 /* NSString-RuntimeReporting.m in Sources */,
-				94C0F4981529864F006E5094 /* RuntimeReporter.m in Sources */,
-				94F5586F152C2145008044AF /* MehodHook.m in Sources */,
+				948449C71554383D0068B179 /* VISettingsManager.m in Sources */,
+				948449C81554383D0068B179 /* VIPlugin.m in Sources */,
+				948449CA155438BD0068B179 /* MehodHook.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -837,6 +931,9 @@
 				946F80D41541016D00CCC537 /* VIEditHandler.m in Sources */,
 				94F9EBD615452AF9001E3B2C /* NSTextView+Positions.m in Sources */,
 				94C052E8154A4795006E5389 /* NSPosition.m in Sources */,
+				948449881554382E0068B179 /* MehodHook.m in Sources */,
+				9484498A1554382E0068B179 /* NSString-RuntimeReporting.m in Sources */,
+				9484498C1554382E0068B179 /* RuntimeReporter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -851,7 +948,28 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		94592E0E15543A03000A9145 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 94A0713B1537FEC400187644 /* VIKit */;
+			targetProxy = 94592E0D15543A03000A9145 /* PBXContainerItemProxy */;
+		};
+		94816D65154C3A0C0044FE95 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 94A0713B1537FEC400187644 /* VIKit */;
+			targetProxy = 94816D64154C3A0C0044FE95 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
+		9484498E1554383D0068B179 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9484498F1554383D0068B179 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		94A071421537FEC500187644 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -947,21 +1065,18 @@
 				DEPLOYMENT_LOCATION = YES;
 				DEPLOYMENT_POSTPROCESSING = YES;
 				DSTROOT = "$(HOME)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/SharedFrameworks\"",
-					"\"$(SRCROOT)/Build/VIXcode/Build/Products/Release\"",
-				);
+				FRAMEWORK_SEARCH_PATHS = "@loader_path/../Frameworks";
 				GCC_ENABLE_OBJC_GC = supported;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "VIXcode/VIXcode-Prefix.pch";
 				INFOPLIST_FILE = "VIXcode/VIXcode-Info.plist";
 				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
-				LD_RUNPATH_SEARCH_PATHS = "";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "$(inherited) \"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/SharedFrameworks\" \"$(SRCROOT)/Build/VIXcode/Build/Products/Release\"";
 				WRAPPER_EXTENSION = xcplugin;
 			};
 			name = Debug;
@@ -976,20 +1091,17 @@
 				DEPLOYMENT_LOCATION = YES;
 				DEPLOYMENT_POSTPROCESSING = YES;
 				DSTROOT = "$(HOME)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/SharedFrameworks\"",
-					"\"$(SRCROOT)/Build/VIXcode/Build/Products/Release\"",
-				);
+				FRAMEWORK_SEARCH_PATHS = "@loader_path/../Frameworks";
 				GCC_ENABLE_OBJC_GC = supported;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "VIXcode/VIXcode-Prefix.pch";
 				INFOPLIST_FILE = "VIXcode/VIXcode-Info.plist";
 				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
-				LD_RUNPATH_SEARCH_PATHS = "";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "$(inherited) \"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/SharedFrameworks\" \"$(SRCROOT)/Build/VIXcode/Build/Products/Release\"";
 				WRAPPER_EXTENSION = xcplugin;
 			};
 			name = Release;
@@ -1003,6 +1115,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "VIKit/VIKit-Prefix.pch";
 				INFOPLIST_FILE = "VIKit/VIKit-Info.plist";
+				INSTALL_PATH = "@rpath";
 				MACH_O_TYPE = mh_dylib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1019,6 +1132,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "VIKit/VIKit-Prefix.pch";
 				INFOPLIST_FILE = "VIKit/VIKit-Info.plist";
+				INSTALL_PATH = "@rpath";
 				MACH_O_TYPE = mh_dylib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1029,15 +1143,16 @@
 		94A071671537FEE100187644 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/Build/VIXcode/Build/Products/Debug\"",
-					"\"$(SRCROOT)/Build/VIXcode/Build/Products/Release\"",
-				);
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "VITextView/VITextView-Prefix.pch";
 				INFOPLIST_FILE = "VITextView/VITextView-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "";
+				WARNING_LDFLAGS = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1045,15 +1160,16 @@
 		94A071681537FEE100187644 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/Build/VIXcode/Build/Products/Debug\"",
-					"\"$(SRCROOT)/Build/VIXcode/Build/Products/Release\"",
-				);
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "VITextView/VITextView-Prefix.pch";
 				INFOPLIST_FILE = "VITextView/VITextView-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "";
+				WARNING_LDFLAGS = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -25,6 +25,7 @@
 - (NSUInteger)insertionPoint;
 - (BOOL)isEndOfLine;
 - (BOOL)isBeginningOfLine;
+- (NSRect)glyphRect;
 
 
 // Fixed
@@ -34,6 +35,15 @@
 - (NSRange)rangeOfLines:(NSRange)lines_;
 - (NSRange)visibleRange;
 
-//- (NSUInteger)currentScreenColumn;
+- (unichar)characterAtPosition:(NSPosition)position;
+
+- (NSRect)lineRectForRange:(NSRange)aRange;
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// 
+- (void)testlineRectForRange2;
+
+
 
 @end

@@ -25,4 +25,7 @@
 - (void)moveToBeginning;
 - (void)moveToEnd;
 
+- (void)scrollToCursor;
+
+
 @end

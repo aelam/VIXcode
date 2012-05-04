@@ -15,8 +15,8 @@
 
 @implementation VIEventHandler
 
-@synthesize state = _state;
-@synthesize isFirstChar = _isFirstChar;
+//@synthesize state = _state;
+//@synthesize isFirstChar = _isFirstChar;
 
 
 - (id)init {

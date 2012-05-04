@@ -73,25 +73,28 @@ extern BOOL isVIMEnabled;
 
 FOUNDATION_EXPORT BOOL VIModeEnabled;
 
+@class VIEventProcessor;
+
+extern VIEventProcessor * VIEP;
 
 @class VICommandView;
 @class VIEventHandler;
 
 @interface VIEventProcessor : NSObject {
 
-    NSUInteger          _state;
+//    NSUInteger          _state;
     NSMutableString     *_showcmdBuffer;
     NSMutableString     *_appendString;
     
     BOOL                _showcmdBufferCleared;
     
-    NSUInteger          _visualActive;
+//    NSUInteger          _visualActive;
             
 }
 
 @property (nonatomic,assign) NSTextView         *currentTextView;
 @property (nonatomic,assign) VICommandView      *currentCommandView;
-@property (nonatomic,readwrite) NSUInteger      state;
+//@property (nonatomic,readwrite) NSUInteger      state;
 @property (nonatomic,retain) VIEventHandler     *eventHandler;
 
 @property (nonatomic,retain) NSColor            *currentLineColor;

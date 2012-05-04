@@ -7,7 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "VIEventProtocol.h"
+//#import "VIEventProtocol.h"
 
 @class DVTSwizzleSourceTextView;
 @protocol VIEventDelegate;

@@ -110,5 +110,18 @@
     [self scrollRangeToVisible: range];
 }
 
+- (void)scrollToCursor {    
+    NSRect lineRect = [self lineRectForRange:[self selectedRange]];
+    NSRect visibleRect = self.visibleRect;
+    
+    if (NSMaxY(lineRect) > NSMaxY(visibleRect)) {
+        visibleRect.origin.y = NSMinY(visibleRect) + (NSMaxY(lineRect) - NSMaxY(visibleRect));
+    } else if (NSMinY(lineRect) < NSMinY(visibleRect)) {
+        visibleRect.origin.y = NSMinY(lineRect);
+    } else {
+        // Do nothing
+    }
+    [self scrollRectToVisible:visibleRect];    
+}
 
 @end

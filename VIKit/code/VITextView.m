@@ -6,11 +6,13 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
+#define EXTERN
+
 #import "VITextView.h"
 #import <VIKit/VIKit.h>
-#define EXTERN
 #include "vim.h"
 #import "NSTextView+Positions.h"
+#import "RuntimeReporter.h"
 
 @implementation VITextView
 
@@ -48,8 +50,7 @@
 #pragma mark set CURSOR SHAPE
 - (void)_drawInsertionPointInRect:(NSRect)aRect color:(NSColor*)aColor{
     
-    NSUInteger state = [VIEventProcessor sharedProcessor].state;
-    if (state == INSERT) {
+    if (State == INSERT) {
         if ([self respondsToSelector:@selector(origin__drawInsertionPointInRect:color:)]) {
             [self origin__drawInsertionPointInRect:aRect color:aColor];
         } else {
@@ -66,8 +67,7 @@ origin_point:
 
 - (void)drawInsertionPointInRect:(NSRect)rect color:(NSColor *)color turnedOn:(BOOL)flag {
     
-    NSUInteger state = [VIEventProcessor sharedProcessor].state;
-    if (state == INSERT) {
+    if (State == INSERT) {
         if ([self respondsToSelector:@selector(origin_drawInsertionPointInRect:color:turnedOn:)]) {
             [self origin_drawInsertionPointInRect:rect color:color turnedOn:flag];                    
         } else {
@@ -109,7 +109,8 @@ origin_point:
     [layoutManager addTemporaryAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[NSColor cyanColor], NSBackgroundColorAttributeName, nil] forCharacterRange:[self currentLineRange]];
             [layoutManager addTemporaryAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[NSColor yellowColor], NSBackgroundColorAttributeName, nil] forCharacterRange:[self currentWordRange]];
         [layoutManager addTemporaryAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[NSColor magentaColor], NSBackgroundColorAttributeName, nil] forCharacterRange:NSMakeRange(self.currentCharIndex, 1)];
-
+/*
+    
     /// 
     NSUInteger lineCount = [self lineCount];
     NIF_INFO(@"[[self textStorage] lineCount] = %lu",lineCount);
@@ -119,7 +120,29 @@ origin_point:
 
     NSPosition position = [self positionOfLocation:[self insertionPoint]];
     NIF_INFO(@"Insert Position : %@",NSStringFromPosition(position));
-            
+      
+    NIF_INFO(@"visibleRange : %@ ",NSStringFromRange([self visibleRange]));
+
+    NIF_INFO(@"locationInWindow : %@", NSStringFromPoint([theEvent locationInWindow]));
+//    NIF_INFO(@"locationInWindow : %@", NSStringFromPoint([self convertPoint:[theEvent locationInWindow] fromView:self.window.contentView]));
+   NIF_INFO(@"self glyphRect = %@",NSStringFromRect([self glyphRect]));
+
+    NIF_INFO(@"self.visibleRect = %@",NSStringFromRect(self.visibleRect));
+    
+    
+//    newLocation = [self.layoutManager 
+//                   _charIndexForInsertionPointMovingFromY: startingY
+//                   bestX: originalInsertionPoint
+//                   up: NO
+//                   textContainer: _textContainer];
+
+    
+//    [self scrollRangeToVisible:self.selectedRange];
+    
+//    NSRect rect = [self firstRectForCharacterRange:[self selectedRange]];
+//    NIF_INFO(@"range : %@",NSStringFromRect(rect));
+//    ;
+//    [self scrollRectToVisible: [self convertRect:rect fromView:self.window.contentView]];
     //
     // color current line
     //
@@ -127,8 +150,60 @@ origin_point:
     //        [layoutManager addTemporaryAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[VIEventProcessor sharedProcessor].currentLineColor, NSBackgroundColorAttributeName, nil] forCharacterRange:lineCharRange];
     //    }
 
+//    [self test];
+    [self testlineRectForRange];
 }
 
+- (void)test {
+    NSRange characterRange = self.selectedRange;
+    NSRange glyphRange = [[self layoutManager] glyphRangeForCharacterRange:characterRange actualCharacterRange:NULL];
+
+    [[self layoutManager] ensureLayoutForGlyphRange:NSMakeRange(0, glyphRange.location + glyphRange.length)];
+    
+    NSTextContainer *container = [self textContainer];
+    NSScrollView *scrollView = [self enclosingScrollView];
+    NSRect glyphRect = [[self layoutManager] boundingRectForGlyphRange:glyphRange inTextContainer:container];
+   
+    NSUInteger rectCount = 0;
+    NIF_INFO(@"currentLineRange = %@",NSStringFromRange(self.currentLineRange));
+//    NIF_INFO(@"[self lineRectForRange:glyphRange] = %@",[self lineRectForRange:glyphRange]);
+    NSRect *rects =  [[self layoutManager] rectArrayForCharacterRange:self.currentLineRange withinSelectedCharacterRange:NSMakeRange(NSNotFound, 0) inTextContainer:container rectCount:&rectCount];
+    NIF_INFO(@"rectCount : %lu",rectCount);
+    for (int i = 0; i < rectCount; i++) {
+        NIF_INFO(@"rect %@",NSStringFromRect(rects[i]));        
+    }
+    
+    
+    
+    NSRange range = [[[self selectedRanges] objectAtIndex:0] rangeValue];
+    NSRect rect = [self firstRectForCharacterRange:range];
+    NIF_INFO(@"firstRectForCharacterRange = %@",NSStringFromRect(rect));
+    
+    CGFloat glyphLeft = NSMidX(glyphRect) - NSWidth(glyphRect) / 2.0f;
+    CGFloat glyphRight = NSMidX(glyphRect) + NSWidth(glyphRect) / 2.0f;
+    NIF_INFO(@"glyphLeft = %f glyphRight = %f ",glyphLeft,glyphRight);
+    
+    NSRect contentRect = [[scrollView contentView] bounds];
+    CGFloat viewLeft = contentRect.origin.x;
+    CGFloat viewRight = contentRect.origin.x + NSWidth(contentRect);
+    NIF_INFO(@"glyphLeft = %f glyphRight = %f ",viewLeft,viewRight);
+
+    NIF_INFO(@"scroll Bound : %@",NSStringFromRect(scrollView.bounds));
+    NIF_INFO(@"scroll frame : %@",NSStringFromRect(scrollView.frame));
+    NIF_INFO(@"self Bound : %@",NSStringFromRect(self.bounds));    
+    NIF_INFO(@"self frame : %@",NSStringFromRect(self.frame));    
+    NIF_INFO(@"contentView : %@",NSStringFromRect(contentRect));    
+
+    NIF_INFO(@"visibleRect: %@",NSStringFromRect(self.visibleRect));
+    NIF_INFO(@"glyphRect %@",NSStringFromRect(glyphRect));
+    
+    NSRect testRect = NSIntersectionRect(self.visibleRect, NSMakeRect(54, 56, 13, 14));
+
+    
+    NIF_INFO(@"glyphRect & self.visibleRect = %@",NSStringFromRect(testRect));
+
+    */
+}
 
 /*
 - (void) drawViewBackgroundInRect:(NSRect)rect
@@ -176,8 +251,38 @@ origin_point:
     return aRect;
 }*/
 
+- (void)scrollLineUp:(id)sender
+{
+    NSRect scrollRect;
+    
+    scrollRect= [self visibleRect];
+    scrollRect.origin.y-=12;[[self enclosingScrollView] verticalLineScroll];
+    NIF_INFO(@"[[self enclosingScrollView] verticalLineScroll] = %f",[[self enclosingScrollView] verticalLineScroll]);
+    NIF_INFO(@"[[self enclosingScrollView] verticalLineScroll] = %f",[[self enclosingScrollView] lineScroll]);
+    NIF_INFO(@"self.textStorage.font = %@",self.textStorage.font);
+    NIF_INFO(@"self.textStorage.xHeight = %f",self.textStorage.font.xHeight);
+    NIF_INFO(@"self.textStorage.pointSize = %f",self.textStorage.font.pointSize);
+    NIF_INFO(@"self.textStorage.capHeight = %f",self.textStorage.font.capHeight);
 
 
+    NIF_INFO(@"@self.defaultParagraphStyle.lineSpacing = %f",self.defaultParagraphStyle.lineSpacing);
+    
+    
+    if (scrollRect.origin.y<0) scrollRect.origin.y=0;
+    [self scrollRectToVisible: scrollRect];
+}
+
+- (void)scrollLineDown:(id)sender
+{
+    NSRange range = [self.string lineRangeForRange:NSMakeRange(5, 17)];
+    NIF_INFO(@"%@",NSStringFromRange(range));
+    NSRect scrollRect;
+    
+    scrollRect= [self visibleRect];
+    scrollRect.origin.y+=12;[[self enclosingScrollView] verticalLineScroll];
+    [self scrollRectToVisible: scrollRect];
+    
+}
 
 
 @end

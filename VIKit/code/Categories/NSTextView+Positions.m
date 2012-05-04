@@ -84,22 +84,80 @@
     NSLayoutManager *lm = [self layoutManager];
     NSTextContainer *tc = [self textContainer];
     
-    NSRange glyphVisibleRange = [lm glyphRangeForBoundingRect:visibleRect inTextContainer:tc];;
+    NSRange glyphVisibleRange = [lm glyphRangeForBoundingRect:visibleRect inTextContainer:tc];
+    NIF_INFO(@"glyphVisibleRange = %@",NSStringFromRange(glyphVisibleRange));
     NSRange charVisibleRange = [lm characterRangeForGlyphRange:glyphVisibleRange  actualGlyphRange:nil];
+    NIF_INFO(@"charVisibleRange = %@",NSStringFromRange(charVisibleRange));
     return charVisibleRange;
 }
 
+- (unichar)characterAtPosition:(NSPosition)position {
+    
+    int row = position.row;
+    int column = position.column;
+    
+    //  First ensure that there are enough rows
+    NSString *   mString = [self string];
+    unichar             ch;
+    int                 i, iLimit = [mString length];
+    
+    //  after this loop, i should be the index of the first character of
+    //  the row sought
+    
+    for (i = 0; i < iLimit && row > 0; i++) {
+        ch = [mString characterAtIndex: i];
+        if (ch == '\n')
+            row--;
+    }       
+    
+    if (row > 0) {
+        return 0xffff;
+    }
+    
+    //  i is the index of the first character of the row sought
+    //  Now look for the \n at the end of the row
+    
+    for (; i < iLimit && column > 0; i++, column--) {
+        ch = [mString characterAtIndex: i];
+        if (ch == '\n')
+            break;
+    }
+    
+    if (column > 0 || [mString characterAtIndex: i] == '\n') {
+        return 0xffff;
+    }
+    
+    return [mString characterAtIndex: i];
 
-/* How about the efficience 
-- (NSUInteger)numberOfLines {
-    NSString *string = self.string;
-    unsigned numberOfLines, index, stringLength = [string length];
-    for (index = 0, numberOfLines = 0; index < stringLength; numberOfLines++)
-        index = NSMaxRange([string lineRangeForRange:NSMakeRange(index, 0)]);
-
-    return numberOfLines;
 }
-*/
+
+
+- (NSRect)lineRectForRange:(NSRange)aRange {
+    if(aRange.length == 0) {
+        aRange.length = 1;
+    }
+    NSRect rect = NSZeroRect;
+    
+    NSUInteger rectCount = 0;
+    NSLayoutManager *layoutManager = [self layoutManager];
+    NSTextContainer *textContainer = [self textContainer];
+
+    NSRect *rects =  [layoutManager rectArrayForCharacterRange:aRange withinSelectedCharacterRange:NSMakeRange(NSNotFound, 0) inTextContainer:textContainer rectCount:&rectCount];
+    for (int i = 0; i < rectCount; i++) {
+        rect = NSUnionRect(rect, rects[i]);
+    }
+    
+    return rect;
+    
+}
+
+#pragma mark -
+#pragma mark Test Case
+- (void)testlineRectForRange {
+    NIF_INFO(@"currentlineRectForRange2 %@",NSStringFromRect([self lineRectForRange:[self currentLineRange]]));
+    
+}
+
 
 
 @end

@@ -24,7 +24,7 @@
     int c = (int)ASCIIValueForEvent(event);
 
     if (c == ESC) {
-        [VIEventProcessor sharedProcessor].state = NORMAL;
+        State = NORMAL;
         NIF_INFO(@"%@",[[self textView] selectedRanges]);
         
 //        [[self textView] moveToRightEndOfLine:self];

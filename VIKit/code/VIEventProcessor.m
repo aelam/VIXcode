@@ -19,31 +19,31 @@
 
 BOOL VIModeEnabled = YES;
 
+id VIEP = nil;
+
 @implementation VIEventProcessor
 
 @synthesize currentTextView = _currentTextView;
 @synthesize currentCommandView = _currentCommandView;
-@synthesize state = _state;
+//@synthesize state = _state;
 @synthesize eventHandler = _eventHandler;
 @synthesize currentLineColor = _currentLineColor;
 
-static VIEventProcessor *sharedProcessor = nil;
-
 + (VIEventProcessor *)sharedProcessor {
     @synchronized(self) {
-        if (sharedProcessor == nil) {
-            sharedProcessor = [[self alloc]init];
+        if (VIEP == nil) {
+            VIEP = [[self alloc]init];
         }
         
-        return sharedProcessor;
+        return VIEP;
     }
 }
 
 - (id)init {
     if (self = [super init]) {
         
-        _state = NORMAL;
-        NIF_INFO(@"state : %lu",_state);
+        State = NORMAL;
+        NIF_INFO(@"state : %d",State);
         NIF_INFO(@"VIModeEnabled = %d",VIModeEnabled);
         
         _currentLineColor = [[NSColor colorWithDeviceRed:0 green:0.6 blue:0 alpha:0.5] retain];
@@ -69,11 +69,11 @@ static VIEventProcessor *sharedProcessor = nil;
 
     NIF_INFO(@"%@",self.eventHandler);
     unichar value = [event ASCIIValue];
-    if (_state & NORMAL) {
+    if (State & NORMAL) {
         return [self.eventHandler handleEvent:event];
         
     } 
-    else if (_state & INSERT) {
+    else if (State & INSERT) {
         BOOL s = [self.eventHandler handleEvent:event];
         if (s && value == ESC) {
             [self setState:NORMAL];
@@ -90,13 +90,14 @@ static VIEventProcessor *sharedProcessor = nil;
 }
 
 - (void)setState:(NSUInteger)flag {
-    _state = flag;
-    if (_state & INSERT) {
+//    _state = flag;
+    State = flag;
+    if (State & INSERT) {
         if (![self.eventHandler isKindOfClass:[VIEditHandler class]]) {
             self.eventHandler = [VIEditHandler handler];
         }
     }
-    else if (_state & NORMAL) {
+    else if (State & NORMAL) {
         if (![self.eventHandler isKindOfClass:[VINormalHandler class]]) {
             self.eventHandler = [VINormalHandler handler];            
         }
@@ -119,8 +120,6 @@ static VIEventProcessor *sharedProcessor = nil;
 }
 
 - (void)dealloc {
-//    [_showcmdBuffer release];
-//    [_appendString release];
     [_currentLineColor release];
     [super dealloc];
 }

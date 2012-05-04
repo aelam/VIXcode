@@ -17,6 +17,7 @@
 #include "vim.h"
 #import "VIEventProcessor.h"
 #import "NSTextView+Actions.h"
+#import "NSTextView+Positions.h"
 
 static VINormalHandler *handlerWeakRef = nil;
 
@@ -5788,24 +5789,24 @@ cmdarg_T	*cap;
 static void
 nv_ctrlo(cap)
 cmdarg_T	*cap;
-{
-    
-}
 //{
-//#ifdef FEAT_VISUAL
-//    if (VIsual_active && VIsual_select)
-//    {
-//        VIsual_select = FALSE;
-//        showmode();
-//        restart_VIsual_select = 2;	/* restart Select mode later */
-//    }
-//    else
-//#endif
-//    {
-//        cap->count1 = -cap->count1;
-//        nv_pcmark(cap);
-//    }
+//    
 //}
+{
+#ifdef FEAT_VISUAL
+    if (VIsual_active && VIsual_select)
+    {
+        VIsual_select = FALSE;
+//        showmode();
+        restart_VIsual_select = 2;	/* restart Select mode later */
+    }
+    else
+#endif
+    {
+        cap->count1 = -cap->count1;
+        nv_pcmark(cap);
+    }
+}
 
 /*
  * CTRL-^ command, short for ":e #"
@@ -6494,6 +6495,7 @@ cmdarg_T	*cap;
     } else {
         
         [handlerWeakRef.textView cursorUp:1];
+        [handlerWeakRef.textView scrollToCursor];
         clearcmdarg(cap);
     }
 
@@ -6532,7 +6534,18 @@ cmdarg_T	*cap;
         nv_page(cap);
     } else {
         
+//        [handlerWeakRef.textView moveDown:nil];
         [handlerWeakRef.textView cursorDown:1];
+        [handlerWeakRef.textView scrollToCursor];
+
+//        NSPoint point = [handlerWeakRef.textView.layoutManager locationForGlyphAtIndex:[handlerWeakRef.textView insertionPoint]];
+//        NIF_INFO(@"%@",NSStringFromPoint(point));
+//        [handlerWeakRef.textView scrollPoint:point];
+//        [handlerWeakRef.textView. scrollToPoint:[handlerWeakRef.textView glyphRect].origin];
+//        [handlerWeakRef.textView scrollRangeToVisible:[handlerWeakRef.textView selectedRange]];
+//        [handlerWeakRef.textView scrollRangeToVisible:[handlerWeakRef.textView selectedRange]];
+//        [handlerWeakRef.textView setSelectedRange:handlerWeakRef.textView.selectedRange];
+//        [handlerWeakRef.textView scrollToCursor];
         clearcmdarg(cap);
     }
     
@@ -9542,7 +9555,7 @@ cmdarg_T *cap;
                 default:
                     break;
             }            
-            [VIEventProcessor sharedProcessor].state = INSERT;
+            [VIEP setState:INSERT];// State = INSERT;
             handlerWeakRef.opFinished = YES;
             
         }
@@ -10159,18 +10172,13 @@ cmdarg_T	*cap;
 
     opFinished = (oap->op_type != OP_NOP);
 
-    [VIEventProcessor sharedProcessor].state = NORMAL_BUSY;
+    State = NORMAL_BUSY;
 
     
     c = (int)ASCIIValueForEvent(event);
 
     if (c == ESC) {
         clearcmdarg(&cmdargs);
-//        if ([VIEventProcessor sharedProcessor].state & INSERT) {
-//            
-//        }
-//        
-//        [[self textView]moveBackwardCharactersCount:1];            
 
         return NO;
     }

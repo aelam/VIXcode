@@ -12,6 +12,7 @@
 #include <VIKit/VIEventProcessor.h>
 #include <VIKit/VICommandView.h>
 #include <VIKit/VITextView.h>
+//#include <VIKit/ascii.h>
 
 #endif /* VIKIT_H */
 
