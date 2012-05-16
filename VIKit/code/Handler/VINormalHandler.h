@@ -12,7 +12,6 @@
 
 @interface VINormalHandler : VIEventHandler {
     
-//    @public
     cmdarg_T    cmdargs;
     
     BOOL        opFinished;

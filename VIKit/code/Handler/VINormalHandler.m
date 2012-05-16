@@ -573,6 +573,7 @@ int		cmdchar;
 
 
 void print_cmdargs(cmdarg_T	ca) {
+    
     printf("---------------\n");
 //    printf("address : %p\n",ca.);
 
@@ -811,7 +812,7 @@ normal_end:
     
     msg_nowait = FALSE;
     
-    print_cmdargs(ca);
+//    print_cmdargs(ca);
     
     /* Reset finish_op, in case it was set */
 #ifdef CURSOR_SHAPE
@@ -6494,9 +6495,7 @@ cmdarg_T	*cap;
         nv_page(cap);
     } else {
         
-        [handlerWeakRef.textView cursorUp:1];
-        [handlerWeakRef.textView scrollToCursor];
-        clearcmdarg(cap);
+        [handlerWeakRef.textView cursorUp:cap->count1];
     }
 
 }
@@ -6525,28 +6524,15 @@ static void
 nv_down(cap)
 cmdarg_T	*cap;
 {
-    NIF_INFO(@"---------------- ");
+//    NIF_INFO(@"---------------- ");
 
     NSUInteger modifierFlags = handlerWeakRef.currentEvent.modifierFlags;
     if(modifierFlags & NSShiftKeyMask) {
          /* <S-Down> is page down */
         cap->arg = FORWARD;
         nv_page(cap);
-    } else {
-        
-//        [handlerWeakRef.textView moveDown:nil];
-        [handlerWeakRef.textView cursorDown:1];
-        [handlerWeakRef.textView scrollToCursor];
-
-//        NSPoint point = [handlerWeakRef.textView.layoutManager locationForGlyphAtIndex:[handlerWeakRef.textView insertionPoint]];
-//        NIF_INFO(@"%@",NSStringFromPoint(point));
-//        [handlerWeakRef.textView scrollPoint:point];
-//        [handlerWeakRef.textView. scrollToPoint:[handlerWeakRef.textView glyphRect].origin];
-//        [handlerWeakRef.textView scrollRangeToVisible:[handlerWeakRef.textView selectedRange]];
-//        [handlerWeakRef.textView scrollRangeToVisible:[handlerWeakRef.textView selectedRange]];
-//        [handlerWeakRef.textView setSelectedRange:handlerWeakRef.textView.selectedRange];
-//        [handlerWeakRef.textView scrollToCursor];
-        clearcmdarg(cap);
+    } else {     
+        [handlerWeakRef.textView cursorDown:cap->count1];
     }
     
 }
@@ -10092,6 +10078,11 @@ cmdarg_T	*cap;
 }
 #endif
 
+@interface VINormalHandler ()
+
+@property (nonatomic,readwrite)  NSEvent *currentEvent;
+
+@end
 
 @implementation VINormalHandler 
 
@@ -10166,7 +10157,7 @@ cmdarg_T	*cap;
     oparg_T *oap = cmdargs.oap;
     NIF_INFO(@"%p",oap);
     
-    cmdargs.opcount = opcount;
+//    cmdargs.opcount = opcount;
 
     c = opFinished;
 
@@ -10181,9 +10172,7 @@ cmdarg_T	*cap;
         clearcmdarg(&cmdargs);
 
         return NO;
-    }
-    
-    else if (    (c >= '1' && c <= '9')
+    } else if (    (c >= '1' && c <= '9')
         || (cmdargs.count0 != 0 && (c == K_DEL || c == K_KDEL || c == '0'))) {
         
         // g[d]* won't work
@@ -10204,7 +10193,7 @@ cmdarg_T	*cap;
             cmdargs.count0 = cmdargs.count0 * 10 + (c - '0');
         if (cmdargs.count0 < 0)	    /* got too large! */
         {
-            cmdargs.count0 = 999999999L;
+            cmdargs.count0 = NSUIntegerMax;// 999999999L;
         }
         
         long count = cmdargs.count0;
@@ -10246,12 +10235,12 @@ cmdarg_T	*cap;
     }
     
     idx = find_command(cmdargs.cmdchar);
-    NIF_INFO(@"idx : %d",idx);
+//    NIF_INFO(@"idx : %d",idx);
     
     if (idx > -1) {
     }
     
-    NIF_INFO(@"nv_cmds[idx].cmd_flags = %d",nv_cmds[idx].cmd_flags);
+//    NIF_INFO(@"nv_cmds[idx].cmd_flags = %d",nv_cmds[idx].cmd_flags);
     
     /*
      * Get an additional character if we need one.
@@ -10271,7 +10260,7 @@ cmdarg_T	*cap;
 #endif
                     ))))
     {
-        NIF_INFO(@"-------- if");
+//        NIF_INFO(@"-------- if");
         
     }
     
@@ -10281,9 +10270,20 @@ cmdarg_T	*cap;
      * Call the command function found in the commands table.
      */
     
+    print_cmdargs(cmdargs);
+    
     if (idx > 0) {
         cmdargs.arg = nv_cmds[idx].cmd_arg;
-        (nv_cmds[idx].cmd_func)(&cmdargs);    
+        (nv_cmds[idx].cmd_func)(&cmdargs);
+        
+//        clearcmdarg(&cmdargs);
+        cmdargs.opcount = 0;
+        cmdargs.nchar = 0;
+        cmdargs.cmdchar = 0;
+        cmdargs.count0 = 0;
+        cmdargs.count1 = 1;
+        cmdargs.extra_char = 0;
+        clearop(cmdargs.oap);
         
     }
         
@@ -10294,7 +10294,7 @@ normal_end:
     
     msg_nowait = FALSE;
     
-    print_cmdargs(cmdargs);
+//    print_cmdargs(cmdargs);
     
     /* Reset finish_op, in case it was set */
 #ifdef CURSOR_SHAPE

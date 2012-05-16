@@ -17,7 +17,7 @@
 
 - (void)cursorUp:(NSUInteger)count {
     NSPosition currentPosition = [self positionOfLocation:[self insertionPoint]];
-    
+
     // stop cursor Up while cursor row is 0
     if (currentPosition.row == 0) {
         return;
@@ -34,36 +34,38 @@
     [self setSelectedRange:descRange];
 
     NIF_INFO(@"%@",NSStringFromRange(self.visibleRange));
+    
+    [self scrollToCursor];
+    
 }
 
 
 - (void)cursorDown:(NSUInteger)count {
     NSPosition currentPosition = [self positionOfLocation:[self insertionPoint]];
     
+
     NSUInteger lineCount = [self lineCount];
     
-    // stop cursor Up while cursor row is 0
-    if (currentPosition.row == lineCount) {
+    NIF_INFO(@"currentPosition : %@ line count : %lu ",NSStringFromPosition(currentPosition),lineCount);
+
+    // stop cursor Up while cursor row is last line
+    if (currentPosition.row >= lineCount-1) {
+        NIF_INFO(@"LAST LINE");
         return;
     }
     
     NSUInteger descRow = MIN(lineCount, currentPosition.row + count);
-
+    NIF_INFO(@"descRow ： %lu",descRow);
     NSRange descLineRange = [self rangeOfLine:descRow];
 
     NSUInteger descColumn = MIN(currentPosition.column,descLineRange.length);
-    
+    NIF_INFO(@"descColumn ： %lu",descColumn);
     NSRange descRange = NSMakeRange(descLineRange.location + descColumn, 0);
-    
+
     [self setSelectedRange:descRange];
-//    [self scrollLineDown:self];
-    NIF_INFO(@"%@",NSStringFromRange(self.visibleRange));
 
-}
+    [self scrollToCursor];
 
-- (void)moveCursorToPosition:(NSPosition)newPosition selected:(BOOL)selected{
-    
-//    [self setSelectedRange:NSMakeRange(<#NSUInteger loc#>, <#NSUInteger len#>)]
 }
 
 - (void)moveBackwardCharactersCount:(NSUInteger)count {
@@ -111,7 +113,13 @@
 }
 
 - (void)scrollToCursor {    
-    NSRect lineRect = [self lineRectForRange:[self selectedRange]];
+    NSRect lineRect = [self lineRectForRange:[self currentLineRange]];
+    
+    NIF_INFO(@"currentLineRange - %@",NSStringFromRange([self currentLineRange]));
+    NIF_INFO(@"lineRect - %@",NSStringFromRect(lineRect));
+    NSRange r = [self.layoutManager glyphRangeForTextContainer:self.textContainer];
+    NIF_INFO(@"glyphRangeForTextContainer - %@",NSStringFromRange(r));
+    
     NSRect visibleRect = self.visibleRect;
     
     if (NSMaxY(lineRect) > NSMaxY(visibleRect)) {
@@ -121,7 +129,9 @@
     } else {
         // Do nothing
     }
-    [self scrollRectToVisible:visibleRect];    
+    [self scrollRectToVisible:visibleRect];  
+
+    [self highlightCurrentLineReset:YES];
 }
 
 @end

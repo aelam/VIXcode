@@ -99,17 +99,11 @@ origin_point:
 - (void)mouseDown:(NSEvent *)theEvent {
     [super mouseDown:theEvent];
 
-    NSLayoutManager *layoutManager = [self layoutManager];
-    NSUInteger textLength = [[self textStorage] length];
-    NSRange textCharRange = NSMakeRange(0, textLength);
-    // Remove any existing coloring.
-    [layoutManager removeTemporaryAttribute:NSBackgroundColorAttributeName forCharacterRange:textCharRange];
+    [self highlightCurrentLineReset:YES];
 
-    // Color the characters using temporary attributes
-    [layoutManager addTemporaryAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[NSColor cyanColor], NSBackgroundColorAttributeName, nil] forCharacterRange:[self currentLineRange]];
-            [layoutManager addTemporaryAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[NSColor yellowColor], NSBackgroundColorAttributeName, nil] forCharacterRange:[self currentWordRange]];
-        [layoutManager addTemporaryAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[NSColor magentaColor], NSBackgroundColorAttributeName, nil] forCharacterRange:NSMakeRange(self.currentCharIndex, 1)];
-/*
+    [self testlineRectForRange];
+
+    /*
     
     /// 
     NSUInteger lineCount = [self lineCount];
@@ -151,7 +145,7 @@ origin_point:
     //    }
 
 //    [self test];
-    [self testlineRectForRange];
+//    [self testlineRectForRange];
 }
 
 - (void)test {

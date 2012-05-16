@@ -28,7 +28,7 @@
     NSUInteger charIndex = [[self layoutManager] characterIndexForGlyphAtIndex:[self insertionPoint]];
     
     NSRange wordCharRange = NSIntersectionRange(lineCharRange, [self selectionRangeForProposedRange:NSMakeRange(charIndex, 0) granularity:NSSelectByWord]);
-    NIF_INFO(@"%@",NSStringFromRange(wordCharRange));
+//    NIF_INFO(@"%@",NSStringFromRange(wordCharRange));
     return wordCharRange;
 }
 
@@ -85,9 +85,9 @@
     NSTextContainer *tc = [self textContainer];
     
     NSRange glyphVisibleRange = [lm glyphRangeForBoundingRect:visibleRect inTextContainer:tc];
-    NIF_INFO(@"glyphVisibleRange = %@",NSStringFromRange(glyphVisibleRange));
+//    NIF_INFO(@"glyphVisibleRange = %@",NSStringFromRange(glyphVisibleRange));
     NSRange charVisibleRange = [lm characterRangeForGlyphRange:glyphVisibleRange  actualGlyphRange:nil];
-    NIF_INFO(@"charVisibleRange = %@",NSStringFromRange(charVisibleRange));
+//    NIF_INFO(@"charVisibleRange = %@",NSStringFromRange(charVisibleRange));
     return charVisibleRange;
 }
 
@@ -132,10 +132,21 @@
 }
 
 
-- (NSRect)lineRectForRange:(NSRange)aRange {
+- (NSRect)lineRectForRange:(NSRange)range {
+/*
+
+    NSRange aRange = range;
+    
     if(aRange.length == 0) {
         aRange.length = 1;
     }
+    if (aRange.location >= self.string.length) {
+        aRange.location = self.string.length - 1;
+    }
+    
+    NSString *substring = [self.string substringWithRange:range];
+    NIF_INFO(@"range : %@ substring = %@",NSStringFromRange(range), substring);
+
     NSRect rect = NSZeroRect;
     
     NSUInteger rectCount = 0;
@@ -146,10 +157,32 @@
     for (int i = 0; i < rectCount; i++) {
         rect = NSUnionRect(rect, rects[i]);
     }
+ */
+    NSRect *rects =  [self.layoutManager rectArrayForCharacterRange:aRange withinSelectedCharacterRange:NSMakeRange(NSNotFound, 0) inTextContainer:textContainer rectCount:&rectCount];
+
+
+    NSRect rect = [self.layoutManager boundingRectForGlyphRange:range inTextContainer:self.textContainer];
     
     return rect;
     
 }
+
+- (void)highlightCurrentLineReset:(BOOL)flag{
+    NSLayoutManager *layoutManager = [self layoutManager];
+    NSUInteger textLength = [[self textStorage] length];
+    NSRange textCharRange = NSMakeRange(0, textLength);
+    // Remove any existing coloring.
+    
+    if (flag) {
+        [layoutManager removeTemporaryAttribute:NSBackgroundColorAttributeName forCharacterRange:textCharRange];        
+    }
+    
+    // Color the characters using temporary attributes
+    [layoutManager addTemporaryAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[NSColor cyanColor], NSBackgroundColorAttributeName, nil] forCharacterRange:[self currentLineRange]];
+    [layoutManager addTemporaryAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[NSColor yellowColor], NSBackgroundColorAttributeName, nil] forCharacterRange:[self currentWordRange]];
+    [layoutManager addTemporaryAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[NSColor magentaColor], NSBackgroundColorAttributeName, nil] forCharacterRange:NSMakeRange(self.currentCharIndex, 1)];
+}
+
 
 #pragma mark -
 #pragma mark Test Case
