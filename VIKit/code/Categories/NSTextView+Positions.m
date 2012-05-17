@@ -133,38 +133,8 @@
 
 
 - (NSRect)lineRectForRange:(NSRange)range {
-/*
-
-    NSRange aRange = range;
     
-    if(aRange.length == 0) {
-        aRange.length = 1;
-    }
-    if (aRange.location >= self.string.length) {
-        aRange.location = self.string.length - 1;
-    }
-    
-    NSString *substring = [self.string substringWithRange:range];
-    NIF_INFO(@"range : %@ substring = %@",NSStringFromRange(range), substring);
-
-    NSRect rect = NSZeroRect;
-    
-    NSUInteger rectCount = 0;
-    NSLayoutManager *layoutManager = [self layoutManager];
-    NSTextContainer *textContainer = [self textContainer];
-
-    NSRect *rects =  [layoutManager rectArrayForCharacterRange:aRange withinSelectedCharacterRange:NSMakeRange(NSNotFound, 0) inTextContainer:textContainer rectCount:&rectCount];
-    for (int i = 0; i < rectCount; i++) {
-        rect = NSUnionRect(rect, rects[i]);
-    }
- */
-    NSRect *rects =  [self.layoutManager rectArrayForCharacterRange:aRange withinSelectedCharacterRange:NSMakeRange(NSNotFound, 0) inTextContainer:textContainer rectCount:&rectCount];
-
-
-    NSRect rect = [self.layoutManager boundingRectForGlyphRange:range inTextContainer:self.textContainer];
-    
-    return rect;
-    
+    return [self.layoutManager boundingRectForGlyphRange:range inTextContainer:self.textContainer];;    
 }
 
 - (void)highlightCurrentLineReset:(BOOL)flag{

@@ -12,15 +12,19 @@
 
 @interface NSTextView (Actions)
 
+- (void)cursorToLine:(NSUInteger)line;
+
 - (void)cursorUp:(NSUInteger)count;
 - (void)cursorDown:(NSUInteger)count;
+
+- (void)cursorForward:(BOOL)flag count:(NSUInteger)count;
+
+- (void)cursorWORDForward:(BOOL)flag count:(NSUInteger)count;
+- (void)cursorwordForward:(BOOL)flag count:(NSUInteger)count;
 
 - (void)moveCursorToPosition:(NSPosition)newPosition;
 
 - (void)changeCaseOfLetter:(id)sender;
-
-- (void)moveBackwardCharactersCount:(NSUInteger)count;
-- (void)moveForwardCharactersCount:(NSUInteger)count;
 
 - (void)moveToBeginning;
 - (void)moveToEnd;

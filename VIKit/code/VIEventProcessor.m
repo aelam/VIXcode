@@ -15,17 +15,19 @@
 #import "structs.h"
 #import "VINormalHandler.h"
 #import "VIEditHandler.h"
-
+#import "RuntimeReporter.h"
 
 BOOL VIModeEnabled = YES;
 
-id VIEP = nil;
+@class VIEventProcessor;
+
+VIEventProcessor * VIEP = nil;
 
 @implementation VIEventProcessor
 
 @synthesize currentTextView = _currentTextView;
 @synthesize currentCommandView = _currentCommandView;
-//@synthesize state = _state;
+
 @synthesize eventHandler = _eventHandler;
 @synthesize currentLineColor = _currentLineColor;
 
@@ -47,7 +49,6 @@ id VIEP = nil;
         NIF_INFO(@"VIModeEnabled = %d",VIModeEnabled);
         
         _currentLineColor = [[NSColor colorWithDeviceRed:0 green:0.6 blue:0 alpha:0.5] retain];
-
     }
     return self;
 }

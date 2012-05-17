@@ -519,6 +519,24 @@ init_normal_cmds()
     nv_max_linear = i - 1;
 }
 
+void print_cmdargs(cmdarg_T	ca) {
+    
+    printf("---------------\n");
+    //    printf("address : %p\n",ca.);
+    
+    printf("opcount : %ld\n",ca.opcount);
+    printf("count0 : %ld\n",ca.count0);
+    printf("count1 : %ld\n",ca.count1);
+    printf("prechar : %c\n",(char)ca.prechar);
+    printf("cmdchar : %c\n",(char)ca.cmdchar);
+    printf("nchar : %c\n",(char)ca.nchar);
+    printf("extra_char : %c\n",(char)ca.extra_char);    
+    printf("arg :   %d\n",ca.arg);
+    
+    printf("---------------\n");
+}
+
+
 /*
  * Search for a command in the commands table.
  * Returns -1 for invalid command.
@@ -571,23 +589,6 @@ int		cmdchar;
     return idx;
 }
 
-
-void print_cmdargs(cmdarg_T	ca) {
-    
-    printf("---------------\n");
-//    printf("address : %p\n",ca.);
-
-    printf("opcount : %ld\n",ca.opcount);
-    printf("count0 : %ld\n",ca.count0);
-    printf("count1 : %ld\n",ca.count1);
-    printf("prechar : %c\n",(char)ca.prechar);
-    printf("cmdchar : %c\n",(char)ca.cmdchar);
-    printf("nchar : %c\n",(char)ca.nchar);
-    printf("extra_char : %c\n",(char)ca.extra_char);    
-    printf("arg :   %d\n",ca.arg);
-
-    printf("---------------\n");
-}
 
 /*
  * Execute a command in Normal mode.
@@ -3975,8 +3976,8 @@ cmdarg_T *cmd;
 {
     NIF_INFO();
 
-    if(cmd->oap)
-        clearop(cmd->oap);
+//    if(cmd->oap)
+//        clearop(cmd->oap);
     
     cmd->prechar = 0;
     cmd->cmdchar = 0;
@@ -6291,7 +6292,15 @@ static void
 nv_right(cap)
 cmdarg_T	*cap;
 {
-    
+    NSUInteger modifierFlags = handlerWeakRef.currentEvent.modifierFlags;
+    if(modifierFlags & NSShiftKeyMask) {
+        nv_wordcmd(cap);
+    } else {
+        
+        [handlerWeakRef.textView cursorForward:NO count:cap->count1];
+        clearcmdarg(cap);
+    }
+
 }
 //{
 //    long	n;
@@ -6416,6 +6425,16 @@ nv_left(cap)
 cmdarg_T	*cap;
 {
     
+    NSUInteger modifierFlags = handlerWeakRef.currentEvent.modifierFlags;
+    if(modifierFlags & NSShiftKeyMask) {
+        /* <S-Up> is page up */
+        nv_bck_word(cap);
+    } else {
+        
+        [handlerWeakRef.textView cursorForward:YES count:cap->count1];
+        clearcmdarg(cap);
+    }
+    
 }
 //{
 //    long	n;
@@ -6496,6 +6515,7 @@ cmdarg_T	*cap;
     } else {
         
         [handlerWeakRef.textView cursorUp:cap->count1];
+        clearcmdarg(cap);
     }
 
 }
@@ -6533,6 +6553,7 @@ cmdarg_T	*cap;
         nv_page(cap);
     } else {     
         [handlerWeakRef.textView cursorDown:cap->count1];
+        clearcmdarg(cap);
     }
     
 }
@@ -6647,7 +6668,8 @@ static void
 nv_dollar(cap)
 cmdarg_T	*cap;
 {
-    
+    [handlerWeakRef.textView moveToEndOfLine:nil];
+    clearcmdarg(cap);
 }
 //{
 //    cap->oap->motion_type = MCHAR;
@@ -8318,6 +8340,7 @@ cmdarg_T	*cap;
                 || curbuf->b_visual.vi_end.lnum == 0)
             {
                 NIF_INFO(@"BEEP");
+                NSBeep();
             }
 //                beep_flush();
             else
@@ -8982,8 +9005,8 @@ static void
 nv_operator(cap)
 cmdarg_T	*cap;
 {
-    handlerWeakRef.opFinished = YES;
-    
+//    print_cmdargs(*cap);
+//    NIF_INFO(@"");
 }
 //{
 //    int	    op_type;
@@ -9131,6 +9154,18 @@ static void
 nv_wordcmd(cap)
 cmdarg_T	*cap;
 {
+    NIF_INFO(@"cap->cmdchar: %c",cap->cmdchar);
+    NIF_INFO(@"cap->nchar: %c",cap->nchar);
+    if (cap->cmdchar == 'e' || cap->cmdchar == 'E') {
+        [handlerWeakRef.textView moveToEndOfLine:nil];
+    } else if (cap->cmdchar == 'w' || cap->cmdchar == 'W') {
+        [handlerWeakRef.textView moveWordForward:nil];
+    }
+
+    
+    clearcmdarg(cap);
+    
+    
     
 }
 //{
@@ -9261,7 +9296,9 @@ static void
 nv_beginline(cap)
 cmdarg_T	*cap;
 {
-    
+    NIF_INFO();
+    [handlerWeakRef.textView moveToBeginningOfLine:nil];
+    clearcmdarg(cap);
 }
 //{
 //    cap->oap->motion_type = MCHAR;
@@ -9367,7 +9404,12 @@ static void
 nv_goto(cap)
 cmdarg_T	*cap;
 {
+    NSInteger line = cap->count0;
+    line = line>0?line:1L;
+    NIF_INFO(@"-- line : %ld", line);
+    [handlerWeakRef.textView cursorToLine:line];
     
+    clearcmdarg(cap);
 }
 //{
 //    linenr_T	lnum;
@@ -10148,7 +10190,7 @@ cmdarg_T	*cap;
     
     [_currentEvent release];
     _currentEvent = [event retain];
-    
+
     int c;
     int ctrl_w = 0;
     int idx = -1;
@@ -10277,13 +10319,13 @@ cmdarg_T	*cap;
         (nv_cmds[idx].cmd_func)(&cmdargs);
         
 //        clearcmdarg(&cmdargs);
-        cmdargs.opcount = 0;
-        cmdargs.nchar = 0;
-        cmdargs.cmdchar = 0;
-        cmdargs.count0 = 0;
-        cmdargs.count1 = 1;
-        cmdargs.extra_char = 0;
-        clearop(cmdargs.oap);
+//        cmdargs.opcount = 0;
+//        cmdargs.nchar = 0;
+//        cmdargs.cmdchar = 0;
+//        cmdargs.count0 = 0;
+//        cmdargs.count1 = 1;
+//        cmdargs.extra_char = 0;
+//        clearop(cmdargs.oap);
         
     }
         

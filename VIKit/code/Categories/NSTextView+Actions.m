@@ -15,6 +15,16 @@
     NIF_INFO();
 }
 
+- (void)cursorToLine:(NSUInteger)line {
+    NSPosition currentPosition = [self positionOfLocation:[self insertionPoint]];
+    if (line > currentPosition.row) {
+        [self cursorDown:line - currentPosition.row];
+    } else if (line < currentPosition.row) {
+        [self cursorDown:currentPosition.row - line];
+    }
+    
+}
+
 - (void)cursorUp:(NSUInteger)count {
     NSPosition currentPosition = [self positionOfLocation:[self insertionPoint]];
 
@@ -68,6 +78,51 @@
 
 }
 
+- (void)cursorForward:(BOOL)flag count:(NSUInteger)count {
+
+    
+    if (flag) {
+        NSUInteger wantedLoc = self.insertionPoint - count;
+        
+        NSUInteger newLoc = ((NSInteger)wantedLoc)>=0?wantedLoc:0;
+        
+        NSRange newRange = NSMakeRange(newLoc,0);
+        
+        [self setSelectedRanges:[NSArray arrayWithObject:[NSValue valueWithRange:newRange]]];
+        
+    } else {
+        
+        NSUInteger wantedLoc = self.insertionPoint + count;
+        
+        NSUInteger newLoc = (NSUInteger)wantedLoc <=[[self string]length]?wantedLoc:[[self string]length];
+        
+        NSRange newRange = NSMakeRange(newLoc,0);
+        
+        [self setSelectedRanges:[NSArray arrayWithObject:[NSValue valueWithRange:newRange]]];
+    }    
+}
+
+- (void)cursorWORDForward:(BOOL)flag count:(NSUInteger)count {
+    if (flag) {
+    } else {
+        
+    }
+}
+
+- (void)cursorwordForward:(BOOL)flag count:(NSUInteger)count {
+    
+    NSUInteger nextWordIndex = [self.textStorage nextWordFromIndex:[self currentCharIndex] forward:flag];
+    
+    NIF_INFO(@"nextWordIndex = %lu",nextWordIndex);
+    if (flag) {
+        
+    } else {
+        
+    }    
+}
+
+/*
+
 - (void)moveBackwardCharactersCount:(NSUInteger)count {
     
     NSUInteger wantedLoc = self.insertionPoint - count;
@@ -89,6 +144,8 @@
     
     [self setSelectedRanges:[NSArray arrayWithObject:[NSValue valueWithRange:newRange]]];
 }
+ 
+*/
 
 - (void)moveToBeginning {
     NSRange zeroRange = { 0, 0 };
